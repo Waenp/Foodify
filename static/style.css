@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box !important;
+}
+
+body {
+  background-color: rgb(23, 23, 23) !important;
+}
+
+g > text{
+  fill: white;
+}
+
+article {
+  background-color: rgba(41, 41, 41, 0.555);
+  padding: 30px 40px;
+  border: 1.3px solid black;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgb(14, 14, 14);
+}
+
+#navbar {
+  background-color: rgb(23, 23, 23) !important;
+}
