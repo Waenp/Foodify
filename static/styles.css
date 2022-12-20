@@ -10,8 +10,8 @@ html {
 }
 
 body {
-  background-color: rgb(234, 154, 136) !important;
-  background: url("/static/images/hands_rearanged.png") no-repeat bottom center;
+  background-color: rgb(220, 165, 149) !important;
+  background: url("/static/images/hands_rearanged_colorcorrect.png") no-repeat bottom center;
   background-size: 100vw;
 }
 
@@ -42,9 +42,9 @@ h1:hover {
 }
 
 #searchLabel {
-  font-family: "gothambook";
+  font-family: "gothammedium";
   font-weight: 500;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
 }
 
 #searchRecipe {
@@ -56,6 +56,6 @@ h1:hover {
   font-family: "gothambook";
   width: 40rem;
   height: 4rem;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
