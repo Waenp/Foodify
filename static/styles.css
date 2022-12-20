@@ -2,11 +2,6 @@
   box-sizing: border-box;
 }
 
-@font-face {
-  font-family: "Gotham";
-  src: url();
-}
-
 html {
   width: 100%;
   height: 100%;
@@ -15,21 +10,21 @@ html {
 }
 
 body {
-  background-color: rgb(161, 197, 211) !important;
+  background-color: rgb(234, 154, 136) !important;
   background: url("/static/images/hands_rearanged.png") no-repeat bottom center;
   background-size: 100vw;
 }
 
-#about, #rotw, #home {
-  font-family: 'Cabin', sans-serif;
+#about, #rotw {
+  font-family: "gothammedium";
   font-size: 1.5rem;
   text-decoration: none;
-  font-weight: 100;
 }
 
 #home {
-  font-weight: 700;
+  font-family: "gothamblack";
   font-size: 2rem;
+  text-decoration: none;
 }
 
 #navbar a:hover {
@@ -37,13 +32,17 @@ body {
 }
 
 h1 {
-  font-family: 'Cabin', sans-serif;
+  font-family: "gothamblack";
   font-weight: 700;
   font-size: 5rem;
 }
 
+h1:hover {
+  cursor: context-menu;
+}
+
 #searchLabel {
-  font-family: 'Cabin', sans-serif;
+  font-family: "gothambook";
   font-weight: 500;
   font-size: 1.5rem;
 }
@@ -54,14 +53,9 @@ h1 {
 }
 
 #searchInput {
+  font-family: "gothambook";
   width: 40rem;
   height: 4rem;
   font-size: 1.3rem;
-}
-
-/*form {
-  background-color: rgba(255, 255, 255, 0.748);
-  padding: 20px;
-  border-radius: 20px;
 }
 
