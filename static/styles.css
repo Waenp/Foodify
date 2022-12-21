@@ -59,3 +59,7 @@ h1:hover {
   font-size: 1.2rem;
 }
 
+#foodCards {
+  height: 40vw;
+}
+
