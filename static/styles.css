@@ -14,10 +14,19 @@ body {
   background: url("/static/images/hands_rearanged_colorcorrect.png") no-repeat bottom center;
   background-size: 100vw;
   background-attachment: fixed;
+  font-family: "gothambook";
 }
 
 #aboutBody {
-  background-color: rgb(220, 165, 149) !important;
+  background-color: rgb(188, 217, 233) !important;
+  background: url("/static/images/burger.png") no-repeat bottom, url("/static/images/donut.png") no-repeat bottom, url("/static/images/pizza.png") no-repeat bottom, url("/static/images/hotdog.png") no-repeat bottom;
+  background-size: 130vw, 100vw, 140vw, 110vw;
+  background-position-x: -5vw, -10vw, -33vw, 6vw;
+  background-attachment: fixed;
+}
+
+#searchResultBody {
+  background-color: rgb(188, 233, 190) !important;
   background: url("/static/images/burger.png") no-repeat bottom, url("/static/images/donut.png") no-repeat bottom, url("/static/images/pizza.png") no-repeat bottom, url("/static/images/hotdog.png") no-repeat bottom;
   background-size: 130vw, 100vw, 140vw, 110vw;
   background-position-x: -5vw, -10vw, -33vw, 6vw;
@@ -31,9 +40,10 @@ body {
 }
 
 #home {
-  font-family: "gothamblack";
+  font-family: "gothambold";
   font-size: 2.3rem;
   text-decoration: none;
+  letter-spacing: -2px;
 }
 
 #navbar a:hover {
@@ -55,6 +65,10 @@ h1:hover {
   text-align: justify;
 }
 
+#recipeContainer {
+  width: 60vw;
+}
+
 #searchLabel {
   font-family: "gothammedium";
   font-weight: 500;
@@ -62,7 +76,6 @@ h1:hover {
 }
 
 #searchInput {
-  font-family: "gothambook";
   width: 40rem;
   height: 4rem;
   font-size: 1.2rem;
@@ -80,27 +93,45 @@ article {
   box-shadow: 0 0 20px rgb(0, 0, 0);
 }
 
-.btn {
-  font-family: "gothambook";
-  font-size: 1rem;
-  background-color:rgb(137, 197, 67);
-  color: black;
-}
 
-.btn:hover {
-  background-color: rgb(146, 216, 88);
-}
 
 .card {
-  background-color: rgba(255, 255, 255, 0.692);
+  background-color: rgba(255, 255, 255, 0.603);
+  text-align: start;
 }
 
 .card-title {
-  font-family: "gothammedium";
+  font-family: "gothambold";
   font-size: 1.3rem;
 }
 
 .card-text {
-  font-family: "gothambook";
   font-size: 1rem;
+  text-align: justify;
+}
+
+.img-food {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.btn {
+  font-family: "gothammedium";
+  font-size: 0.8rem;
+}
+
+.btn-full-recipe, .btn-create-playlist {
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+
+.btn-create-playlist:hover {
+  background-color: rgb(75, 201, 81);
+  color:white;
+}
+
+.btn-full-recipe:hover {
+  background-color:rgb(236, 67, 25);
+  color:white;
 }
