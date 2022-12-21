@@ -13,6 +13,15 @@ body {
   background-color: rgb(220, 165, 149) !important;
   background: url("/static/images/hands_rearanged_colorcorrect.png") no-repeat bottom center;
   background-size: 100vw;
+  background-attachment: fixed;
+}
+
+#aboutBody {
+  background-color: rgb(220, 165, 149) !important;
+  background: url("/static/images/burger.png") no-repeat bottom, url("/static/images/donut.png") no-repeat bottom, url("/static/images/pizza.png") no-repeat bottom, url("/static/images/hotdog.png") no-repeat bottom;
+  background-size: 130vw, 100vw, 140vw, 110vw;
+  background-position-x: -5vw, -10vw, -33vw, 6vw;
+  background-attachment: fixed;
 }
 
 #about, #rotw {
@@ -33,7 +42,6 @@ body {
 
 h1 {
   font-family: "gothamblack";
-  font-weight: 700;
   font-size: 5rem;
 }
 
@@ -41,15 +49,16 @@ h1:hover {
   cursor: context-menu;
 }
 
+#searchContainer, #aboutContainer {
+  width: 50vw;
+  height: 70vh;
+  text-align: justify;
+}
+
 #searchLabel {
   font-family: "gothammedium";
   font-weight: 500;
   font-size: 1.1rem;
-}
-
-#searchRecipe {
-  width: 50vw;
-  height: 70vh;
 }
 
 #searchInput {
@@ -64,9 +73,34 @@ h1:hover {
 }
 
 article {
-  background-color: rgba(87, 163, 187, 0.555);
+  background-color: rgba(255, 255, 255, 0.555);
   padding: 30px 40px;
   border: 1.3px solid rgb(255, 255, 255);
   border-radius: 10px;
-  box-shadow: 0 0 20px rgb(101, 106, 184);
+  box-shadow: 0 0 20px rgb(0, 0, 0);
+}
+
+.btn {
+  font-family: "gothambook";
+  font-size: 1rem;
+  background-color:rgb(137, 197, 67);
+  color: black;
+}
+
+.btn:hover {
+  background-color: rgb(146, 216, 88);
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.692);
+}
+
+.card-title {
+  font-family: "gothammedium";
+  font-size: 1.3rem;
+}
+
+.card-text {
+  font-family: "gothambook";
+  font-size: 1rem;
 }
