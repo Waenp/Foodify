@@ -4,17 +4,18 @@
 
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 7px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #f1f1f156; 
 }
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888; 
+  background: #888;
+
 }
 
 /* Handle on hover */
@@ -30,6 +31,14 @@ html {
 }
 
 body {
+  background-color: rgb(228, 163, 159) !important;
+  background: url("/static/images/hands_rearanged_colorcorrect.png") no-repeat bottom center;
+  background-size: 100vw;
+  background-attachment: fixed;
+  font-family: "gothambook";
+}
+
+#mainBody {
   background-color: rgb(228, 163, 159) !important;
   background: url("/static/images/hands_rearanged_colorcorrect.png") no-repeat bottom center;
   background-size: 100vw;
