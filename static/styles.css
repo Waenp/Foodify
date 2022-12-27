@@ -43,7 +43,14 @@ body {
   background: url("/static/images/hands_rearanged_colorcorrect.png") no-repeat bottom center;
   background-size: 100vw;
   background-attachment: fixed;
-  font-family: "gothambook";
+}
+
+#createBody {
+  background-color: rgb(188, 217, 233) !important;
+  background: url("/static/images/burger.png") no-repeat bottom, url("/static/images/pizza.png") no-repeat bottom, url("/static/images/Foodify_create_background_wave.png") no-repeat bottom center;
+  background-size: 130vw, 140vw, 100vw;
+  background-position-x: -5vw, -33vw, 0;
+  background-attachment: fixed;
 }
 
 #aboutBody {
@@ -84,9 +91,15 @@ h1 {
   font-size: 5rem;
 }
 
-h1:hover {
+h2 {
+  font-family: "gothamblack";
+  font-size: 3rem;
+}
+
+h1:hover, h2:hover {
   cursor: context-menu;
 }
+
 
 #pageTitle {
   font-size: 4rem;
