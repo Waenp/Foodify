@@ -2,32 +2,29 @@
   box-sizing: border-box;
 }
 
-/* width */
-::-webkit-scrollbar {
-  width: 7px;
-}
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f156; 
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888;
-
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555; 
-}
 
 html {
   width: 100%;
   height: 100%;
   padding: 0;
   margin: 0;
+  
+}
+
+@keyframes body {
+  0%    {opacity: 0;}
+  100%  {opacity: 100%;}
+}
+
+@keyframes hands {
+  0%    {background-position-y: 200vh;}
+  100%  {}
+}
+
+@keyframes wide_hands {
+  0%    {background-position-x: 0, 0, -40vw, -6vw;}
+  100%  {background-position-x: -5vw, -10vw, -33vw, 6vw;}
 }
 
 body {
@@ -43,14 +40,8 @@ body {
   background: url("/static/images/hands_rearanged_colorcorrect.png") no-repeat bottom center;
   background-size: 100vw;
   background-attachment: fixed;
-}
-
-#createBody {
-  background-color: rgb(188, 217, 233) !important;
-  background: url("/static/images/burger.png") no-repeat bottom, url("/static/images/pizza.png") no-repeat bottom, url("/static/images/Foodify_create_background_wave.png") no-repeat bottom center;
-  background-size: 130vw, 140vw, 100vw;
-  background-position-x: -5vw, -33vw, 0;
-  background-attachment: fixed;
+  animation-name: body, hands;
+  animation-duration: 1.5s;
 }
 
 #aboutBody {
@@ -59,14 +50,29 @@ body {
   background-size: 130vw, 100vw, 140vw, 110vw;
   background-position-x: -5vw, -10vw, -33vw, 6vw;
   background-attachment: fixed;
+  animation-name: wide_hands;
+  animation-duration: 1.5s;
 }
 
 #searchResultBody {
-  background-color: rgb(74, 213, 128) !important;
+  background-color: rgb(228, 163, 159) !important;
   background: url("/static/images/burger.png") no-repeat bottom, url("/static/images/donut.png") no-repeat bottom, url("/static/images/pizza.png") no-repeat bottom, url("/static/images/hotdog.png") no-repeat bottom;
   background-size: 130vw, 100vw, 140vw, 110vw;
   background-position-x: -5vw, -10vw, -33vw, 6vw;
   background-attachment: fixed;
+  animation-name: wide_hands;
+  animation-duration: 1.5s;
+  
+}
+
+#createBody {
+  background-color: rgb(156, 188, 206) !important;
+  background: url("/static/images/burger.png") no-repeat bottom, url("/static/images/donut.png") no-repeat bottom, url("/static/images/pizza.png") no-repeat bottom, url("/static/images/hotdog.png") no-repeat bottom, url("/static/images/Foodify_create_background_wave_long.png");
+  background-size: 130vw, 100vw, 140vw, 110vw, 100vw 110vh;
+  background-position-x: -5vw, -10vw, -33vw, 6vw, 0;
+  background-attachment: fixed;
+  animation-name: body;
+  animation-duration: 1.5s;
 }
 
 #about, #popularRecipes {
@@ -87,13 +93,15 @@ body {
 }
 
 h1 {
-  font-family: "gothamblack";
-  font-size: 5rem;
+  font-family: "gothambold";
+  font-size: 6rem;
+  letter-spacing: -5px;
 }
 
 h2 {
-  font-family: "gothamblack";
-  font-size: 3rem;
+  font-family: "gothambold";
+  font-size: 4rem;
+  letter-spacing: -2px;
 }
 
 h1:hover, h2:hover {
@@ -111,21 +119,25 @@ h1:hover, h2:hover {
   text-align: justify;
 }
 
-#recipeContainer {
+#recipeContainer, #createContainer {
   width: 60vw;
+  height: 70vh;
+  text-align: justify;
 }
 
-#searchLabel {
-  font-family: "gothammedium";
-  font-weight: 500;
-  font-size: 1.1rem;
+#searchLabel > h2 {
+  font-family: "gothambook";
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: -1px;
 }
 
 #searchInput {
-  width: 40rem;
+  width: 40vw;
   height: 4rem;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
+
 
 #foodCards {
   height: 40vw;
@@ -139,11 +151,17 @@ article {
   box-shadow: 0 0 20px rgb(0, 0, 0);
 }
 
-
+@keyframes card {
+  0%   {opacity: 0;}
+  100% {opacity: 100%;}
+}
 
 .card {
   background-color: rgba(255, 255, 255, 0.729);
   text-align: start;
+  transition: 1s;
+  animation-name: card;
+  animation-duration: 2s;
 }
 
 .card-title {
@@ -167,21 +185,133 @@ article {
 }
 
 .btn {
-  font-family: "gothammedium";
-  font-size: 0.7rem;
+  font-family: "gothambook";
+  background-color: black;
+  color: white;
+  font-size: .9rem;
+  border-radius: 61px;
+  transition: none;
 }
 
 .btn-full-recipe, .btn-create-playlist {
   background-color: rgb(0, 0, 0);
   color: white;
+  transition: none;
 }
 
 .btn-create-playlist:hover {
-  background-color: rgb(75, 201, 81);
-  color:white;
+  background-color: rgb(25, 230, 140);
+  color:black;
+  transition: none;
 }
 
 .btn-full-recipe:hover {
   background-color:rgb(236, 67, 25);
   color:white;
+  transition: none;
 }
+
+.slider {
+  -webkit-appearance: none;
+  width: 350px;
+  height: 13px;
+  border-radius: 10px;  
+  background: #000000;
+  outline: none;
+  opacity: 1;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  z-index: 0;
+}
+
+#moodSlider::before {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  left: 3px;
+  border-radius: 50%;
+  box-shadow:
+  13px 3px 0 0 rgb(25, 230, 140),
+  180px 3px 0 rgb(25, 230, 140),
+  348.5px 3px 0 rgb(25, 230, 140);
+  z-index: -1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%; 
+  background: black;
+  outline: 5px solid rgb(25, 230, 140);
+  cursor: grab;
+  z-index: 111;
+}
+
+.slider::-moz-range-thumb {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: black;
+  outline: 5px solid rgb(25, 230, 140);
+  cursor: grab;
+  transition: 0.5s;
+}
+
+#createContainer h2 {
+  font-family: "gothambook";
+  font-size: 1.5rem;
+  letter-spacing: -1px;
+}
+
+#createContainer h1 {
+  font-family: "gothambold";
+  font-size: 4rem;
+  letter-spacing: -3px;
+}
+
+#createContainer span {
+  font-family: "gothambook";
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+#sliderButton {
+  background-color: black;
+  color: white;
+  font-size: 1.5rem;
+  border-radius: 61px;
+  width: 239px;
+  height: 56px;
+  transition: none;
+}
+
+#sliderButton:hover {
+  background-color:rgb(236, 67, 25);
+  transition: none;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f156; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
