@@ -3,35 +3,23 @@ package foodify.beans;
 import java.util.ArrayList;
 
 public class Recipe {
-    private String title;
-    private String description;
-    private String image;
-    private ArrayList<String> ingredients;
-    private String instructions;
+    private String id;
 
-    private String cuisine;
+    private Ingredient[] extendedIngredients;
 
-    public Recipe() {
-
+    public String getId() {
+        return id;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public String getImageUrl() {
-        return image;
-    }
-
-    public ArrayList<String> getIngredients() {
-        return ingredients;
-    }
-
-    public String getInstructions() {
-        return instructions;
+    public String toString() {
+        StringBuilder ingredients = new StringBuilder();
+        for (int i = 0; i < extendedIngredients.length; i++) {
+            ingredients.append(extendedIngredients[i].toString());
+        }
+        return String.format("""
+                Id = %s
+                Ingredients
+                %s
+                """, id, ingredients);
     }
 }

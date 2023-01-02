@@ -12,6 +12,6 @@ public class Test {
                 })
                 .start(5007);
          */
-        Server server = new Server();
+
     }
 }

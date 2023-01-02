@@ -13,7 +13,6 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 
 
-
 public class SpoonCaller {
     private HttpClient httpClient;
     private HttpGet httpGet;
@@ -24,10 +23,14 @@ public class SpoonCaller {
     private Reader reader;
     private Gson json = new Gson();
 
-    private Recipe recipe;
+    private Recipe[] recipes;
 
-    public SpoonCaller(String[] ingredients) {
-        //TODO: lägg in valideringstoken
+
+    public SpoonCaller(String[] ingredients, String apiKey) {
+
+        searchByIngredients(ingredients, apiKey);
+
+        /*
         StringBuilder stringBuilder = new StringBuilder("https://api.spoonacular.com/recipes/complexSearch?");
         stringBuilder.append("instructionsRequired=true");
         stringBuilder.append("&number=5");
@@ -40,6 +43,7 @@ public class SpoonCaller {
             stringBuilder.append(ingredients[i] + ",");
 
         }
+        stringBuilder.append("&apiKey=" + apiKey);
 
         try {
             httpClient = HttpClients.createDefault();
@@ -61,6 +65,80 @@ public class SpoonCaller {
             } else {
                 //TODO: felhantering änna
                 System.out.println("Det sket sig");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+         */
+    }
+
+    private void searchByIngredients(String[] ingredients, String apiKey) {
+        StringBuilder stringBuilder =  new StringBuilder("https://api.spoonacular.com/recipes/findByIngredients?");
+        stringBuilder.append("ingredients=");
+        for (int i = 0; i < ingredients.length; i++) {
+            if (i == ingredients.length - 1) {
+                stringBuilder.append(ingredients[i]);
+            } else {
+                stringBuilder.append(ingredients[i]).append(",");
+            }
+
+        }
+        stringBuilder.append("&number=10");
+        stringBuilder.append("&ranking=2");
+        stringBuilder.append("&ignorePantry=true");
+        stringBuilder.append("&apiKey=").append(apiKey);
+        getCall(stringBuilder.toString());
+
+        String[] ids = new String[recipes.length];
+        for (int i = 0; i < recipes.length; i++) {
+            ids[i] = recipes[i].getId();
+        }
+
+        getInformationBulk(ids, apiKey);
+    }
+
+    private void getInformationBulk(String[] ids, String apiKey) {
+        StringBuilder stringBuilder = new StringBuilder("https://api.spoonacular.com/recipes/informationBulk?");
+        stringBuilder.append("ids=");
+        for (int i = 0; i < ids.length; i++) {
+            if (i == ids.length - 1) {
+                stringBuilder.append(ids[i]);
+            } else {
+                stringBuilder.append(ids[i]).append(",");
+            }
+        }
+        stringBuilder.append("&apiKey=").append(apiKey);
+        getCall(stringBuilder.toString());
+
+        for (Recipe r : recipes) {
+            System.out.println(r);
+        }
+    }
+
+    private void getCall(String query) {
+        try {
+            httpClient = HttpClients.createDefault();
+            httpGet = new HttpGet(query);
+
+            response = httpClient.execute(httpGet);
+            status = response.getStatusLine();
+
+            if (status.getStatusCode() == 200) {
+                entity = response.getEntity();
+                data = entity.getContent();
+
+                try {
+                    reader = new InputStreamReader(data);
+
+                    recipes = json.fromJson(reader, Recipe[].class);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+                //TODO: fixa felhantering
+                System.out.println("Det sket sig!");
             }
         } catch (IOException e) {
             e.printStackTrace();
