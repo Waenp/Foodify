@@ -17,11 +17,9 @@ $(document).ready(function(){
 $(".card").attr("id","cardID")
 $(".card-text").text("text")
 
-
-
 // En funktion som sätter random bakgrundsfärg på #mainBody var gång sidan laddas.
 $(document).ready(function(){
-    let colors = [ "rgb(228, 163, 159)", "rgb(188, 217, 233)", "rgb(74, 213, 128)" ];
+    let colors = [ "rgb(228, 163, 159)", "rgb(188, 217, 233)", "rgb(25, 230, 140)" ];
     let splicedColor = [];
     let randomNumber = Math.floor( Math.random() * colors.length );
     let randomColor = colors[ randomNumber ];
