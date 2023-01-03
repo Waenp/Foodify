@@ -79,6 +79,7 @@ body {
   font-family: "gothammedium";
   font-size: 1.5rem;
   text-decoration: none;
+  letter-spacing: -1px;
 }
 
 #home {
