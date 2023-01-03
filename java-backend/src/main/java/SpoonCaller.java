@@ -1,21 +1,30 @@
 import com.google.gson.Gson;
+import foodify.beans.AnalyzedCuisine;
+import foodify.beans.Ingredient;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
 import org.apache.http.StatusLine;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClients;
 import foodify.beans.Recipe;
+import org.apache.http.message.BasicNameValuePair;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class SpoonCaller {
     private HttpClient httpClient;
     private HttpGet httpGet;
+    private HttpPost httpPost;
     private HttpResponse response;
     private StatusLine status;
     private HttpEntity entity;
@@ -111,8 +120,63 @@ public class SpoonCaller {
         stringBuilder.append("&apiKey=").append(apiKey);
         getCall(stringBuilder.toString());
 
+
         for (Recipe r : recipes) {
+            String[] cuisines = r.getCuisines();
+            if (cuisines.length < 1) {
+                System.out.print("Här var det tomt!\n");
+                analyzeCuisine(r, apiKey);
+            }
             System.out.println(r);
+        }
+    }
+
+    private void analyzeCuisine(Recipe recipe, String apiKey) {
+        StringBuilder stringBuilder = new StringBuilder("https://api.spoonacular.com/recipes/cuisine?");
+        stringBuilder.append("language=en");
+        stringBuilder.append("&apiKey=" + apiKey);
+        postCall(stringBuilder.toString(), recipe);
+    }
+
+    private void postCall(String query, Recipe recipe) {
+        try {
+            httpClient = HttpClients.createDefault();
+            httpPost = new HttpPost(query);
+            httpPost.addHeader("Content-Type","application/json");
+
+            List<NameValuePair> params = new ArrayList<>();
+            params.add(new BasicNameValuePair("title", recipe.getTitle()));
+            StringBuilder stringBuilder = new StringBuilder();
+            Ingredient[] ingredients = recipe.getExtendedIngredients();
+            for (Ingredient i : ingredients) {
+                stringBuilder.append(i.getNameClean()).append("\n");
+            }
+            params.add(new BasicNameValuePair("ingredientList", stringBuilder.toString()));
+
+            httpPost.setEntity(new UrlEncodedFormEntity(params));
+            response = httpClient.execute(httpPost);
+            status = response.getStatusLine();
+
+            if (status.getStatusCode() == 200) {
+                entity = response.getEntity();
+                data = entity.getContent();
+
+                try {
+                    reader = new InputStreamReader(data);
+
+                    AnalyzedCuisine analyzedCuisine = json.fromJson(reader, AnalyzedCuisine.class);
+                    recipe.setCuisines(analyzedCuisine.getCuisines());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+                //TODO: felhantering och sånt där gött!
+                System.out.println("Det sket sig i köksanalysen!");
+                System.out.println(status.getStatusCode());
+                System.out.println(status.getReasonPhrase());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

@@ -5,6 +5,6 @@ public class Metric {
     private String unitShort;
 
     public String toString() {
-        return String.format("%.2f%s", amount, unitShort);
+        return String.format("%.2f %s", amount, unitShort);
     }
 }
