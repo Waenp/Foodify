@@ -1,6 +1,6 @@
 import com.google.gson.Gson;
-import foodify.beans.AnalyzedCuisine;
-import foodify.beans.Ingredient;
+import foodify.beans.spoonacular.AnalyzedCuisine;
+import foodify.beans.spoonacular.recipe.Ingredient;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -10,7 +10,7 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClients;
-import foodify.beans.Recipe;
+import foodify.beans.spoonacular.recipe.Recipe;
 import org.apache.http.message.BasicNameValuePair;
 
 import java.io.IOException;
@@ -36,50 +36,7 @@ public class SpoonCaller {
 
 
     public SpoonCaller(String[] ingredients, String apiKey) {
-
         searchByIngredients(ingredients, apiKey);
-
-        /*
-        StringBuilder stringBuilder = new StringBuilder("https://api.spoonacular.com/recipes/complexSearch?");
-        stringBuilder.append("instructionsRequired=true");
-        stringBuilder.append("&number=5");
-        stringBuilder.append("&limitLicense=true");
-        stringBuilder.append("&includeIngredients=");
-        for (int i = 0; i < ingredients.length; i++) {
-            if (i == ingredients.length - 1) {
-                stringBuilder.append(ingredients[i]);
-            }
-            stringBuilder.append(ingredients[i] + ",");
-
-        }
-        stringBuilder.append("&apiKey=" + apiKey);
-
-        try {
-            httpClient = HttpClients.createDefault();
-            httpGet = new HttpGet(stringBuilder.toString());
-
-            response = httpClient.execute(httpGet);
-            status = response.getStatusLine();
-            if (status.getStatusCode() == 200) {
-                entity = response.getEntity();
-                data = entity.getContent();
-
-                try {
-                    reader = new InputStreamReader(data);
-                    //TODO: lägg in böna!
-                    recipe = json.fromJson(reader, Recipe.class);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            } else {
-                //TODO: felhantering änna
-                System.out.println("Det sket sig");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-         */
     }
 
     private void searchByIngredients(String[] ingredients, String apiKey) {
@@ -97,6 +54,8 @@ public class SpoonCaller {
         stringBuilder.append("&ranking=2");
         stringBuilder.append("&ignorePantry=true");
         stringBuilder.append("&apiKey=").append(apiKey);
+
+        //TODO: ska vi lägga till headers eller??
         getCall(stringBuilder.toString());
 
         String[] ids = new String[recipes.length];
@@ -105,6 +64,7 @@ public class SpoonCaller {
         }
 
         getInformationBulk(ids, apiKey);
+        System.out.println("Antal recept: " + recipes.length);
     }
 
     private void getInformationBulk(String[] ids, String apiKey) {
@@ -124,7 +84,6 @@ public class SpoonCaller {
         for (Recipe r : recipes) {
             String[] cuisines = r.getCuisines();
             if (cuisines.length < 1) {
-                System.out.print("Här var det tomt!\n");
                 analyzeCuisine(r, apiKey);
             }
             System.out.println(r);

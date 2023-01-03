@@ -2,5 +2,5 @@ package apiKeys;
 
 public class SpoonKey {
     static String key = "geten";
-    static String entillgrej = "apan";
+    //TODO: fixa gitignore och sånt
 }
