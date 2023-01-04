@@ -62,7 +62,6 @@ body {
   background-attachment: fixed;
   animation-name: wide_hands;
   animation-duration: 1.5s;
-  
 }
 
 #createBody {
@@ -79,6 +78,7 @@ body {
   font-family: "gothammedium";
   font-size: 1.5rem;
   text-decoration: none;
+  letter-spacing: -1px;
 }
 
 #home {
@@ -289,9 +289,32 @@ article {
   transition: none;
 }
 
-#sliderButton:hover {
+#sliderButton:hover, #helpButton:hover, #modalButton:hover {
   background-color:rgb(236, 67, 25);
   transition: none;
+}
+
+#helpButton {
+  background-color: black;
+  color: white;
+  font-size: 1rem;
+  border-radius: 61px;
+  width: 40px;
+  height: 40px;
+  transition: none;
+}
+
+#modalButton {
+  background-color: black;
+  color: white;
+  font-size: 1rem;
+  border-radius: 61px;
+  transition: none;
+}
+
+#helpLabel {
+  color: black;
+  font-size: 4rem;
 }
 
 /* width */
