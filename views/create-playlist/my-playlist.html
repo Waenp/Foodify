@@ -10,7 +10,7 @@
     <link rel="icon" type="image/x-icon" href="/static/images/speakers-icon-spotify.ico">
   </head>
 
-  <body id="createBody" class="gx-5">
+  <body id="playlistBody" class="gx-5">
     <div id="navbar" class="container d-flex align-items-center my-3 p-0">
       <div class="me-auto">
         <a id="home" class="text-black" href="/views/index.html">
@@ -25,11 +25,33 @@
       </div>
     </div>
 
-    <div class="position-absolute top-50 start-50 translate-middle">
-      <div id="createContainer" class="container d-flex flex-column justify-content-center align-items-center text-black text-center"> <!-- Height kan justeras i CSS så den passar kommande ändringar på sidan -->
-        <h1>Your playlist is created!</h1>
+    <div id="playlistContainer" class="container d-flex justify-content-center align-items-center mt-5 text-black">
+      <div class="row justify-content-center align-items-center mt-5">
+        <div class="col p-0">
+          <div id="playlistCard" class="card" style="height: 55vh; width: 55vh;">
+            <img id="playlistWave" src="/static/images/Foodify_create_background_wave_long.png" class="card-img" alt="...">
+            <div class="card-img-overlay">
+              <h2 class="card-title">Spaghetti Carbonara</h2>
+              <p class="card-text">Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs might be a good recipe to expand your main course repertoire.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col p-0">
+          <div class="d-flex flex-column justify-content-center align-items-start ms-5">
+            <h2 id="playlistHeader" class="">Here's your playlist!</h2>
+            <h3></h3>
+            <div class="d-inline-flex">
+              <a href="step-3.html" id="sliderButton" type="submit" class="btn d-flex justify-content-center align-items-center me-3">LISTEN NOW</a>
+              <a href="step-3.html" id="sliderButton" type="submit" class="btn d-flex justify-content-center align-items-center">NEXT</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
+
+
 
 
 
