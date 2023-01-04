@@ -2,14 +2,11 @@
   box-sizing: border-box;
 }
 
-
-
 html {
   width: 100%;
   height: 100%;
   padding: 0;
   margin: 0;
-  
 }
 
 @keyframes body {
@@ -107,7 +104,6 @@ h2 {
 h1:hover, h2:hover {
   cursor: context-menu;
 }
-
 
 #pageTitle {
   font-size: 4rem;
@@ -215,12 +211,10 @@ article {
   -webkit-appearance: none;
   width: 350px;
   height: 13px;
-  border-radius: 10px;  
+  border-radius: 10px;
   background: #000000;
   outline: none;
-  opacity: 1;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
+  cursor: grab;
   z-index: 0;
 }
 
@@ -286,6 +280,7 @@ article {
   border-radius: 61px;
   width: 239px;
   height: 56px;
+  bottom: 10vh;
   transition: none;
 }
 

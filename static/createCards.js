@@ -12,7 +12,7 @@ const cardTemplate = `
         <p class="card-text" id="recipeDescription"></div>
       <div class="card-footer d-grid gap-2 d-lg-flex mt-auto">
         <small class="text-muted me-auto" id="cookTime"></small>
-        <a href="#" class="btn btn-full-recipe">Full recipe</a>
+        <a href="/views/recipes/recipe-page.html" class="btn btn-full-recipe">Full recipe</a>
         <a href="/views/create-playlist/step-1.html" class="btn btn-create-playlist">Create playlist!</a>
       </div>
     </div>
@@ -28,15 +28,15 @@ const cardTemplate = `
 // Byt ut recipe name och recipe description mot data från API
 $( document ).ready(function addArticle(){
   for (let i = 0; i < 10; i++) {
+    let recipeName = "Pasta Carbonara";
+    let recipeDescription = "En enkel rätt att laga, snabbt och gott!";
+    let image = ""
 
     document.querySelector('#recipeContainer').insertAdjacentHTML('beforeend', cardTemplate);
 
     document.getElementById("recipeName").id = ("recipeName" + i)
     document.getElementById("recipeDescription").id = ("recipeDescription" + i)
 
-    let recipeName = "Pasta Carbonara";
-    let recipeDescription = "En enkel rätt att laga, snabbt och gott!";
-    let image = ""
     
     $("#recipeName"+i).text(recipeName);
     $("#recipeDescription" +i).text(recipeDescription);
