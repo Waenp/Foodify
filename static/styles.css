@@ -20,8 +20,13 @@ html {
 }
 
 @keyframes wide_hands {
-  0%    {background-position-x: 0, 0, -40vw, -6vw;}
-  100%  {background-position-x: -5vw, -10vw, -33vw, 6vw;}
+  0%    {background-position-x: 0, 0, -40vw, -6vw, 0; background-position-y: bottom, bottom, bottom, bottom, bottom;}
+  100%  {background-position-x: -5vw, -10vw, -33vw, 6vw, 0; background-position-y: bottom, bottom, bottom, bottom, 80vh;}
+}
+
+@keyframes reverse_wide_hands {
+  0%   {background-position-x: -5vw, -10vw, -33vw, 6vw, 0; background-position-y: bottom, bottom, bottom, bottom, -10vh;}
+  100% {background-position-x: -3vw, -5vw, -38vw, 0vw, 0; background-position-y: bottom, bottom, bottom, bottom, 0;}
 }
 
 body {
@@ -43,9 +48,9 @@ body {
 
 #aboutBody {
   background-color: rgb(188, 217, 233) !important;
-  background: url("/static/images/burger.png") no-repeat bottom, url("/static/images/donut.png") no-repeat bottom, url("/static/images/pizza.png") no-repeat bottom, url("/static/images/hotdog.png") no-repeat bottom;
-  background-size: 130vw, 100vw, 140vw, 110vw;
-  background-position-x: -5vw, -10vw, -33vw, 6vw;
+  background: url("/static/images/burger.png") no-repeat bottom, url("/static/images/donut.png") no-repeat bottom, url("/static/images/pizza.png") no-repeat bottom, url("/static/images/hotdog.png") no-repeat bottom, url("/static/images/cup.png") no-repeat bottom;
+  background-size: 130vw, 100vw, 140vw, 110vw, 100vw;
+  background-position-x: -5vw, -10vw, -33vw, 6vw, 1000vw;
   background-attachment: fixed;
   animation-name: wide_hands;
   animation-duration: 1.5s;
@@ -53,11 +58,31 @@ body {
 
 #searchResultBody {
   background-color: rgb(228, 163, 159) !important;
-  background: url("/static/images/burger.png") no-repeat bottom, url("/static/images/donut.png") no-repeat bottom, url("/static/images/pizza.png") no-repeat bottom, url("/static/images/hotdog.png") no-repeat bottom;
-  background-size: 130vw, 100vw, 140vw, 110vw;
-  background-position-x: -5vw, -10vw, -33vw, 6vw;
+  background: url("/static/images/burger.png") no-repeat bottom, url("/static/images/donut.png") no-repeat bottom, url("/static/images/pizza.png") no-repeat bottom, url("/static/images/hotdog.png") no-repeat bottom, url("/static/images/cup.png") no-repeat bottom;
+  background-size: 130vw, 100vw, 140vw, 110vw, 100vw;
+  background-position-x: -5vw, -10vw, -33vw, 6vw, 1000vw;
   background-attachment: fixed;
-  animation-name: wide_hands;
+  animation-name: body, wide_hands;
+  animation-duration: 1.5s;
+}
+
+#recipeBody {
+  background-color: rgb(158, 224, 188) !important;
+  background: url("/static/images/burger.png") no-repeat bottom, url("/static/images/donut.png") no-repeat bottom, url("/static/images/pizza.png") no-repeat bottom, url("/static/images/hotdog.png") no-repeat bottom, url("/static/images/cup.png") no-repeat bottom;
+  background-size: 130vw, 100vw, 140vw, 110vw, 100vw;
+  background-position-x: -5vw, -10vw, -33vw, 6vw, 1000vw;
+  background-attachment: fixed;
+  animation-name: body;
+  animation-duration: 1.5s;
+}
+
+#authorizeBody {
+  background-color: rgb(156, 188, 206) !important;
+  background: url("/static/images/burger.png") no-repeat bottom, url("/static/images/donut.png") no-repeat bottom, url("/static/images/pizza.png") no-repeat bottom, url("/static/images/hotdog.png") no-repeat bottom, url("/static/images/Foodify_create_background_wave_long.png");
+  background-size: 130vw, 100vw, 140vw, 110vw, 100vw 110vh;
+  background-position-x: -3vw, -5vw, -38vw, 0vw, 0;
+  background-attachment: fixed;
+  animation-name: body, reverse_wide_hands;
   animation-duration: 1.5s;
 }
 
@@ -65,7 +90,7 @@ body {
   background-color: rgb(156, 188, 206) !important;
   background: url("/static/images/burger.png") no-repeat bottom, url("/static/images/donut.png") no-repeat bottom, url("/static/images/pizza.png") no-repeat bottom, url("/static/images/hotdog.png") no-repeat bottom, url("/static/images/Foodify_create_background_wave_long.png");
   background-size: 130vw, 100vw, 140vw, 110vw, 100vw 110vh;
-  background-position-x: -5vw, -10vw, -33vw, 6vw, 0;
+  background-position-x: -3vw, -5vw, -38vw, 0vw, 0;
   background-attachment: fixed;
   animation-name: body;
   animation-duration: 1.5s;
@@ -98,10 +123,16 @@ h1 {
 h2 {
   font-family: "gothambold";
   font-size: 4rem;
-  letter-spacing: -2px;
+  letter-spacing: -3px;
 }
 
-h1:hover, h2:hover {
+h3 {
+  font-family: "gothammedium";
+  font-size: 1.5rem;
+  letter-spacing: -1px;
+}
+
+h1:hover, h2:hover, h3:hover {
   cursor: context-menu;
 }
 
@@ -109,7 +140,7 @@ h1:hover, h2:hover {
   font-size: 4rem;
 }
 
-#searchContainer, #aboutContainer {
+#searchContainer, #aboutContainer, #instructionsContainer {
   width: 50vw;
   height: 70vh;
   text-align: justify;
@@ -134,7 +165,6 @@ h1:hover, h2:hover {
   font-size: 1.3rem;
 }
 
-
 #foodCards {
   height: 40vw;
 }
@@ -152,7 +182,7 @@ article {
   100% {opacity: 100%;}
 }
 
-.card {
+#recipeContainer > .card {
   background-color: rgba(255, 255, 255, 0.729);
   text-align: start;
   transition: 1s;
@@ -161,12 +191,19 @@ article {
 }
 
 .card-title {
-  font-family: "gothambold";
-  font-size: 1.3rem;
+  font-family: "gothammedium";
+  font-size: 1.5rem;
+  letter-spacing: -1px;
 }
 
 .card-text {
   font-size: 0.8rem;
+  text-align: start;
+}
+
+#recipeDescription {
+  font-family: "gothambook";
+  font-size: 1rem;
   text-align: start;
 }
 
@@ -209,7 +246,7 @@ article {
 
 .slider {
   -webkit-appearance: none;
-  width: 350px;
+  width: 380px;
   height: 13px;
   border-radius: 10px;
   background: #000000;
@@ -227,8 +264,8 @@ article {
   border-radius: 50%;
   box-shadow:
   13px 3px 0 0 rgb(25, 230, 140),
-  180px 3px 0 rgb(25, 230, 140),
-  348.5px 3px 0 rgb(25, 230, 140);
+  195px 3px 0 rgb(25, 230, 140),
+  377px 3px 0 rgb(25, 230, 140);
   z-index: -1;
 }
 
@@ -255,7 +292,7 @@ article {
 }
 
 #createContainer h2 {
-  font-family: "gothambook";
+  font-family: "gothammedium";
   font-size: 1.5rem;
   letter-spacing: -1px;
 }
@@ -273,14 +310,15 @@ article {
   margin-bottom: 5px;
 }
 
-#sliderButton {
+#sliderButton, #loadButton {
+  font-family: "gothammedium";
   background-color: black;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+  letter-spacing: -1px;
   border-radius: 61px;
   width: 239px;
   height: 56px;
-  bottom: 10vh;
   transition: none;
 }
 
@@ -310,6 +348,38 @@ article {
 #helpLabel {
   color: black;
   font-size: 4rem;
+}
+
+@keyframes rotation {
+  from  {transform: rotate(0deg);}
+  to    {transform: rotate(360deg);}
+}
+
+@keyframes load_fade {
+  0%      {opacity: 1;}
+  100%    {opacity: 0;}
+}
+
+.rotate {
+  animation: rotation 1.5s 2 ease-in-out;
+  width: 5vw;
+}
+
+#loadingContainer {
+  animation: load_fade 1s 1 linear;
+  animation-delay: 2s;
+  animation-fill-mode: both;
+}
+
+#loadButton, #playlistContainer, .fade-in {
+  animation: load_fade 0.3s 1 reverse;
+  animation-delay: 3s;
+  animation-fill-mode: both;
+}
+
+.list-group-item {
+  font-family: "gothammedium";
+  background-color: transparent;
 }
 
 /* width */

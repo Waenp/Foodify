@@ -1,5 +1,5 @@
 let liTemplate = `<li id="item" class="list-group-item d-flex justify-content-between align-items-center px-1"></li>`
-let liSpanTemplate = `<span id="amount" class="badge bg-dark rounded-pill p-2"></span>`
+let liSpan = `<span id="amount" class="badge bg-dark rounded-pill p-2"></span>`
 
 $(document).ready(function addIngredient() {
   let ingredients = ["Wheat", "Oat", "Milk"];
@@ -17,7 +17,7 @@ $(document).ready(function addIngredient() {
   function addAmount() {
     for (let i = 0; i < amounts.length; i++) {
       document.querySelector("#item" + i)
-              .insertAdjacentHTML("beforeend", liSpanTemplate);
+              .insertAdjacentHTML("beforeend", liSpan);
 
       document.getElementById("amount").id = "amount" + i;
 

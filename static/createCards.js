@@ -1,6 +1,7 @@
 
 // Skapa ett template för alla kort på sökresultat-sidan
-const cardTemplate = `
+const cardTemplate =
+`
 <div class="card mb-3">
   <div class="row g-0">
     <div class="col-lg-4">
@@ -13,11 +14,12 @@ const cardTemplate = `
       <div class="card-footer d-grid gap-2 d-lg-flex mt-auto">
         <small class="text-muted me-auto" id="cookTime"></small>
         <a href="/views/recipes/recipe-page.html" class="btn btn-full-recipe">Full recipe</a>
-        <a href="/views/create-playlist/step-1.html" class="btn btn-create-playlist">Create playlist!</a>
+        <a href="/views/create-playlist/authorize.html" class="btn btn-create-playlist">Create playlist!</a>
       </div>
     </div>
   </div>
-</div>`
+</div>
+`
 
 // för varje recept som hämtas:
 // skapa nytt kort
@@ -26,7 +28,9 @@ const cardTemplate = `
 // Presenterar 10st olika recept-objekt
 
 // Byt ut recipe name och recipe description mot data från API
-$( document ).ready(function addArticle(){
+
+
+$( document ).ready(function addCard(){
   for (let i = 0; i < 10; i++) {
     let recipeName = "Pasta Carbonara";
     let recipeDescription = "En enkel rätt att laga, snabbt och gott!";
@@ -37,8 +41,9 @@ $( document ).ready(function addArticle(){
     document.getElementById("recipeName").id = ("recipeName" + i)
     document.getElementById("recipeDescription").id = ("recipeDescription" + i)
 
-    
-    $("#recipeName"+i).text(recipeName);
-    $("#recipeDescription" +i).text(recipeDescription);
-    
-}});
+
+    $("#recipeName" + i).text(recipeName);
+    $("#recipeDescription" + i).text(recipeDescription);
+
+  }}
+);

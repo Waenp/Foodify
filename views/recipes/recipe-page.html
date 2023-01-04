@@ -10,7 +10,7 @@
     <link rel="icon" type="image/x-icon" href="/static/images/speakers-icon-spotify.ico">
   </head>
 
-  <body id="searchResultBody" class="gx-5">
+  <body id="recipeBody" class="gx-5">
     <div id="navbar" class="container d-flex align-items-center my-3 p-0">
       <div class="me-auto">
         <a id="home" class="text-black" href="/views/index.html">
@@ -24,26 +24,36 @@
         <a id="popularRecipes" class="text-black" href="/views/recipes/popular.html">Popular recipes</a>
       </div>
     </div>
-    
-    
+
     <!--###################### Början av recept ######################--> 
 
-    <div id="recipeContainer" class="container text-black">
-      <h2 id="recipeName" class="py-4 card-header">Pasta Carbonara</h2>
-      <div class="card h-auto">
-        <div class="pb-2">
-          <h3 class="mx-4">Ingredients:</h3>
-          <ul class="mx-5 py-3">
-            <li class="py-1">I'm an ingredient!</li>
-            <li class="py-1">I'm an ingredient!</li>
-          </ul>
-          <h3 class="py-1 mx-4">Instructions:</h3>
-          <ol class="mx-5 py-3">
-            <li class="py-1">I'm an instruction!</li>
-            <li class="py-1">I'm an instruction!</li>
-          </ol>
+    <div id="instructionsContainer" class="container text-black position-absolute top-50 start-50 translate-middle">
+      <h1 id="recipeName" class="">Spaghetti Carbonara</h1>
+      <div class="card h-auto mb-5">
+        <img src="/static/images/Food3.jpg" class="card-img-top img-food" alt="..." style="height: 350px;">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-5 px-3">
+              <h3 class="">Ingredients</h3>
+              <ul class="list-group list-group-flush pb-5" id="ingredients">
+              </ul>
+            </div>
+            <div class="col-7 px-3">
+              <h3 class="">Instructions</h3>
+              <ol class="list-group list-group-numbered list-group-flush pb-5" id="instructions">
+                <li class="list-group-item px-1">I'm an instruction!</li>
+                <li class="list-group-item px-1">I'm an instruction!</li>
+                <li class="list-group-item px-1">I'm an instruction!</li>
+                <li class="list-group-item px-1">I'm an instruction!</li>
+                <li class="list-group-item px-1">I'm an instruction!</li>
+              </ol>
+            </div>
+          </div>
+          <div class="row px-3">
+            <h3>Description</h3>
+            <p class="card-text px-3" id="recipeDescription">Im a description of the meal. Im a description of the meal. Im a description of the meal. Im a description of the meal. Im a description of the meal.Im a description of the meal.Im a description of the meal. Im a description of the meal.Im a description of the meal. Im a description of the meal. Im a description of the meal. Im a description of the meal. Im a description of the meal. Im a description of the meal. Im a description of the meal. Im a description of the meal. Im a description of the meal. </p>
+          </div>
         </div>
-        <p class="py-4 mx-4 fs-5 col-7">Im a description of the meal. Im a description of the meal. Im a description of the meal. Im a description of the meal. Im a description of the meal.Im a description of the meal.Im a description of the meal. Im a description of the meal.Im a description of the meal. Im a description of the meal. Im a description of the meal. Im a description of the meal. Im a description of the meal. Im a description of the meal. Im a description of the meal. Im a description of the meal. Im a description of the meal. </p>
       </div>
     </div>
 
