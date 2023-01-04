@@ -36,8 +36,9 @@ $( document ).ready(function addArticle(){
 
     let recipeName = "Pasta Carbonara";
     let recipeDescription = "En enkel rätt att laga, snabbt och gott!";
-    let image = 
+    let image = ""
     
     $("#recipeName"+i).text(recipeName);
-    $("#recipeDescription" +i).text(recipeDescription);   
+    $("#recipeDescription" +i).text(recipeDescription);
+    
 }});
