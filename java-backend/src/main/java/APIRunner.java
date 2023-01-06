@@ -2,6 +2,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import io.javalin.Javalin;
 
+
 public class APIRunner {
     private Gson gson = null;
 
@@ -13,8 +14,13 @@ public class APIRunner {
         APIRunner runner = new APIRunner();
         Javalin app = Javalin.create(javalinConfig -> {})
                 .get("/recipes", ctx -> {
-                    String json = ctx.body();
+                    String ingredientsRaw = ctx.body();
+                    String[] ingredients = ingredientsRaw.split(",");
 
+                    String key = "";
+                    SpoonCaller spoonCaller = new SpoonCaller(ingredients, key);
+
+                    ctx.json(spoonCaller.getRecipes());
 
                 })
                 .start(5007);
