@@ -24,17 +24,19 @@
         <a id="popularRecipes" class="text-black" href="/views/recipes/popular.html">Popular recipes</a>
       </div>
     </div>
-
+  
     <div id="searchContainer" class="container d-flex justify-content-center align-items-center text-black text-center"> <!-- Height kan justeras i CSS så den passar kommande ändringar på sidan -->
-      <form action="recipes/search-result.html" method="GET">
+      <form action="recipes/search-result.html" method="GET" name="searchQuery">
         <h1>Food Playlists</h1>
         <label id="searchLabel" class="form-label pb-3 w-75" for="recipeInput"><h2>Get a playlist for your dinner based on the occasion, mood and the foods nationality.</h2></label>
-        <input id="searchInput" class="form-control m-auto" type="searchQuery" placeholder="Search for a recipe!">
+        <input id="searchInput" class="form-control m-auto" type="text" placeholder="Search for a recipe!" name="searchInput">
+          <button type="button" id="postRecipe"></button>
       </form>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="/static/script.js"></script>
+    <script src="/static/test.js"></script>
   </body>
 </html>
