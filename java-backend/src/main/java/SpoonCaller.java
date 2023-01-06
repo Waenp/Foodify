@@ -34,6 +34,9 @@ public class SpoonCaller {
 
     private Recipe[] recipes;
 
+    public Recipe[] getRecipes() {
+        return recipes;
+    }
 
     public SpoonCaller(String[] ingredients, String apiKey) {
         searchByIngredients(ingredients, apiKey);
