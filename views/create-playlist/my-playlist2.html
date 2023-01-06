@@ -25,25 +25,30 @@
       </div>
     </nav>
 
-      <div id="playlistContainer" class="container d-flex justify-content-center align-items-center mt-5 text-black">
-        <div class="row justify-content-center align-items-center mt-5">
-          <div class="col p-0">
-            <div id="playlistCard" class="card" style="height: 55vh; width: 55vh;">
+    <div id="playlistContainer" class="container text-black p-4">
+      <div class="row row-cols-1 row-cols-xl-2 justify-content-center pt-3">
+        <div id="playlistCard" class="col ps-0">
+          <div id="cardContent" class="position-absolute">
+            <div id="cardImage" class="overflow-hidden position-absolute">
               <img id="playlistWave" src="/static/images/Foodify_create_background_wave_long.png" class="card-img" alt="...">
-              <div class="card-img-overlay">
-                <h2 class="card-title">Spaghetti Carbonara</h2>
-                <p class="card-text">Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs might be a good recipe to expand your main course repertoire.</p>
-              </div>
+            </div>
+            <div class="p-3">
+              <h2 class="fs-1">Spaghetti Carbonara</h2>
+              <p class="fs-5">Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs might be a good recipe to expand your main course repertoire.</p>
             </div>
           </div>
+        </div>
 
-          <div class="col p-0">
-            <div class="d-flex flex-column justify-content-center align-items-start ms-5">
-              <h2 id="playlistHeader" class="">Here's your playlist!</h2>
-              <h3></h3>
-              <div class="d-inline-flex">
-                <a href="step-3.html" id="sliderButton" type="submit" class="btn d-flex justify-content-center align-items-center me-3">LISTEN NOW</a>
-                <a href="step-3.html" id="sliderButton" type="submit" class="btn d-flex justify-content-center align-items-center">NEXT</a>
+        <div class="col ps-0">
+          <div class="row row-cols-1 justify-content-center ms-0 ms-xl-5">
+            <div class="col text-center text-xl-start">
+              <h2 id="playlistHeader" class="display-1 pb-3">Here's your playlist!</h2>
+            </div>
+            <div class="col text-center text-xl-start">
+              <h3 class="fs-4 py-3">Open your playlist in the Spotify app or play it from the recipe page. Enjoy!</h3>
+              <div class="d-inline-flex flex-column flex-xl-row">
+                <a href="step-3.html" type="submit" class="sliderButton btn d-flex justify-content-center align-items-center me-3 mb-2">OPEN SPOTIFY</a>
+                <a href="step-3.html" type="submit" class="sliderButton btn d-flex justify-content-center align-items-center">RECIPE</a>
               </div>
             </div>
           </div>
@@ -57,6 +62,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="/static/script.js"></script>
   </body>
 </html>

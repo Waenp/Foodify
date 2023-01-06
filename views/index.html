@@ -26,10 +26,10 @@
     </div>
 
     <div id="searchContainer" class="container d-flex justify-content-center align-items-center text-black text-center"> <!-- Height kan justeras i CSS så den passar kommande ändringar på sidan -->
-      <form action="recipes/search-result.html" method="GET">
+      <form id="searchRecipe" action="recipes/search-result.html" method="POST" name="searchQuery">
         <h1>Food Playlists</h1>
-        <label id="searchLabel" class="form-label pb-3 w-75" for="recipeInput"><h2>Get a playlist for your dinner based on the occasion, mood and the foods nationality.</h2></label>
-        <input id="searchInput" class="form-control m-auto" type="searchQuery" placeholder="Search for a recipe!">
+        <label id="searchLabel" class="form-label pb-3 w-75" for="userInput"><h2>Get a playlist for your dinner based on the occasion, mood and the foods nationality.</h2></label>
+        <input id="searchInput" class="form-control m-auto" name="userInput" type="text" placeholder="Search for a recipe!">
       </form>
     </div>
 

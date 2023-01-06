@@ -152,7 +152,7 @@ h1:hover, h2:hover, h3:hover {
   cursor: context-menu;
 }
 
-#createContainer #playlistHeader {
+#createContainer {
   font-family: "gothambold";
   font-size: 3rem;
   letter-spacing: -5px;
@@ -162,9 +162,14 @@ h1:hover, h2:hover, h3:hover {
   font-size: 5rem;
 }
 
-#searchContainer, #aboutContainer, #instructionsContainer {
+#searchContainer, #aboutContainer {
   width: 50vw;
   height: 70vh;
+  text-align: justify;
+}
+
+#instructionsContainer {
+  width: 50vw;
   text-align: justify;
 }
 
@@ -172,11 +177,6 @@ h1:hover, h2:hover, h3:hover {
   width: 60vw;
   height: 70vh;
   text-align: justify;
-}
-
-#playlistContainer {
-  width: 100vw;
-  height: 70vh;
 }
 
 #searchLabel > h2 {
@@ -326,7 +326,7 @@ article {
   margin-bottom: 5px;
 }
 
-#sliderButton, #loadButton {
+#sliderButton, #loadButton, .sliderButton {
   font-family: "gothammedium";
   background-color: black;
   color: white;
@@ -393,14 +393,36 @@ article {
   animation-fill-mode: both;
 }
 
-#playlistCard {
+#playlistCard, .playlistCard {
   background-color: rgb(156, 188, 206);
   border: none;
   border-radius: 0;
   filter: drop-shadow(rgba(0, 0, 0, 0.3) 0px 0px 0.6rem);
+  position: relative;
+  width: 100%;
+  margin: auto;
+  max-width: calc(95vh);
+}
+
+#playlistCard:after, .playlistCard:after {
+  content:"";
+  display: block;
+  padding-bottom: 100%;
+}
+
+#cardContent {
+  width: 100%;
+  height: 100%;
+}
+
+#cardImage {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 #playlistWave {
+  scale: 200%;
   width: 100%;
   height: 100%;
   object-fit: cover;
