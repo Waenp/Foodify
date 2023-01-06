@@ -79,7 +79,7 @@ public class SpotifyCaller {
 
     private void searchForItem(String cuisine, String token) {
         StringBuilder stringBuilder = new StringBuilder("https://api.spotify.com/v1/search?");
-        stringBuilder.append("q=" + cuisine);
+        stringBuilder.append("q=").append(cuisine);
         stringBuilder.append("&type=playlist");
         stringBuilder.append("&limit=1");
 
@@ -197,7 +197,6 @@ public class SpotifyCaller {
 
 
     private String[] getSeedURIs(Playlist seedList) {
-        //PlaylistItems[] playlistItems = seedList.getTracks().getItems();
         Track[] tracks = seedList.getTracks().getItems()[0].getTracks();
         int spotifySeedLimit = 5;
         String[] seedURIs = new String[spotifySeedLimit];
@@ -216,7 +215,7 @@ public class SpotifyCaller {
         String[] trackURIs = new String[amountOfTracks];
 
         StringBuilder stringBuilder = new StringBuilder("https://api.spotify.com/v1/recommendations?");
-        stringBuilder.append("seed_artists=" + seedURIs[0] + "," + seedURIs[1]);
+        stringBuilder.append("seed_artists=").append(seedURIs[0]).append(",").append(seedURIs[1]);
         stringBuilder.append("&seed_tracks=");
         for (int i = 2; i < seedURIs.length; i++) {
             if (i == seedURIs.length - 1) {
@@ -224,10 +223,10 @@ public class SpotifyCaller {
             }
             stringBuilder.append(seedURIs[i]).append(",");
         }
-        stringBuilder.append("&target_danceability=" + mood);
-        stringBuilder.append("&target_loudness=" + mood);
-        stringBuilder.append("&target_energy=" + mood);
-        stringBuilder.append("&target_valence=" + mood);
+        stringBuilder.append("&target_danceability=").append(mood);
+        stringBuilder.append("&target_loudness=").append(mood);
+        stringBuilder.append("&target_energy=").append(mood);
+        stringBuilder.append("&target_valence=").append(mood);
 
         httpClient = HttpClients.createDefault();
         httpGet = new HttpGet(stringBuilder.toString());
