@@ -1,30 +1,14 @@
-let liTemplate = `<li id="item" class="list-group-item d-flex justify-content-between align-items-center px-1"></li>`
-let liSpan = `<span id="amount" class="badge bg-dark rounded-pill p-2"></span>`
+var client_id = 'c59f0ec6770b43b0b68255262d239124';
+var redirect_uri = 'http://127.0.0.1:5500/views/create-playlist/step-1.html';
 
-$(document).ready(function addIngredient() {
-  let ingredients = ["Wheat", "Oat", "Milk"];
-  let amounts = ["3 dl", "200 g", "5 l"];
+var state = generateRandomString(16);
 
-  for (let i = 0; i < ingredients.length; i++) {
-    document.querySelector("#ingredients")
-            .insertAdjacentHTML("beforeend", liTemplate);
+localStorage.setItem(stateKey, state);
+var scope = 'user-read-private playlist-modify-public playlist-modify-private';
 
-    document.getElementById("item").id = "item" + i;
-
-    $("#item" + i).text(ingredients[0 + i]);
-  };
-
-  function addAmount() {
-    for (let i = 0; i < amounts.length; i++) {
-      document.querySelector("#item" + i)
-              .insertAdjacentHTML("beforeend", liSpan);
-
-      document.getElementById("amount").id = "amount" + i;
-
-      $("#amount" + i).text(amounts[0 + i]);
-    };
-  };
-
-  addAmount();
-});
-
+var url = 'https://accounts.spotify.com/authorize';
+url += '?response_type=token';
+url += '&client_id=' + encodeURIComponent(client_id);
+url += '&scope=' + encodeURIComponent(scope);
+url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
+url += '&state=' + encodeURIComponent(state);
