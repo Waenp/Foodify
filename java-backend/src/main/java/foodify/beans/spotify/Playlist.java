@@ -1,14 +1,15 @@
 package foodify.beans.spotify;
 
 public class Playlist {
-    private Item[] items;
-    private PlaylistTracks tracks;
+    //private Item[] items;
+    //private PlaylistTracksGammel tracks;
+    private String name;
 
-    public String getItems() {
-        return items[0].getId();
+    private String id;
+
+    public String getId() {
+        return id;
     }
 
-    public PlaylistTracks getTracks() {
-        return tracks;
-    }
+
 }

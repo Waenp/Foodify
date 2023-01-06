@@ -1,13 +1,9 @@
 package foodify.beans.spotify;
 
 public class Track {
-    private Album album;
     private Artist[] artists;
     private String id;
-
-    public Album getAlbum() {
-        return album;
-    }
+    private String uri;
 
     public Artist[] getArtists() {
         return artists;
@@ -15,5 +11,9 @@ public class Track {
 
     public String getId() {
         return id;
+    }
+
+    public String getUri() {
+        return uri;
     }
 }

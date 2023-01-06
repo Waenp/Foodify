@@ -24,10 +24,11 @@ public class SpotifyCaller {
     private Gson json = new Gson();
 
     private String userId;
-    private Playlist createdPlaylist;
+    private UserPLayList createdPlaylist;
     private double mood;
+    private String dish;
 
-    public SpotifyCaller(String cuisine, double mood, String token, String userId) {
+    public SpotifyCaller(String dish, String cuisine, double mood, String token, String userId) {
         // GET /search för att hämta en eller flera spellista/spellistor
         // GET /playlists/{playlist_id} för att hämta specifik spellista
         // Spara ner seed-värden (artist, låt, genre)
@@ -35,8 +36,10 @@ public class SpotifyCaller {
         // POST /users/{user_id}/playlists för att skapa en ny spellista
         // POST /playlists/{playlist_id}/tracks för att lägga till de genererade spåren
         // spela upp??
+        this.dish = dish;
         this.userId = userId;
         this.mood = mood / 100;
+
         searchForItem(cuisine, token);
 
         /*
@@ -99,15 +102,18 @@ public class SpotifyCaller {
                 try {
                     reader = new InputStreamReader(data);
 
-                    Playlist playlist = json.fromJson(reader, Playlist.class);
-                    getPlayList(playlist.getItems(), token, cuisine);
+                    //Playlist playlist = json.fromJson(reader, Playlist.class);
+                    SearchResult searchResult = json.fromJson(reader, SearchResult.class);
+                    //getPlayList(playlist.getItems(), token, cuisine);
+                    getPlayList(searchResult.getPlaylists().getId(), token, cuisine);
                 } catch (Exception e) {
                     //TODO: fixa felhantering
                     e.printStackTrace();
                 }
             } else {
                 //TODO: riktig felhantering
-                System.out.println("det sket sig");
+                System.out.println("Failed at search for item");
+                System.out.println("Reason: " + status.getReasonPhrase());
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -137,7 +143,8 @@ public class SpotifyCaller {
                 try {
                     reader = new InputStreamReader(data);
 
-                    Playlist seedList = json.fromJson(reader, Playlist.class);
+                    //Playlist seedList = json.fromJson(reader, Playlist.class);
+                    GetResult seedList = json.fromJson(reader, GetResult.class);
 
                     createPlaylist(seedList, token, cuisine);
                 } catch (Exception e) {
@@ -151,7 +158,7 @@ public class SpotifyCaller {
         }
     }
 
-    private void createPlaylist(Playlist seedList, String token, String cuisine) {
+    private void createPlaylist(GetResult seedList, String token, String cuisine) {
         StringBuilder stringBuilder = new StringBuilder("https://api.spotify.com/v1/users/" + userId + "/playlists");
 
         httpClient = HttpClients.createDefault();
@@ -160,7 +167,7 @@ public class SpotifyCaller {
         httpPost.addHeader("Content-Type", "application/json");
         httpPost.addHeader("Authorization", "Bearer " + token);
 
-        String inputJson = "{\"name\":\"My " + cuisine +  " playlist\"}";
+        String inputJson = "{\"name\":\"" + generatePlaylistName() +  "\"}";
         StringEntity stringEntity = null;
         try {
             stringEntity = new StringEntity(inputJson);
@@ -174,37 +181,99 @@ public class SpotifyCaller {
             status = response.getStatusLine();
 
             if (status.getStatusCode() == 201) {
+                entity = response.getEntity();
+                data = entity.getContent();
                 reader = new InputStreamReader(data);
 
-                createdPlaylist = json.fromJson(reader, Playlist.class);
+                createdPlaylist = json.fromJson(reader, UserPLayList.class);
+                System.out.println(createdPlaylist.getId());
                 populatePlayList(seedList, token);
             } else {
                 //TODO: felhantering!!
-                System.out.println("Det blev ngt fel hehehe");
+                System.out.println("Failed at creating playlist " + status.getStatusCode());
+                System.out.println("Reason: " + status.getReasonPhrase());
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private void populatePlayList(Playlist seedList, String token) {
+    private String generatePlaylistName() {
+        return String.format("%s - %s", getMoodLabel(), dish);
+    }
+
+    private String getMoodLabel() {
+        String moodLabel = null;
+        int mood = (int) (this.mood * 100);
+        System.out.println(mood);
+        moodLabel = switch ((mood >= 0 && mood <= 33) ? 0 :
+                (mood >= 34 && mood <= 66) ? 1 :
+                        (mood >= 67 && mood <= 100) ? 2 : 3) {
+            case 0 -> "Romantic";
+            case 1 -> "Casual";
+            case 2 -> "Party";
+            default -> "Unknown mood";
+        };
+
+        return moodLabel;
+    }
+
+    private void populatePlayList(GetResult seedList, String token) {
         String[] seedURIs = getSeedURIs(seedList);
 
         String[] trackURIs = getTrackURIs(seedURIs, token);
 
-        //TODO: fortsätt här nästa gång
+        StringBuilder stringBuilder = new StringBuilder("https://api.spotify.com/v1/playlists/" + createdPlaylist.getId() + "/tracks?");
+        stringBuilder.append("uris=");
+        for (int i = 0; i < trackURIs.length; i++) {
+            if (i == trackURIs.length - 1) {
+                stringBuilder.append(trackURIs[i]);
+            } else {
+                stringBuilder.append(trackURIs[i]).append(",");
+            }
+        }
+
+        httpClient = HttpClients.createDefault();
+        httpPost = new HttpPost(stringBuilder.toString());
+        httpPost.addHeader("Content-Type", "application/json");
+        httpPost.addHeader("Authorization", "Bearer " + token);
+
+        try {
+            httpClient.execute(httpPost);
+            status = response.getStatusLine();
+
+            if (status.getStatusCode() == 200) {
+                System.out.println("Successfully added tracks to playlist");
+            } else {
+                System.out.println("Failed at adding tracks to playlist. Status code: " + status.getStatusCode());
+                System.out.println("Reason: " + status.getReasonPhrase());
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        //TODO: ska vi spela upp??
+
     }
 
 
-    private String[] getSeedURIs(Playlist seedList) {
-        Track[] tracks = seedList.getTracks().getItems()[0].getTracks();
+    private String[] getSeedURIs(GetResult seedList) {
+        Track[] tracks = seedList.getTracks();
+
         int spotifySeedLimit = 5;
         String[] seedURIs = new String[spotifySeedLimit];
         seedURIs[0] = tracks[0].getArtists()[0].getId();
+        System.out.println("First artist uri:" + seedURIs[0]);
         seedURIs[1] = tracks[1].getArtists()[0].getId();
+        System.out.println("second artist uri:" + seedURIs[1]);
 
         for (int i = 2; i < seedURIs.length; i++) {
             seedURIs[i] = tracks[i - 2].getId();
+            System.out.println("track id no " + (i - 1) + ": " + seedURIs[i]);
+        }
+
+        for (String s : seedURIs) {
+            System.out.println(s);
         }
 
         return seedURIs;
@@ -215,18 +284,23 @@ public class SpotifyCaller {
         String[] trackURIs = new String[amountOfTracks];
 
         StringBuilder stringBuilder = new StringBuilder("https://api.spotify.com/v1/recommendations?");
-        stringBuilder.append("seed_artists=").append(seedURIs[0]).append(",").append(seedURIs[1]);
+        stringBuilder.append("limit=").append(amountOfTracks);
+        stringBuilder.append("&seed_artists=").append(seedURIs[0]).append(",").append(seedURIs[1]);
         stringBuilder.append("&seed_tracks=");
         for (int i = 2; i < seedURIs.length; i++) {
             if (i == seedURIs.length - 1) {
                 stringBuilder.append(seedURIs[i]);
+            } else {
+                stringBuilder.append(seedURIs[i]).append(",");
             }
-            stringBuilder.append(seedURIs[i]).append(",");
         }
+
         stringBuilder.append("&target_danceability=").append(mood);
         stringBuilder.append("&target_loudness=").append(mood);
         stringBuilder.append("&target_energy=").append(mood);
         stringBuilder.append("&target_valence=").append(mood);
+
+
 
         httpClient = HttpClients.createDefault();
         httpGet = new HttpGet(stringBuilder.toString());
@@ -248,7 +322,8 @@ public class SpotifyCaller {
                 recommended = json.fromJson(reader, Recommended.class);
             } else {
                 //TODO: felhantering
-                System.out.println("ngt gick fel");
+                System.out.println("Failed at getting recommendations. Statuscode: " + status.getStatusCode());
+                System.out.println("Reason: " + status.getReasonPhrase());
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -256,7 +331,7 @@ public class SpotifyCaller {
 
         Track[] recommendedTracks = recommended.getTracks();
         for (int i = 0; i < trackURIs.length; i++) {
-            trackURIs[i] = recommendedTracks[i].getId();
+            trackURIs[i] = recommendedTracks[i].getUri();
         }
 
         return trackURIs;
