@@ -1,4 +1,4 @@
-package foodify.beans;
+package foodify.beans.spoonacular;
 
 public class AnalyzedCuisine {
     private String cuisine;

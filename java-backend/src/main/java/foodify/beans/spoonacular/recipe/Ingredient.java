@@ -1,4 +1,4 @@
-package foodify.beans;
+package foodify.beans.spoonacular.recipe;
 
 public class Ingredient {
     private String nameClean;
