@@ -29,9 +29,7 @@
       <div id="createContainer" class="container d-flex flex-column justify-content-center align-items-center text-black text-center"> <!-- Height kan justeras i CSS så den passar kommande ändringar på sidan -->
         <h1 id="sliderHeader">Continue with Spotify</h1>
         <h2 id="sliderLabel">Please login to your Spotify account to create a playlist.</h2>
-        <form action="step-1.html" method="POST" class="">
-          <a href="spotifyauth.html" id="sliderButton" type="submit" class="btn mt-5 d-flex justify-content-center align-items-center">LOGIN</a>
-        </form>
+        <button id="loginButton" class="btn mt-5 d-flex justify-content-center align-items-center">LOGIN</button>
       </div>
     </div>
 
@@ -134,7 +132,7 @@
               $('#loggedin').hide();
           }
 
-          document.getElementById('login-button').addEventListener('click', function() {
+          document.getElementById('loginButton').addEventListener('click', function() {
 
             var client_id = 'c59f0ec6770b43b0b68255262d239124'; // Your client id
             var redirect_uri = 'http://127.0.0.1:5500/views/create-playlist/step-1.html'; // Your redirect uri
