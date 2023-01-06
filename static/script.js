@@ -1,19 +1,21 @@
-function postRecipe() {
-    return function() {
-      
-      let input = $('#searchQuery input[name=searchInput]').val();
-      console.log(input)
-      
-      $.ajax({
-        method: "POST",
-        url: 'http://unicorns.idioti.se',
-        data: JSON.stringify(data),
-        headers: {"Accept": "application/json"}
-      })
-      .done(function(result) {
-      });
-    }
-  }
+function searchRecipe() {
+  return function() {
+  
+  // Hämta sökvärdet från användaren
+  let query = $('#searchInput').val();
+
+  // Gör om sökningen till en sträng som delas på mellanslag
+  let array = query.split(" ")
+
+  $.ajax({
+    method: "POST",
+    url: 'http://127.0.0.1:5500/views/recipes/search-result.html',
+    data: JSON.stringify(array),
+    headers: {"Accept": "application/json"}
+  })
+  .done(function(result) {
+  });
+}};
 
 // En funktion som sätter random bakgrundsfärg på #mainBody var gång sidan laddas.
 $(document).ready(function(){
@@ -28,5 +30,5 @@ $(document).ready(function(){
     $("#mainBody").attr('style', "backgound-color: blue !important", backgroundcolor = randomColor);
     $("#mainBody").attr('style', $("#mainBody").attr('style') + '; ' + 'background-color:' + randomColor + ' !important')
 
-    $('#postRecipe').click(postRecipe());
+    $("#postRecipe").click(searchRecipe());
 });
