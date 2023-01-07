@@ -478,7 +478,9 @@ article {
   -o-transform-origin: center top;
 }
 
-#playlistCover {
+#playlistImage {
+  width: 300px;
+  height: 300px;
 }
 
 #playlistPadding {
