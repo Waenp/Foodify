@@ -152,9 +152,22 @@ h3 {
   letter-spacing: -1px;
 }
 
-.playlistMood {
+#playlistDish {
+  font-family: "gothambold";
+  font-size: 5em;
+  letter-spacing: -1px;
+}
+
+#playlistDesc {
+  font-family: "gothambook";
+  font-size: 3em;
+  letter-spacing: -1px;
+  text-align: end;
+}
+
+#playlistMood0, #playlistMood1, #playlistNat {
   font-family: "gothammedium";
-  font-size: 1.5rem;
+  font-size: 4em;
   letter-spacing: -1px;
 }
 
@@ -416,7 +429,7 @@ article {
   animation-fill-mode: both;
 }
 
-#playlistCard {
+#small #playlistCard {
   background-image: url("/static/images/Foodify_create_background_wave_long.png");
   background-position-x: 70%;
   background-position-y: 50%;
@@ -431,7 +444,7 @@ article {
   max-width: calc(70vh);
 }
 
-#playlistCard:after {
+#small #playlistCard:after {
   content:"";
   display: block;
   padding-top: 100%;
@@ -442,22 +455,40 @@ article {
   height:10%;
 }
 
-#cardContent {
+#small #cardContent {
   width: 100%;
   height: 100%;
 }
 
-#cardImage {
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
+
 
 #playlistWave {
   scale: 200%;
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.square {
+  background-image: url("/static/images/Foodify_create_background_wave_long.png");
+  background-position-x: 70%;
+  background-position-y: 50%;
+  background-size: 150% 150%;
+  background-color: rgb(156, 188, 206);
+  border: none;
+  border-radius: 0;
+  filter: drop-shadow(rgba(0, 0, 0, 0.3) 0px 0px 0.6rem);
+  z-index: -2;
+  width: 1024px;
+  height: 1024px;
+  margin: 0 auto;
+  -moz-transform-origin: center top;
+  -o-transform-origin: center top;
+}
+
+#playlistPadding {
+  content: "";
+  height:10%;
 }
 
 .list-group-item {
@@ -484,4 +515,10 @@ article {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
+}
+
+
+html, body {
+  margin: 0;
+  height: 100%;
 }
