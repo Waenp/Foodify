@@ -1,8 +1,11 @@
 package foodify.beans.spoonacular.recipe;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+@JsonSerialize
 public class Ingredient {
-    private String nameClean;
-    private Measure measures;
+    public String nameClean;
+    public Measure measures;
 
     public String getNameClean() {
         return nameClean;

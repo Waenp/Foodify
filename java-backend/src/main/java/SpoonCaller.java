@@ -34,6 +34,9 @@ public class SpoonCaller {
 
     private Recipe[] recipes;
 
+    public Recipe[] getRecipes() {
+        return recipes;
+    }
 
     public SpoonCaller(String[] ingredients, String apiKey) {
         searchByIngredients(ingredients, apiKey);
@@ -56,7 +59,34 @@ public class SpoonCaller {
         stringBuilder.append("&apiKey=").append(apiKey);
 
         //TODO: ska vi lägga till headers eller??
-        getCall(stringBuilder.toString());
+        //getCall(stringBuilder.toString());
+
+        try {
+            httpClient = HttpClients.createDefault();
+            httpGet = new HttpGet(stringBuilder.toString());
+
+            response = httpClient.execute(httpGet);
+            status = response.getStatusLine();
+
+            if (status.getStatusCode() == 200) {
+                entity = response.getEntity();
+                data = entity.getContent();
+
+                try {
+                    reader = new InputStreamReader(data);
+
+                    recipes = json.fromJson(reader, Recipe[].class);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+                //TODO: fixa felhantering
+                System.out.println("Det sket sig!");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         String[] ids = new String[recipes.length];
         for (int i = 0; i < recipes.length; i++) {
@@ -78,7 +108,33 @@ public class SpoonCaller {
             }
         }
         stringBuilder.append("&apiKey=").append(apiKey);
-        getCall(stringBuilder.toString());
+        //getCall(stringBuilder.toString());
+        try {
+            httpClient = HttpClients.createDefault();
+            httpGet = new HttpGet(stringBuilder.toString());
+
+            response = httpClient.execute(httpGet);
+            status = response.getStatusLine();
+
+            if (status.getStatusCode() == 200) {
+                entity = response.getEntity();
+                data = entity.getContent();
+
+                try {
+                    reader = new InputStreamReader(data);
+
+                    recipes = json.fromJson(reader, Recipe[].class);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+                //TODO: fixa felhantering
+                System.out.println("Det sket sig!");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
         for (Recipe r : recipes) {

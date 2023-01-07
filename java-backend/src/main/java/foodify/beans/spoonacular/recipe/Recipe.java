@@ -1,5 +1,8 @@
 package foodify.beans.spoonacular.recipe;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+@JsonSerialize
 public class Recipe {
     private String id;
     private String title;
@@ -11,8 +14,8 @@ public class Recipe {
     private String summary;
     private String[] cuisines;
     private String instructions;
-    private Step[] analyzedInstructions;
-    private Ingredient[] extendedIngredients;
+    public AnalyzedInstructions[] analyzedInstructions;
+    public Ingredient[] extendedIngredients;
 
     public String getId() {
         return id;
@@ -54,10 +57,6 @@ public class Recipe {
         return instructions;
     }
 
-    public Step[] getAnalyzedInstructions() {
-        return analyzedInstructions;
-    }
-
     public Ingredient[] getExtendedIngredients() {
         return extendedIngredients;
     }
@@ -78,6 +77,11 @@ public class Recipe {
         for (int i = 0; i < cuisines.length; i++) {
             cuisineTypes.append(cuisines[i]).append(", ");
         }
+        StringBuilder analyzedInstructionsStrings = new StringBuilder();
+        for (int i = 0; i < analyzedInstructions.length; i++) {
+            analyzedInstructionsStrings.append(analyzedInstructions[i]);
+        }
+
         return String.format("""
                 Id = %s
                 %s
@@ -85,8 +89,8 @@ public class Recipe {
                 %d servings
                 Ingredients
                 %s
-                %s
+                Analyzed Instructions: %s
                 Cuisine(s): %s
-                """, id, title, readyInMinutes, servings, ingredients, instructions, cuisineTypes);
+                """, id, title, readyInMinutes, servings, ingredients, analyzedInstructionsStrings, cuisineTypes);
     }
 }

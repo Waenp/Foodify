@@ -1,7 +1,17 @@
 package foodify.beans.spoonacular.recipe;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+@JsonSerialize
 public class Step {
-    private int number;
-    private String step;
-    private Equipment[] equipment;
+    public int number;
+    public String step;
+    public Equipment[] equipment;
+
+    public String toString() {
+        return String.format("""
+                Number: %d
+                Step: %s
+                """, number, step);
+    }
 }
