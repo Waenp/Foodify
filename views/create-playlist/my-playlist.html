@@ -26,35 +26,35 @@
         </div>
       </nav>
 
-      <div id="playlistContainerLarge" class="container-fluid d-flex justify-content-center h-100 align-items-center text-black">
-        <div class="row d-flex flex-row justify-content-end align-items-center">
+      <div id="playlistContainerLarge" class="container-fluid d-flex justify-content-center p-0 align-items-center text-black position-fixed top-50 start-50 translate-middle">
+        <div class="row  align-items-center">
 
 
-            <div class="col-auto">
+            <div class="col p-0">
                 <div class="square">
                 <div id="cardContent" class="position-absolute p-3 d-flex flex-column align-items-start">
                 <div class="d-flex flex-column">
 
                     <h3 id="playlistDish">Spaghetti Carbonara</h3>
-                    <h5 id="playlistDesc" class="w-50">Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs might be a good recipe to expand your main course repertoire.</h5>
-                    <div class="d-inline-flex">
-                      <div class="mt-auto pb-3">
+                    <h5 id="playlistDesc" class="">Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs might be a good recipe to expand your main course repertoire.</h5>
+                    <div class="d-inline-flex justify-content-end">
+                      <div class="mt-auto text-end pe-3">
                         <h4 id="playlistMood0">Romantic</h4>
                         <h4 id="playlistMood1">Relaxed</h4>
                         <h4 id="playlistNat">Italian</h4>
                       </div>
-                      <img src="/static/images/">
+                      <img id="playlistCover" class="w-50 rounded float-end" src="/static/images/Food3.jpg">
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             
-            <div class="col-6 ps-3">
-              <div class="d-flex flex-column align-items-start">
-                <h2 id="playlistHeader" class="display-4">Here's your playlist!</h2>
-                <h4 id="playlistLabelLarge" class="pb-3">Open your playlist in the Spotify app or play it from the recipe page. Enjoy!</h4>
-                <div class="d-inline-flex flex-xl-row justify-content-center pb-5">
+            <div class="col p-0">
+              <div class="d-flex flex-column align-items-start p-5">
+                <h2 id="playlistHeader" class="display-3">Here's your playlist!</h2>
+                <h4 id="playlistLabelLarge" class=" w-75">Open your playlist in the Spotify app or play it from the recipe page. Enjoy!</h4>
+                <div class="d-inline-flex flex-xl-row justify-content-center pt-3">
                   <a href="step-3.html" type="submit" id="spotifyButton" class="btn d-flex justify-content-center align-items-center me-2">OPEN SPOTIFY</a>
                   <a href="step-3.html" type="submit" id="recipeButton" class="btn d-flex justify-content-center align-items-center">RECIPE</a>
                 </div>

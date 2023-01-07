@@ -441,7 +441,7 @@ article {
   z-index: -2;
   width: 100%;
   margin: auto;
-  max-width: calc(70vh);
+  max-width: 70vh;
 }
 
 #small #playlistCard:after {
@@ -460,15 +460,6 @@ article {
   height: 100%;
 }
 
-
-
-#playlistWave {
-  scale: 200%;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .square {
   background-image: url("/static/images/Foodify_create_background_wave_long.png");
   background-position-x: 70%;
@@ -481,9 +472,13 @@ article {
   z-index: -2;
   width: 1024px;
   height: 1024px;
-  margin: 0 auto;
+  margin-right: 0;
+  margin-left: auto;
   -moz-transform-origin: center top;
   -o-transform-origin: center top;
+}
+
+#playlistCover {
 }
 
 #playlistPadding {
@@ -517,8 +512,3 @@ article {
   background: #555; 
 }
 
-
-html, body {
-  margin: 0;
-  height: 100%;
-}
