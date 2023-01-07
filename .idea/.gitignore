@@ -34,8 +34,7 @@
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
-/app/src/main/java/com/example/amanv/emulatordetection/ApiKey.java
-
+Foodify/java-backend/src/main/java/Keys/ApiKey
 # Gradle
 .idea/**/gradle.xml
 .idea/**/libraries
