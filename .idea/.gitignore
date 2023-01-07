@@ -34,7 +34,7 @@
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
-Foodify/java-backend/src/main/java/Keys/ApiKey
+/Foodify/java-backend/src/main/java/Keys/ApiKey
 # Gradle
 .idea/**/gradle.xml
 .idea/**/libraries
