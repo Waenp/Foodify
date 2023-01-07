@@ -34,7 +34,7 @@
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
-src/main/java/apiKeys/*
+/app/src/main/java/com/example/amanv/emulatordetection/ApiKey.java
 
 # Gradle
 .idea/**/gradle.xml
