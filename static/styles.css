@@ -356,7 +356,7 @@ article {
   letter-spacing: 1px;
 }
 
-#sliderButton, #loadButton, #spotifyButton, #recipeButton {
+#sliderButton, #loadButton, #spotifyButton, #recipeButton, #loginButton {
   font-family: "gothammedium";
   background-color: black;
   color: white;
@@ -368,7 +368,7 @@ article {
   transition: none;
 }
 
-#sliderButton:hover, #helpButton:hover, #modalButton:hover, #spotifyButton:hover, #recipeButton:hover {
+#sliderButton:hover, #helpButton:hover, #modalButton:hover, #spotifyButton:hover, #recipeButton:hover, #loginButton:hover {
   background-color:rgb(236, 67, 25);
   transition: none;
 }
