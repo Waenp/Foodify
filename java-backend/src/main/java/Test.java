@@ -5,7 +5,7 @@ public class Test {
         Scanner sc = new Scanner(System.in);
         String[] ingredients = {"tomato", "lettuce", "vinegar"};
         String apiKey = sc.nextLine();
-        SpoonCaller spoonCaller = new SpoonCaller(ingredients, apiKey);
+        SpoonCaller spoonCaller = new SpoonCaller(apiKey);
 
 
 
