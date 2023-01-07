@@ -24,26 +24,57 @@ const cardTemplate =
 // för varje recept som hämtas:
 // skapa nytt kort
 // sätt kortets id == cardId
-
 // Presenterar 10st olika recept-objekt
-
 // Byt ut recipe name och recipe description mot data från API
-
-
 $( document ).ready(function addCard(){
+
   for (let i = 0; i < 10; i++) {
     let recipeName = "Pasta Carbonara";
     let recipeDescription = "En enkel rätt att laga, snabbt och gott!";
     let image = ""
 
+    // Hämtar element med id "recipecontainer", lägger till ett cardTemplate i slutet
     document.querySelector('#recipeContainer').insertAdjacentHTML('beforeend', cardTemplate);
 
-    document.getElementById("recipeName").id = ("recipeName" + i)
+    // Ändrar id på "recipeName" och "recipeDescription"
+      document.getElementById("recipeName").id = ("recipeName" + i)
     document.getElementById("recipeDescription").id = ("recipeDescription" + i)
 
-
+    // Lägger till information från objektet i "recipeName" och "recipeDescription"
     $("#recipeName" + i).text(recipeName);
-    $("#recipeDescription" + i).text(recipeDescription);
+          $("#recipeDescription" + i).text(recipeDescription);
 
   }}
 );
+
+const url = "";
+
+fetch(url)
+.then((response) =>{
+  return response.json();
+})
+
+.then((data) => {
+  let recipes = data;
+  
+  recipes.map(function(){
+    
+    // Hämtar element med id "recipecontainer", lägger till ett cardTemplate i slutet
+    document.querySelector('#recipeContainer')
+            .insertAdjacentHTML('beforeend', cardTemplate);
+
+    // Ändrar id på "recipeName" och "recipeDescription"
+    document.getElementById("recipeName").id = ("recipeName" + i)
+    document.getElementById("recipeDescription").id = ("recipeDescription" + i)
+
+    // Lägger till information från objektet i "recipeName" och "recipeDescription"
+    $("#recipeName" + i).text(recipeName);
+    $("#recipeDescription" + i).text(recipeDescription);
+
+  });
+
+})
+
+.catch(function(error){
+
+})

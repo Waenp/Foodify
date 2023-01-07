@@ -1,6 +1,4 @@
-package foodify.beans;
-
-import java.util.ArrayList;
+package foodify.beans.spoonacular.recipe;
 
 public class Recipe {
     private String id;
