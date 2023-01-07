@@ -6,10 +6,11 @@ function searchRecipe() {
 
   // Gör om sökningen till en sträng som delas på mellanslag
   let array = query.split(" ")
+      console.log("bög");
 
   $.ajax({
     method: "POST",
-    url: 'http://127.0.0.1:5500/views/recipes/search-result.html',
+    url: 'http://localhost:5007/recipes/search-result.html',
     data: JSON.stringify(array),
     headers: {"Accept": "application/json"}
   })

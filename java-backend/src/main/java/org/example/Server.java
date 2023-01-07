@@ -16,6 +16,7 @@ public class Server {
                 .get("/", ctx ->{
                     ctx.result("Hello World");
                     ctx.status(HttpStatus.OK);
+
                 })
                 .start(5007);
     }

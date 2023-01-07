@@ -25,7 +25,6 @@ $(document).ready(function addIngredient() {
       $("#amount" + i).text(amounts[0 + i]);
     };
   };
-
   addAmount();
 });
 
