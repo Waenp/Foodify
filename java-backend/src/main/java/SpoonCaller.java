@@ -12,7 +12,6 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClients;
 import foodify.beans.spoonacular.recipe.Recipe;
 import org.apache.http.message.BasicNameValuePair;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -20,7 +19,10 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Provides communication with the api SpoonAcular, the class is provided with a token and a comma seperated list of
+ * ingredients which is used to generate recipes for the caller.
+ */
 public class SpoonCaller {
     private final String key;
     private HttpClient httpClient;
@@ -35,22 +37,49 @@ public class SpoonCaller {
 
     private Recipe[] recipes;
 
-    public Recipe[] getRecipes() {
-        return recipes;
-    }
-
-    public Recipe getRecipe(int index) {
-        return recipes[index];
-    }
-
+    /**
+     * The constructor takes a String value upon creation which it sets to the instance variable key. The instance
+     * variable is used in several API-calls to SpoonAculars API.
+     * @param key a String value containing an API-token.
+     */
     public SpoonCaller(String key) {
         this.key = key;
     }
 
+    /**
+     * This method is for getting an array of the beans recipes upon calling.
+     * @return an array containing recipes.
+     */
+    public Recipe[] getRecipes() {
+        return recipes;
+    }
+
+    /**
+     * This method is for getting a single specific recipe.
+     * @param index TODO comment after deciding on index or food-id.
+     * @return returns a single recipe from the array recipes.
+     */
+    public Recipe getRecipe(int index) {
+        return recipes[index];
+    }
+    /**
+     * TODO remove?
+     * @param ingredients an array of strings, each index contains one ingredient.
+     */
     public void generateRecipes(String[] ingredients) {
         searchByIngredients(ingredients);
     }
 
+    /**
+     * This method is for searching for recipes using the provided ingredients, when the method is called a uri is
+     * built using:
+     * - the token which was set as an instance variable on creation
+     * - the ingredients from the parameter.
+     * Once the uri is built the SpoonAcular API recipes/findByIngredients is called which is used to fetch recipes
+     * matching the given ingredients and save them as an array of the Recipe class. Finally, the method
+     * getInformationBulk is called.
+     * @param ingredients an array of Strings containing ingredients.
+     */
     private void searchByIngredients(String[] ingredients) {
         StringBuilder stringBuilder =  new StringBuilder("https://api.spoonacular.com/recipes/findByIngredients?");
         stringBuilder.append("ingredients=");
@@ -104,7 +133,16 @@ public class SpoonCaller {
 
         getInformationBulk(ids);
     }
-
+    /**
+     * This method is for fetching bulk information of a given list of dish ids, when the method is called an uri is
+     * built using:
+     * - the token which was set as an instance variable on creation
+     * - the ids from the parameter, which are used to identify what recepis to fetch.
+     * Once the uri is built the SpoonAcular API recipes/informationBulk is called which is used to populate all
+     * instance variables of the class Recipe. Should the recipe be missing what type of cuisine it is, the
+     * method analysCuisine is called to generate cuisine types.
+     * @param ids an array of Strings containing ids.
+     */
     private void getInformationBulk(String[] ids) {
         StringBuilder stringBuilder = new StringBuilder("https://api.spoonacular.com/recipes/informationBulk?");
         stringBuilder.append("ids=");
@@ -155,6 +193,16 @@ public class SpoonCaller {
         }
     }
 
+    /**
+     * This method is used when a recipe is missing its cuisine type. Since the Foodiy mashup needs a cuisine type in
+     * order to generate a playlist to go with cooking this method generates missing cuisine types by building the
+     * uri using:
+     * - the token which was set as an instance variable on creation
+     * - the recipe missing its cuisine type.
+     * Once the uri is built the SpoonAcular API recipes/cuisine is called which requires a set of ingredients to
+     * approximate a set of cuisine types and updates the recipe.
+     * @param recipe a recipe object.
+     */
     private void analyzeCuisine(Recipe recipe) {
         StringBuilder url = new StringBuilder("https://api.spoonacular.com/recipes/cuisine?");
         url.append("language=en");
