@@ -24,42 +24,69 @@
         <a id="popularRecipes" class="text-black" href="/views/recipes/popular.html">Popular recipes</a>
       </div>
     </nav>
+    
+    <div id="playlistContainerLarge" class="container vh-100 position-absolute start-50 top-50 translate-middle d-flex align-items-center">
+      <div class="container text-black p-4">
+        <div class="row row-cols-2">
+          <div class="col-5">
+            <div id="playlistCard">
+              <div id="cardContent" class="position-absolute">
+                <div id="cardImage" class="overflow-hidden position-absolute">
+                  <img id="playlistWave" src="/static/images/Foodify_create_background_wave_long.png" class="card-img" alt="...">
+                </div>
+                <div class="p-3">
+                  <h3 id="playlistDish">Spaghetti Carbonara</h3>
+                  <h5 id="playlistDesc" class="w-50">Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs might be a good recipe to expand your main course repertoire.</h5>
+                  <h4 class="playlistMood">Romantic</h4>
+                  <h4 class="playlistMood">Relaxed</h4>
+                  <h4 class="playlistMood"></h4>
+                </div>
+              </div>
+            </div>
+          </div>
 
+          <div class="col-7 ps-3 d-flex align-items-center">
+            <div class="d-flex flex-column align-items-start">
+              <h2 id="playlistHeader" class="display-2">Here's your playlist!</h2>
+              <h4 id="playlistLabel" class="pb-3">Open your playlist in the Spotify app or play it from the recipe page. Enjoy!</h4>
+              <div class="d-inline-flex flex-xl-row justify-content-center pb-5">
+                <a href="step-3.html" type="submit" id="spotifyButton" class="btn d-flex justify-content-center align-items-center me-2">OPEN SPOTIFY</a>
+                <a href="step-3.html" type="submit" id="recipeButton" class="btn d-flex justify-content-center align-items-center">RECIPE</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <div class="container text-black p-4 vh-100">
-      <div class="d-flex flex-wrap flex-xl-nowrap">
-
-        
-
-
-        <div id="playlistCard" class="order-2 order-xl-1">
-          <div id="cardContent" class="position-absolute">
+    <div id="playlistContainerSmall" class="container text-black p-4">
+      <div class="row row-cols-1 row-cols-xl-2 justify-content-center pt-3">
+        <div id="playlistCard" class="col ps-0">
+        <div id="cardContent" class="position-absolute">
             <div id="cardImage" class="overflow-hidden position-absolute">
-              <img id="playlistWave" src="/static/images/Foodify_create_background_wave_long.png" class="card-img" alt="...">
+            <img id="playlistWave" src="/static/images/Foodify_create_background_wave_long.png" class="card-img" alt="...">
             </div>
             <div class="p-3">
-              <h2 class="fs-1">Spaghetti Carbonara</h2>
-              <p class="fs-5">Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs might be a good recipe to expand your main course repertoire.</p>
+            <h2 class="fs-1">Spaghetti Carbonara</h2>
+            <p class="fs-5">Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs might be a good recipe to expand your main course repertoire.</p>
+            </div>
+        </div>
+        </div>
+
+        <div class="col ps-0">
+          <div class="row row-cols-1 justify-content-center ms-0 ms-xl-5">
+            <div class="col text-center text-xl-start">
+              <h2 id="playlistHeader" class="display-1 pb-3">Here's your playlist!</h2>
+            </div>
+            <div class="col text-center text-xl-start">
+              <h3 class="fs-4 pb-3">Open your playlist in the Spotify app or play it from the recipe page. Enjoy!</h3>
+              <div class="d-inline-flex flex-column flex-xl-row">
+                <a href="step-3.html" type="submit" class="sliderButton btn d-flex justify-content-center align-items-center me-3 mb-2">OPEN SPOTIFY</a>
+                <a href="step-3.html" type="submit" class="sliderButton btn d-flex justify-content-center align-items-center">RECIPE</a>
+              </div>
             </div>
           </div>
         </div>
-
-
-        <div class="order-xl-2">
-          <h2 id="playlistHeader" class="display-1 py-3">Here's your playlist!</h2>
-        </div>
-
-        <div class="order-3">
-          <h3 class="fs-4 pb-3">Open your playlist in the Spotify app or play it from the recipe page. Enjoy!</h3>
-          <div class="d-inline-flex flex-column flex-xl-row">
-            <a href="step-3.html" type="submit" class="sliderButton btn d-flex justify-content-center align-items-center me-3 mb-2">OPEN SPOTIFY</a>
-            <a href="step-3.html" type="submit" class="sliderButton btn d-flex justify-content-center align-items-center">RECIPE</a>
-          </div>
-        </div>
-
-
-
-
       </div>
     </div>
 

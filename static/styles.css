@@ -130,6 +130,10 @@ body {
   text-decoration: underline;
 }
 
+#playlistContainerLarge {
+  z-index: -11;
+}
+
 h1 {
   font-family: "gothambold";
   font-size: 6rem;
@@ -143,9 +147,21 @@ h2 {
 }
 
 h3 {
+  font-family: "gothambold";
+  font-size: 2rem;
+  letter-spacing: -1px;
+}
+
+.playlistMood {
   font-family: "gothammedium";
   font-size: 1.5rem;
   letter-spacing: -1px;
+}
+
+h5 {
+  font-family: "gothambook";
+  font-size: 1.3rem;
+  letter-spacing: 0px;
 }
 
 h1:hover, h2:hover, h3:hover {
@@ -307,7 +323,7 @@ article {
   transition: 0.5s;
 }
 
-#createContainer h2 {
+#createContainer h2, #playlistLabelLarge {
   font-family: "gothammedium";
   font-size: 1.5rem;
   letter-spacing: -1px;
@@ -324,9 +340,10 @@ article {
   font-weight: 600;
   font-size: 1.5rem;
   margin-bottom: 5px;
+  letter-spacing: 1px;
 }
 
-#sliderButton, #loadButton, .sliderButton {
+#sliderButton, #loadButton, #spotifyButton, #recipeButton {
   font-family: "gothammedium";
   background-color: black;
   color: white;
@@ -338,7 +355,7 @@ article {
   transition: none;
 }
 
-#sliderButton:hover, #helpButton:hover, #modalButton:hover {
+#sliderButton:hover, #helpButton:hover, #modalButton:hover, #spotifyButton:hover, #recipeButton:hover {
   background-color:rgb(236, 67, 25);
   transition: none;
 }
@@ -387,27 +404,42 @@ article {
   animation-fill-mode: both;
 }
 
+#loadingIcon {
+  font-family: "gothammedium";
+  font-size: 1.5rem;
+  letter-spacing: -1px;
+}
+
 #loadButton, .fade-in {
   animation: load_fade 0.3s 1 reverse;
   animation-delay: 3s;
   animation-fill-mode: both;
 }
 
-#playlistCard, .playlistCard {
+#playlistCard {
+  background-image: url("/static/images/Foodify_create_background_wave_long.png");
+  background-position-x: 70%;
+  background-position-y: 50%;
+  background-size: 150% 150%;
   background-color: rgb(156, 188, 206);
   border: none;
   border-radius: 0;
   filter: drop-shadow(rgba(0, 0, 0, 0.3) 0px 0px 0.6rem);
-  position: relative;
+  z-index: -2;
   width: 100%;
   margin: auto;
-  max-width: calc(95vh);
+  max-width: calc(70vh);
 }
 
-#playlistCard:after, .playlistCard:after {
+#playlistCard:after {
   content:"";
   display: block;
-  padding-bottom: 100%;
+  padding-top: 100%;
+}
+
+#playlistPadding {
+  content: "";
+  height:10%;
 }
 
 #cardContent {
@@ -453,4 +485,3 @@ article {
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
-
