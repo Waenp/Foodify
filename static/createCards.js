@@ -26,7 +26,7 @@ const cardTemplate =
 // sätt kortets id == cardId
 // Presenterar 10st olika recept-objekt
 // Byt ut recipe name och recipe description mot data från API
-$( document ).ready(function addCard(){
+$( document ).ready(function addCard(recipes){
 
   for (let i = 0; i < 10; i++) {
     let recipeName = "Pasta Carbonara";
@@ -47,16 +47,21 @@ $( document ).ready(function addCard(){
   }}
 );
 
-const url = "";
+const url = "http://localhost:5007/recipes";
 
-fetch(url)
+fetch(url, {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json'
+  }
+})
 .then((response) =>{
   return response.json();
 })
 
 .then((data) => {
   let recipes = data;
-  
+  console.log(recipes)
   recipes.map(function(){
     
     // Hämtar element med id "recipecontainer", lägger till ett cardTemplate i slutet

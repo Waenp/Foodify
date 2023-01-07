@@ -22,6 +22,7 @@ import java.util.List;
 
 
 public class SpoonCaller {
+    private final String key;
     private HttpClient httpClient;
     private HttpGet httpGet;
     private HttpPost httpPost;
@@ -34,12 +35,23 @@ public class SpoonCaller {
 
     private Recipe[] recipes;
 
-
-    public SpoonCaller(String[] ingredients, String apiKey) {
-        searchByIngredients(ingredients, apiKey);
+    public Recipe[] getRecipes() {
+        return recipes;
     }
 
-    private void searchByIngredients(String[] ingredients, String apiKey) {
+    public Recipe getRecipe(int index) {
+        return recipes[index];
+    }
+
+    public SpoonCaller(String key) {
+        this.key = key;
+    }
+
+    public void generateRecipes(String[] ingredients) {
+        searchByIngredients(ingredients);
+    }
+
+    private void searchByIngredients(String[] ingredients) {
         StringBuilder stringBuilder =  new StringBuilder("https://api.spoonacular.com/recipes/findByIngredients?");
         stringBuilder.append("ingredients=");
         for (int i = 0; i < ingredients.length; i++) {
@@ -53,21 +65,47 @@ public class SpoonCaller {
         stringBuilder.append("&number=10");
         stringBuilder.append("&ranking=2");
         stringBuilder.append("&ignorePantry=true");
-        stringBuilder.append("&apiKey=").append(apiKey);
+        stringBuilder.append("&apiKey=").append(key);
 
-        //TODO: ska vi lägga till headers eller??
-        getCall(stringBuilder.toString());
+        //getCall(stringBuilder.toString());
+
+        try {
+            httpClient = HttpClients.createDefault();
+            httpGet = new HttpGet(stringBuilder.toString());
+            httpGet.addHeader("Content-Type", "application/json");
+
+            response = httpClient.execute(httpGet);
+            status = response.getStatusLine();
+
+            if (status.getStatusCode() == 200) {
+                entity = response.getEntity();
+                data = entity.getContent();
+
+                try {
+                    reader = new InputStreamReader(data);
+
+                    recipes = json.fromJson(reader, Recipe[].class);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+                System.out.println("Failed at searching by ingredients");
+                System.out.println("Status code: " + status.getStatusCode() + ". Reason: " + status.getReasonPhrase());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         String[] ids = new String[recipes.length];
         for (int i = 0; i < recipes.length; i++) {
             ids[i] = recipes[i].getId();
         }
 
-        getInformationBulk(ids, apiKey);
-        System.out.println("Antal recept: " + recipes.length);
+        getInformationBulk(ids);
     }
 
-    private void getInformationBulk(String[] ids, String apiKey) {
+    private void getInformationBulk(String[] ids) {
         StringBuilder stringBuilder = new StringBuilder("https://api.spoonacular.com/recipes/informationBulk?");
         stringBuilder.append("ids=");
         for (int i = 0; i < ids.length; i++) {
@@ -77,40 +115,64 @@ public class SpoonCaller {
                 stringBuilder.append(ids[i]).append(",");
             }
         }
-        stringBuilder.append("&apiKey=").append(apiKey);
-        getCall(stringBuilder.toString());
+        stringBuilder.append("&apiKey=").append(key);
+
+        try {
+            httpClient = HttpClients.createDefault();
+            httpGet = new HttpGet(stringBuilder.toString());
+            httpGet.addHeader("Content-Type", "application/json");
+
+            response = httpClient.execute(httpGet);
+            status = response.getStatusLine();
+
+            if (status.getStatusCode() == 200) {
+                entity = response.getEntity();
+                data = entity.getContent();
+
+                try {
+                    reader = new InputStreamReader(data);
+
+                    recipes = json.fromJson(reader, Recipe[].class);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+                System.out.println("Failed at fetching recipe information");
+                System.out.println("Status code: " + status.getStatusCode() + ". Reason: " + status.getReasonPhrase());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
         for (Recipe r : recipes) {
             String[] cuisines = r.getCuisines();
             if (cuisines.length < 1) {
-                analyzeCuisine(r, apiKey);
+                analyzeCuisine(r);
             }
             System.out.println(r);
         }
     }
 
-    private void analyzeCuisine(Recipe recipe, String apiKey) {
-        StringBuilder stringBuilder = new StringBuilder("https://api.spoonacular.com/recipes/cuisine?");
-        stringBuilder.append("language=en");
-        stringBuilder.append("&apiKey=" + apiKey);
-        postCall(stringBuilder.toString(), recipe);
-    }
+    private void analyzeCuisine(Recipe recipe) {
+        StringBuilder url = new StringBuilder("https://api.spoonacular.com/recipes/cuisine?");
+        url.append("language=en");
+        url.append("&apiKey=").append(key);
 
-    private void postCall(String query, Recipe recipe) {
         try {
             httpClient = HttpClients.createDefault();
-            httpPost = new HttpPost(query);
+            httpPost = new HttpPost(url.toString());
             httpPost.addHeader("Content-Type","application/json");
 
             List<NameValuePair> params = new ArrayList<>();
             params.add(new BasicNameValuePair("title", recipe.getTitle()));
-            StringBuilder stringBuilder = new StringBuilder();
+            StringBuilder ingredientsBuilder = new StringBuilder();
             Ingredient[] ingredients = recipe.getExtendedIngredients();
             for (Ingredient i : ingredients) {
-                stringBuilder.append(i.getNameClean()).append("\n");
+                ingredientsBuilder.append(i.getNameClean()).append("\n");
             }
-            params.add(new BasicNameValuePair("ingredientList", stringBuilder.toString()));
+            params.add(new BasicNameValuePair("ingredientList", ingredientsBuilder.toString()));
 
             httpPost.setEntity(new UrlEncodedFormEntity(params));
             response = httpClient.execute(httpPost);
@@ -129,39 +191,8 @@ public class SpoonCaller {
                     e.printStackTrace();
                 }
             } else {
-                //TODO: felhantering och sånt där gött!
-                System.out.println("Det sket sig i köksanalysen!");
-                System.out.println(status.getStatusCode());
-                System.out.println(status.getReasonPhrase());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void getCall(String query) {
-        try {
-            httpClient = HttpClients.createDefault();
-            httpGet = new HttpGet(query);
-
-            response = httpClient.execute(httpGet);
-            status = response.getStatusLine();
-
-            if (status.getStatusCode() == 200) {
-                entity = response.getEntity();
-                data = entity.getContent();
-
-                try {
-                    reader = new InputStreamReader(data);
-
-                    recipes = json.fromJson(reader, Recipe[].class);
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            } else {
-                //TODO: fixa felhantering
-                System.out.println("Det sket sig!");
+                System.out.println("Failed at analyzing cuisine");
+                System.out.println("Status code: " + status.getStatusCode() + ". Reason: " + status.getReasonPhrase());
             }
         } catch (IOException e) {
             e.printStackTrace();

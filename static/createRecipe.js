@@ -25,20 +25,26 @@ $(document).ready(function addIngredient() {
       $("#amount" + i).text(amounts[0 + i]);
     };
   };
-
   addAmount();
 });
 
-const url = ""
+//TODO: vi behöver klura ut hur man får med sig rätt index från sidan innan (alternativt receptets id från API-svaret)
+let index = 1;
+const url = "http://localhost:5007/recipes/" + index
 
-fetch(url)
+fetch(url, {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json'
+  }
+})
 .then((response) =>{
   return response.json();
 })
 
 .then((data) => {
   let recipe = data;
-  
+  console.log(recipe)
   recipe.map(function(){
     
     // Hämtar listan med Id "ingredients" och skapar ett nytt element 
