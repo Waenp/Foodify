@@ -1,7 +1,5 @@
-
 // Skapa ett template för alla kort på sökresultat-sidan
-const cardTemplate =
-`
+const cardTemplate = `
 <div class="card mb-3">
   <div class="row g-0">
     <div class="col-lg-4">
@@ -13,17 +11,17 @@ const cardTemplate =
         <p class="card-text" id="recipeDescription"></div>
       <div class="card-footer d-grid gap-2 d-lg-flex mt-auto">
         <p class="text-muted me-auto" id="cookTime"></p>
-        <a id="link" href="/views/recipes/recipe-page/" class="btn btn-full-recipe">Full recipe</a>
-        <a href="/views/create-playlist/authorize.html" class="btn btn-create-playlist">Create playlist!</a>
+        <a href="recipe-page.html" class="bbb btn btn-full-recipe">Full recipe</a>
+        <a href="/views/create-playlist/authorize.html" class="sss btn btn-create-playlist">Create playlist!</a>
       </div>
     </div>
   </div>
 </div>
-`
-$( document ).ready(function addCard(){
+`;
 
+$(document).ready(function addCard() {
 
-const url = "http://localhost:5007/recipes";
+const url = "http://localhost:5007/recipes" ;
 
 fetch(url, {
   method: 'GET',
@@ -38,34 +36,49 @@ fetch(url, {
 
 .then((data) => {
   let recipes = data;
+  console.log(recipes);
+  for (let i = 0; i < recipes.length; i++) {
+    // Hämtar element med id "recipecontainer", lägger till ett cardTemplate i slutet
+    document
+      .querySelector("#recipeContainer")
+      .insertAdjacentHTML("beforeend", cardTemplate);
 
-  for (let i = 0; i < recipes.length; i++){
+    summary = recipes[i].summary;
+    finalSummary = summary.substring(0, summary.lastIndexOf(". "));
 
-  // Hämtar element med id "recipecontainer", lägger till ett cardTemplate i slutet
-  document.querySelector('#recipeContainer').insertAdjacentHTML('beforeend', cardTemplate);
+    // Ändrar id på "recipeName" och "recipeDescription"
+    $("#recipeName").attr("id", "recipeName" + i);
+    $("#recipeDescription").attr("id", "recipeDescription" + i);
+    $("#recipeImg").attr("id", "recipeImg" + i);
+    $("#cookTime").attr("id", "cookTime" + i);
 
-  summary = recipes[i].summary;
-  finalSummary = summary.substring(0, summary.lastIndexOf(". "));
-
-  // Ändrar id på "recipeName" och "recipeDescription"
-  document.getElementById("recipeName").id = ("recipeName" + i);
-  document.getElementById("recipeDescription").id = ("recipeDescription" + i);
-  document.getElementById("recipeImg").id = ("recipeImg" + i);
-  document.getElementById("link").id = ("link" + i);
-  document.getElementById("cookTime").id = ("cookTime" + i)
-
-  // Lägger till information från objektet i varje kort
-  $("#link" + i).attr("href", "/views/recipes/recipe-page/" + recipes[i].id);
-  $("#recipeName" + i).text(recipes[i].title);
-  $("#recipeDescription" + i).html(finalSummary + ".");
-  $("#recipeImg" + i).attr("src", recipes[i].image);
-  $("#cookTime" + i).text(recipes[i].readyInMinutes + "minutes");
-
+    // Lägger till information från objektet i varje kort
+    $("#recipeName" + i).text(recipes[i].title);
+    $("#recipeDescription" + i).html(finalSummary + ".");
+    $("#recipeImg" + i).attr("src", recipes[i].image);
+    $("#cookTime" + i).text("Total cook time: " + recipes[i].readyInMinutes + " minutes");
   };
 
+  $(".sss").on("click", function () {
+    localStorage.removeItem("recipeObj");
+    // When a button is clicked...
+    var spotify = $(".sss").index(this);
+    localStorage.setItem("recipeObj", JSON.stringify(recipes[spotify])); // Save the id to local storage
+  });
+
+  $(".bbb").on("click", function () {
+    localStorage.removeItem("recipeObj");
+    // When a button is clicked...
+    var recipe = $(".bbb").index(this);
+    localStorage.setItem("recipeObj", JSON.stringify(recipes[recipe])); // Save the id to local storage
+    });
+
+  });
 })
 
-.catch(function(){
+// .catch(function(error){
+//   console.log(error)
+//     })
+//   });
+// )
 
-  })
-})

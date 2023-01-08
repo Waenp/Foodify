@@ -32,11 +32,11 @@
       <div class="card h-auto mb-5">
         <img id= "recipeImg" src="" class="card-img-top img-food" alt="..." style="height: 350px; width: 50%;" >
         <div class="card-body">
-          <iframe style="border-radius:12px" src="" width="50%" 
+          <iframe id="spotifyPlay" style="border-radius:12px" src="" width="50%" 
           height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
           <div class="row">
             <div class="col-5">
-              <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/57AvvQRJmSxfdIPHknRT1Y?utm_source=generator" width="100%" height="380" 
+              <iframe style="border-radius:12px" src="" width="100%" height="380" 
               frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
               <h3 class="">Ingredients</h3>
               <ul class="list-group list-group-flush pb-5" id="ingredients">
@@ -64,5 +64,35 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="/static/script.js"></script>
     <script src="/static/createRecipe.js"></script>
+    <script>
+      $( document ).ready(function addCard(){
+
+
+        const url = "http://localhost:5007/playlist";
+
+        fetch(url, {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json'
+          }
+        })
+
+        .then((response) =>{
+          return response.json();
+        })
+
+        .then((data) => {
+          let playlist = data;
+          console.log(playlist.id);
+          $('#spotifyPlay').attr("src", "https://open.spotify.com/embed/playlist/" + playlist.id+ "?utm_source=generator");
+
+
+        })
+
+        .catch(function(){
+
+        })
+      })
+    </script>
   </body>
 </html>
