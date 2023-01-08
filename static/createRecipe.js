@@ -94,7 +94,8 @@ $(document).ready(function addIngredient() {
         }
     ]
   }
-
+  
+  $("#recipeName").text(obj.title)
   $("#recipeImg" ).attr("src", obj.image)
   $("#recipeDescription").html("<p>" + obj.summary + "</p>");
   
@@ -138,12 +139,6 @@ $(document).ready(function addIngredient() {
 
     $("#item" + i).text(capitalizedWord);
 
-    };
-
-  i = 0;
-
-    for (let i = 0; i < ingredients.length; i++) {
-
     let amounts = obj.extendedIngredients[i].measures
     
     let measurements = Math.floor(amounts.metric.amount) + " " + amounts.metric.unitShort
@@ -156,7 +151,7 @@ $(document).ready(function addIngredient() {
 
     $("#amount" + i).text(measurements);
 
-    }
+    };
 
 });
 
