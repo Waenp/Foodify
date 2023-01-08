@@ -1,4 +1,3 @@
-import Keys.ApiKey;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import foodify.beans.spoonacular.recipe.Recipe;
@@ -17,8 +16,7 @@ public class APIRunner {
     private SpotifyCaller spotifyCaller;
 
     public APIRunner() {
-        ApiKey apiKey = new ApiKey();
-        String key = apiKey.getKey();
+        String key = "";
         spoonCaller = new SpoonCaller(key);
         spotifyCaller = new SpotifyCaller();
 
