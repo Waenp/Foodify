@@ -69,8 +69,8 @@
       $(document).ready(function() {
         //TODO: skapar här ett objekt som används av vårt API för att göra kall. datan måste dock "hänga med" från tidigare sidor:
         let body = new Object();
-        body.mood = 50;
-        body.tempo = 100;
+        body.mood = localStorage.getItem("mood");
+        body.tempo = localStorage.getItem("tempo");
         body.cuisine = "mexican"
         body.dish = "fish tacos"
 
