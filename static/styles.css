@@ -34,6 +34,11 @@ html {
   100%  {background-position-y: 100vh, 100vh, 100vh, 100vh, 7vh;}
 }
 
+@keyframes playlist_hands {
+  0%    {background-position-x: -3vw, -5vw, -38vw, 0vw, 0; background-position-y: bottom, bottom, bottom, bottom, 0;}
+  100%  {background-position-x: -5vw, -10vw, -33vw, 6vw, 0; background-position-y: bottom, bottom, bottom, bottom, 0;}
+}
+
 body {
   background-color: rgb(228, 163, 159) !important;
   background: url("/static/images/hands_rearanged_colorcorrect.png") no-repeat bottom center;
@@ -105,124 +110,85 @@ body {
   background-color: rgb(156, 188, 206) !important;
   background: url("/static/images/burger.png") no-repeat bottom, url("/static/images/donut.png") no-repeat bottom, url("/static/images/pizza.png") no-repeat bottom, url("/static/images/hotdog.png") no-repeat bottom, url("/static/images/Foodify_create_background_wave_long.png") no-repeat;
   background-size: 130vw, 100vw, 140vw, 110vw, 100vw 110vh;
-  background-position-x: -3vw, -5vw, -38vw, 0vw, 0;
-  background-position-y: 100vh, 100vh, 100vh, 100vh, 7vh;
+  background-position-x: -5vw, -10vw, -33vw, 6vw, 0;
+  background-position-y: bottom, bottom, bottom, bottom, 0;
   background-attachment: fixed;
-  animation-name: hands_down;
+  animation-name: playlist_hands;
   animation-duration: 2s;
 }
 
-#about, #popularRecipes {
-  font-family: "gothammedium";
-  font-size: 1.5rem;
-  text-decoration: none;
-  letter-spacing: -1px;
-}
 
-#home {
-  font-family: "gothambold";
-  font-size: 2.3rem;
+#navbar a {
   text-decoration: none;
-  letter-spacing: -2px;
 }
 
 #navbar a:hover {
   text-decoration: underline;
 }
 
+
+/* Behövs denna? */
 #playlistContainerLarge {
   z-index: -11;
 }
 
-h1 {
-  font-family: "gothambold";
-  font-size: 6rem;
-  letter-spacing: -5px;
+/* Alla textelement bör skrivas om i BS, inte responsiva just nu */
+._black {
+  font-family: "gothamblack";
 }
 
-h2 {
+._bold {
   font-family: "gothambold";
-  font-size: 4rem;
+}
+
+._medium {
+  font-family: "gothammedium";
+}
+
+._book {
+  font-family: "gothambook";
+}
+
+._thin {
+  font-family: "gothamthin";
+}
+
+._ls-1 {
+  letter-spacing: -1px;
+}
+
+._ls-2 {
+  letter-spacing: -2px;
+}
+
+._ls-3 {
   letter-spacing: -3px;
 }
 
-h3 {
-  font-family: "gothambold";
-  font-size: 2rem;
-  letter-spacing: -1px;
+._ls-4 {
+  letter-spacing: -4px;
 }
 
-#playlistDish {
-  font-family: "gothambold";
-  font-size: 5em;
-  letter-spacing: -1px;
-}
-
-#playlistDesc {
-  font-family: "gothambook";
-  font-size: 3em;
-  letter-spacing: -1px;
-  text-align: end;
-}
-
-#playlistMood0, #playlistMood1, #playlistNat {
-  font-family: "gothammedium";
-  font-size: 4em;
-  letter-spacing: -1px;
-}
-
-h5 {
-  font-family: "gothambook";
-  font-size: 1.3rem;
-  letter-spacing: 0px;
-}
-
-h1:hover, h2:hover, h3:hover {
-  cursor: context-menu;
-}
-
-#createContainer {
-  font-family: "gothambold";
-  font-size: 3rem;
+._ls-5 {
   letter-spacing: -5px;
 }
 
-#pageTitle {
-  font-size: 5rem;
+._justify {
+  text-align: justify;
 }
 
-#searchContainer, #aboutContainer {
+._center {
+  text-align: center;
+}
+
+._cur-context:hover {
+  cursor: context-menu;
+}
+
+._input-field {
   width: 50vw;
-  height: 70vh;
-  text-align: justify;
-}
-
-#instructionsContainer {
-  width: 50vw;
-  text-align: justify;
-}
-
-#recipeContainer, #createContainer {
-  width: 60vw;
-  height: 70vh;
-  text-align: justify;
-}
-
-#searchLabel > h2 {
-  font-family: "gothambook";
-  font-weight: 600;
-  font-size: 1.5rem;
-  letter-spacing: -1px;
-}
-
-#searchInput {
-  width: 40vw;
   height: 4rem;
   font-size: 1.3rem;
-}
-
-#foodCards {
-  height: 40vw;
 }
 
 article {
@@ -264,58 +230,64 @@ article {
   object-fit: cover;
 }
 
-#cookTime {
-  font-size: 0.7rem;
-}
-
-.btn {
-  font-family: "gothambook";
-  background-color: black;
-  color: white;
-  font-size: .9rem;
-  border-radius: 61px;
-  transition: none;
-}
-
-.btn-create-playlist:hover, .btn-create-playlist:active {
+.btn-create-playlist:hover,
+.btn-create-playlist:active {
   background-color: rgb(25, 230, 140) !important;
   color:black;
   transition: none;
 }
 
-.btn-full-recipe:hover, .btn-full-recipe:active {
+.btn-full-recipe:hover,
+.btn-full-recipe:active {
   background-color:rgb(236, 67, 25) !important;
   color:white !important;
   transition: none;
 }
 
-.slider {
+._slider {
   -webkit-appearance: none;
-  width: 380px;
-  height: 13px;
   border-radius: 10px;
   background: #000000;
   outline: none;
-  cursor: grab;
+  cursor: pointer;
   z-index: 0;
 }
 
-#moodSlider::before {
+._slider-lg {
+  width: 380px;
+  height: 13px;
+}
+
+._slider-sm {
+  width: 340px;
+  height: 13px;
+}
+
+._slider::before {
   content: "";
   position: absolute;
   width: 7px;
   height: 7px;
-  left: 3px;
+  left: -3px;
   border-radius: 50%;
-  box-shadow:
-  13px 3px 0 0 rgb(25, 230, 140),
-  195px 3px 0 rgb(25, 230, 140),
-  377px 3px 0 rgb(25, 230, 140);
   z-index: -1;
 }
 
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
+._slider-lg::before {
+  box-shadow:
+  15px 3px 0 rgb(25, 230, 140),
+  197px 3px 0 rgb(25, 230, 140),
+  380px 3px 0 rgb(25, 230, 140);
+}
+
+._slider-sm::before {
+  box-shadow:
+  7px 3px 0 rgb(25, 230, 140),
+  169px 3px 0 rgb(25, 230, 140),
+  332px 3px 0 rgb(25, 230, 140);
+}
+
+._slider::-webkit-slider-thumb {
   appearance: none;
   width: 25px;
   height: 25px;
@@ -323,64 +295,40 @@ article {
   background: black;
   outline: 5px solid rgb(25, 230, 140);
   cursor: grab;
-  z-index: 111;
 }
 
-.slider::-moz-range-thumb {
+._slider::-moz-range-thumb {
   width: 35px;
   height: 35px;
   border-radius: 50%;
   background: black;
   outline: 5px solid rgb(25, 230, 140);
-  cursor: grab;
-  transition: 0.5s;
 }
 
-#createContainer h2, #playlistLabelLarge {
-  font-family: "gothammedium";
-  font-size: 1.5rem;
-  letter-spacing: -1px;
-}
-
-#createContainer h1 {
-  font-family: "gothambold";
-  font-size: 4rem;
-  letter-spacing: -3px;
-}
-
-#createContainer span {
-  font-family: "gothambook";
-  font-weight: 600;
-  font-size: 1.5rem;
-  margin-bottom: 5px;
-  letter-spacing: 1px;
-}
-
-#sliderButton, #loadButton, #spotifyButton, #recipeButton, #loginButton {
-  font-family: "gothammedium";
-  background-color: black;
-  color: white;
-  font-size: 1.3rem;
-  letter-spacing: -1px;
+.btn {
+  background-color: black !important;
+  color: white !important;
   border-radius: 61px;
+  transition: none;
+}
+
+._button {
   width: 239px;
   height: 56px;
-  transition: none;
 }
 
-#sliderButton:hover, #helpButton:hover, #modalButton:hover, #spotifyButton:hover, #recipeButton:hover, #loginButton:hover {
-  background-color:rgb(236, 67, 25);
-  transition: none;
+._button-round {
+  width: 50px;
+  height: 50px;
 }
 
-#helpButton {
-  background-color: black;
-  color: white;
-  font-size: 1rem;
-  border-radius: 61px;
-  width: 40px;
-  height: 40px;
-  transition: none;
+._hover-red:hover {
+  background-color:rgb(236, 67, 25) !important;
+}
+
+._hover-white:hover {
+  background-color:rgb(255, 255, 255) !important;
+  color: black !important;
 }
 
 #modalButton {
@@ -408,28 +356,10 @@ article {
 
 .rotate {
   animation: rotation 1.5s 2 ease-in-out;
-  width: 5vw;
+  width: 120px;
 }
 
-#loadingContainer {
-  animation: load_fade 1s 1 linear;
-  animation-delay: 2s;
-  animation-fill-mode: both;
-}
-
-#loadingIcon {
-  font-family: "gothammedium";
-  font-size: 1.5rem;
-  letter-spacing: -1px;
-}
-
-#loadButton, .fade-in {
-  animation: load_fade 0.3s 1 reverse;
-  animation-delay: 3s;
-  animation-fill-mode: both;
-}
-
-#small #playlistCard {
+._square {
   background-image: url("/static/images/Foodify_create_background_wave_long.png");
   background-position-x: 70%;
   background-position-y: 50%;
@@ -439,59 +369,33 @@ article {
   border-radius: 0;
   filter: drop-shadow(rgba(0, 0, 0, 0.3) 0px 0px 0.6rem);
   z-index: -2;
-  width: 100%;
-  margin: auto;
-  max-width: 70vh;
-}
-
-#small #playlistCard:after {
-  content:"";
-  display: block;
-  padding-top: 100%;
-}
-
-#playlistPadding {
-  content: "";
-  height:10%;
-}
-
-#small #cardContent {
-  width: 100%;
-  height: 100%;
-}
-
-.square {
-  background-image: url("/static/images/Foodify_create_background_wave_long.png");
-  background-position-x: 70%;
-  background-position-y: 50%;
-  background-size: 150% 150%;
-  background-color: rgb(156, 188, 206);
-  border: none;
-  border-radius: 0;
-  filter: drop-shadow(rgba(0, 0, 0, 0.3) 0px 0px 0.6rem);
-  z-index: -2;
-  width: 1024px;
-  height: 1024px;
   margin-right: 0;
   margin-left: auto;
   -moz-transform-origin: center top;
   -o-transform-origin: center top;
 }
 
-#playlistImage {
-  width: 300px;
-  height: 300px;
+._square-lg {
+  width: 1024px;
+  height: 1024px;
 }
 
-#playlistPadding {
-  content: "";
-  height:10%;
+._square-sm {
+  width: 90vw;
+  height: 90vw;
+}
+
+#playlistImage {
+  border-radius: 0;
+  filter: drop-shadow(rgba(0, 0, 0, 0.3) 0px 0px 0.6rem);
+
 }
 
 .list-group-item {
   font-family: "gothammedium";
   background-color: transparent;
 }
+
 
 /* width */
 ::-webkit-scrollbar {
