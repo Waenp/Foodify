@@ -10,6 +10,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClients;
 
 import java.io.*;
+import java.sql.SQLOutput;
 
 /**
  * Provides communication with the Spotify API the class is provided with a token and a set of variables to control
@@ -43,7 +44,25 @@ public class SpotifyCaller {
     public void authorize(String accessToken) {
         this.accessToken = accessToken;
 
-        StringBuilder stringBuilder = new StringBuilder("https://api.spotify.com/v1/me");
+        String url = "https://api.spotify.com/v1/me";
+        httpClient = HttpClients.createDefault();
+        httpGet = new HttpGet(url);
+        httpGet.addHeader("Content-Type", "application/json");
+        httpGet.addHeader("Authorization", "Bearer " + accessToken);
+
+        try {
+            response = httpClient.execute(httpGet);
+            status = response.getStatusLine();
+
+            if (status.getStatusCode() == 200) {
+
+            } else {
+                System.out.println("Failed at getting user information");
+                System.out.println();
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void searchForItem(String dish, String cuisine, double mood, double tempo) {
