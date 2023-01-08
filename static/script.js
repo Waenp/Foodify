@@ -6,7 +6,7 @@ function searchRecipe() {
 
   // Gör om sökningen till en sträng som delas på mellanslag
   let array = query.split(" ")
-  
+  console.log(array)
 
   $.ajax({
     method: "POST",
