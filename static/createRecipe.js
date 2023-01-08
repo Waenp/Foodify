@@ -4,10 +4,12 @@ let liSpanTemplate = `<span id= "amount" class="badge bg-dark rounded-pill p-2">
 let olTemplate = `<li id= "instruction" class="list-group-item px-1"></li>`
 
 $(document).ready(function addIngredient() {
-
+  
+  let recipeId = localStorage.getItem("recipeId")
+  console.log(recipeId)
 //TODO: vi behöver klura ut hur man får med sig rätt index från sidan innan (alternativt receptets id från API-svaret)
-let index = 1;
-const url = "http://localhost:5007/recipes/" + index
+
+const url = "http://localhost:5007/recipes/" + recipeId
 
 fetch(url, {
   method: 'GET',

@@ -13,7 +13,7 @@ const cardTemplate =
         <p class="card-text" id="recipeDescription"></div>
       <div class="card-footer d-grid gap-2 d-lg-flex mt-auto">
         <p class="text-muted me-auto" id="cookTime"></p>
-        <a id="link" href="/views/recipes/recipe-page/" class="btn btn-full-recipe">Full recipe</a>
+        <a id="link" href="" class="btn btn-full-recipe">Full recipe</a>
         <a href="/views/create-playlist/authorize.html" class="btn btn-create-playlist">Create playlist!</a>
       </div>
     </div>
@@ -23,7 +23,7 @@ const cardTemplate =
 $( document ).ready(function addCard(){
 
 
-const url = "http://localhost:5007/recipes";
+const url = "http://localhost:5007/recipes" ;
 
 fetch(url, {
   method: 'GET',
@@ -51,19 +51,25 @@ fetch(url, {
   document.getElementById("recipeName").id = ("recipeName" + i);
   document.getElementById("recipeDescription").id = ("recipeDescription" + i);
   document.getElementById("recipeImg").id = ("recipeImg" + i);
-  document.getElementById("link").id = ("link" + i);
+  document.getElementById("link").id = (recipes[i].id);
   document.getElementById("cookTime").id = ("cookTime" + i)
 
   // Lägger till information från objektet i varje kort
-  $("#link" + i).attr("href", "/views/recipes/recipe-page/" + recipes[i].id);
+  $("#"+ recipes[i].id).attr("href", "/views/recipes/" + recipes[i].id);
   $("#recipeName" + i).text(recipes[i].title);
   $("#recipeDescription" + i).html(finalSummary + ".");
   $("#recipeImg" + i).attr("src", recipes[i].image);
   $("#cookTime" + i).text(recipes[i].readyInMinutes + "minutes");
 
+  document.getElementById("link")
+
   };
 
-})
+  $("#"+ recipes[i].id).click(localStorage.setItem("recipeId",recipes[i].id));
+    
+  } 
+
+)
 
 .catch(function(){
 
