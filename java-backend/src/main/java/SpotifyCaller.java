@@ -10,7 +10,6 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClients;
 
 import java.io.*;
-import java.sql.SQLOutput;
 
 /**
  * Provides communication with the Spotify API the class is provided with a token and a set of variables to control
@@ -28,14 +27,14 @@ public class SpotifyCaller {
     private Reader reader;
     private Gson json = new Gson();
 
-    private String userId;
+    private User currentUser;
 
     private String accessToken;
     private UserPLayList createdPlaylist;
     private double mood;
     private double tempo;
     private String dish;
-    private String cuisine;
+    //private String cuisine;
 
     public SpotifyCaller() {
 
@@ -55,15 +54,20 @@ public class SpotifyCaller {
             status = response.getStatusLine();
 
             if (status.getStatusCode() == 200) {
+                entity = response.getEntity();
+                data = entity.getContent();
 
+                reader = new InputStreamReader(data);
+                currentUser = json.fromJson(reader, User.class);
             } else {
                 System.out.println("Failed at getting user information");
-                System.out.println();
+                System.out.println("Status code: " + status.getStatusCode() + ". Reason: " + status.getReasonPhrase());
             }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
+
 
     public void searchForItem(String dish, String cuisine, double mood, double tempo) {
         this.dish = dish;
@@ -95,7 +99,7 @@ public class SpotifyCaller {
                     //Playlist playlist = json.fromJson(reader, Playlist.class);
                     SearchResult searchResult = json.fromJson(reader, SearchResult.class);
                     //getPlayList(playlist.getItems(), token, cuisine);
-                    getPlayList(searchResult.getPlaylists().getId(), accessToken, cuisine);
+                    getPlayList(searchResult.getPlaylists().getId());
                 } catch (Exception e) {
                     //TODO: fixa felhantering
                     e.printStackTrace();
@@ -110,6 +114,8 @@ public class SpotifyCaller {
         }
     }
 
+
+
     /**
      * The constructor is provided a set of variables upon creation which are used to identify who the playlist is
      * created for, what kind of playlist it should be and a token to make requests to the Spotify API
@@ -119,6 +125,7 @@ public class SpotifyCaller {
      * @param token a Spotify API token.
      * @param userId The current users spotify id (ex. tatrianelephant), it is the actual visible id to other users.
      */
+
     public SpotifyCaller(String dish, String cuisine, double mood, String token, String userId) {
         // GET /search för att hämta en eller flera spellista/spellistor
         // GET /playlists/{playlist_id} för att hämta specifik spellista
@@ -128,7 +135,7 @@ public class SpotifyCaller {
         // POST /playlists/{playlist_id}/tracks för att lägga till de genererade spåren
         // spela upp??
         this.dish = dish;
-        this.userId = userId;
+        //this.userId = userId;
         this.mood = mood / 100;
 
         searchForItem(cuisine, token);
@@ -171,6 +178,7 @@ public class SpotifyCaller {
          */
     }
 
+
     /**
      * This method generates a single playlist which is used to create seed values for a complete playlist based on what
      * the user is cooking. It does this by taking a type of cuisine and searching for that cuisine using the
@@ -179,6 +187,7 @@ public class SpotifyCaller {
      * @param token a user generated API-token.
      */
     private void searchForItem(String cuisine, String token) {
+        /*
         StringBuilder stringBuilder = new StringBuilder("https://api.spotify.com/v1/search?");
         stringBuilder.append("q=").append(cuisine);
         stringBuilder.append("&type=playlist");
@@ -218,23 +227,23 @@ public class SpotifyCaller {
         }
 
 
+
+         */
     }
 
     /**
      * This method is used to get a generated playlist from the Spotify-API /playlist using the generated playlist id
      * from searchForItem() together with the token.
      * @param playlistId the id of a generated playlist.
-     * @param token a user generated API-token.
-     * @param cuisine a single cuisine type (ex Italian).
      */
-    private void getPlayList(String playlistId, String token, String cuisine) {
+    private void getPlayList(String playlistId) {
         StringBuilder stringBuilder = new StringBuilder("https://api.spotify.com/v1/playlists/" + playlistId);
 
         httpClient = HttpClients.createDefault();
         httpGet = new HttpGet(stringBuilder.toString());
 
         httpGet.addHeader("Content-Type", "application/json");
-        httpGet.addHeader("Authorization", "Bearer " + token);
+        httpGet.addHeader("Authorization", "Bearer " + accessToken);
 
         try {
             response = httpClient.execute(httpGet);
@@ -251,7 +260,7 @@ public class SpotifyCaller {
                     //Playlist seedList = json.fromJson(reader, Playlist.class);
                     GetResult seedList = json.fromJson(reader, GetResult.class);
 
-                    createPlaylist(seedList, token);
+                    createPlaylist(seedList);
                 } catch (Exception e) {
                     //TODO: lös felhantering
                     e.printStackTrace();
@@ -267,16 +276,15 @@ public class SpotifyCaller {
      * This method creates a customized playlist for the user based on their Spotify id and a generated custom name for
      * the playlist.
      * @param seedList a list of seed values which will be used to populate the newly created playlist.
-     * @param token a user generated API-token.
      */
-    private void createPlaylist(GetResult seedList, String token) {
-        StringBuilder stringBuilder = new StringBuilder("https://api.spotify.com/v1/users/" + userId + "/playlists");
+    private void createPlaylist(GetResult seedList) {
+        StringBuilder stringBuilder = new StringBuilder("https://api.spotify.com/v1/users/" + currentUser.getId() + "/playlists");
 
         httpClient = HttpClients.createDefault();
         httpPost = new HttpPost(stringBuilder.toString());
 
         httpPost.addHeader("Content-Type", "application/json");
-        httpPost.addHeader("Authorization", "Bearer " + token);
+        httpPost.addHeader("Authorization", "Bearer " + accessToken);
 
         String inputJson = "{\"name\":\"" + generatePlaylistName() +  "\"}";
         StringEntity stringEntity = null;
@@ -298,7 +306,7 @@ public class SpotifyCaller {
 
                 createdPlaylist = json.fromJson(reader, UserPLayList.class);
                 System.out.println(createdPlaylist.getId());
-                populatePlayList(seedList, token);
+                populatePlayList(seedList);
             } else {
                 //TODO: felhantering!!
                 System.out.println("Failed at creating playlist " + status.getStatusCode());
@@ -341,12 +349,11 @@ public class SpotifyCaller {
      * This method populates the newly created user playlist with seed values of artists and tracks by calling the
      * Spotify-API /playlist/id/tracks?uris=.
      * @param seedList a list of artists and track ids.
-     * @param token a user generated API-token.
      */
-    private void populatePlayList(GetResult seedList, String token) {
+    private void populatePlayList(GetResult seedList) {
         String[] seedURIs = getSeedURIs(seedList);
 
-        String[] trackURIs = getTrackURIs(seedURIs, token);
+        String[] trackURIs = getTrackURIs(seedURIs);
 
         StringBuilder stringBuilder = new StringBuilder("https://api.spotify.com/v1/playlists/" + createdPlaylist.getId() + "/tracks?");
         stringBuilder.append("uris=");
@@ -361,7 +368,7 @@ public class SpotifyCaller {
         httpClient = HttpClients.createDefault();
         httpPost = new HttpPost(stringBuilder.toString());
         httpPost.addHeader("Content-Type", "application/json");
-        httpPost.addHeader("Authorization", "Bearer " + token);
+        httpPost.addHeader("Authorization", "Bearer " + accessToken);
 
         try {
             httpClient.execute(httpPost);
@@ -413,10 +420,9 @@ public class SpotifyCaller {
      * This method uses the extrapolated seed uris to generate 10 tracks to add to the users playlist by calling the
      * Spotify API /recommendations.
      * @param seedURIs an array of seed URIs.
-     * @param token a user generated API-token.
      * @return an array of recommended track URIs.
      */
-    private String[] getTrackURIs(String[] seedURIs, String token) {
+    private String[] getTrackURIs(String[] seedURIs) {
         int amountOfTracks = 10;
         String[] trackURIs = new String[amountOfTracks];
 
@@ -442,7 +448,7 @@ public class SpotifyCaller {
         httpClient = HttpClients.createDefault();
         httpGet = new HttpGet(stringBuilder.toString());
         httpGet.addHeader("Content-Type", "application/json");
-        httpGet.addHeader("Authorization", "Bearer " + token);
+        httpGet.addHeader("Authorization", "Bearer " + accessToken);
 
         Recommended recommended = null;
         try {
@@ -474,5 +480,7 @@ public class SpotifyCaller {
         return trackURIs;
     }
 
-
+    public UserPLayList getCreatedPlaylist() {
+        return createdPlaylist;
+    }
 }
