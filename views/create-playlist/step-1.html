@@ -103,9 +103,8 @@
         let hash = window.location.hash;
         $.ajax({
           method: 'POST',
-          url: 'http://localhost/5007/authorize',
-          data: JSON.stringify(hash),
-          headers: {"Accept": "application/json"}
+          url: 'http://localhost:5007/authorize',
+          data: hash
         }).done(function(result) {
 
         });

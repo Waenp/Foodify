@@ -12,7 +12,7 @@ function searchRecipe() {
     method: "POST",
     url: 'http://localhost:5007/recipes',
     data: JSON.stringify(array),
-    headers: {"Accept": "application/json"}
+    headers: {"Content-Type": "application/json"}
   })
   .done(function(result) {
   });

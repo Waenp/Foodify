@@ -24,9 +24,68 @@ public class SpotifyCaller {
     private Gson json = new Gson();
 
     private String userId;
+
+    private String accessToken;
     private UserPLayList createdPlaylist;
     private double mood;
+    private double tempo;
     private String dish;
+    private String cuisine;
+
+    public SpotifyCaller() {
+
+    }
+
+    public void authorize(String accessToken) {
+        this.accessToken = accessToken;
+
+        StringBuilder stringBuilder = new StringBuilder("https://api.spotify.com/v1/me");
+    }
+
+    public void searchForItem(String dish, String cuisine, double mood, double tempo) {
+        this.dish = dish;
+        //this.cuisine = cuisine;
+        this.mood = mood / 100;
+        this.tempo = tempo;
+
+        StringBuilder stringBuilder = new StringBuilder("https://api.spotify.com/v1/search?");
+        stringBuilder.append("q=").append(cuisine);
+        stringBuilder.append("&type=playlist");
+        stringBuilder.append("&limit=1");
+
+        httpClient = HttpClients.createDefault();
+        httpGet = new HttpGet(stringBuilder.toString());
+        httpGet.addHeader("Content-Type", "application/json");
+        httpGet.addHeader("Authorization", "Bearer " + accessToken);
+
+        try {
+            response = httpClient.execute(httpGet);
+            status = response.getStatusLine();
+
+            if (status.getStatusCode() == 200) {
+                entity = response.getEntity();
+                data = entity.getContent();
+
+                try {
+                    reader = new InputStreamReader(data);
+
+                    //Playlist playlist = json.fromJson(reader, Playlist.class);
+                    SearchResult searchResult = json.fromJson(reader, SearchResult.class);
+                    //getPlayList(playlist.getItems(), token, cuisine);
+                    getPlayList(searchResult.getPlaylists().getId(), accessToken, cuisine);
+                } catch (Exception e) {
+                    //TODO: fixa felhantering
+                    e.printStackTrace();
+                }
+            } else {
+                //TODO: riktig felhantering
+                System.out.println("Failed at search for item");
+                System.out.println("Reason: " + status.getReasonPhrase());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public SpotifyCaller(String dish, String cuisine, double mood, String token, String userId) {
         // GET /search för att hämta en eller flera spellista/spellistor

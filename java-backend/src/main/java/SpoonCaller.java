@@ -56,11 +56,17 @@ public class SpoonCaller {
 
     /**
      * This method is for getting a single specific recipe.
-     * @param index TODO comment after deciding on index or food-id.
+     * @param id TODO comment after deciding on index or food-id.
      * @return returns a single recipe from the array recipes.
      */
-    public Recipe getRecipe(int index) {
-        return recipes[index];
+    public Recipe getRecipe(String id) {
+        Recipe recipeToReturn = null;
+        for (Recipe r : recipes) {
+            if (r.getId().equals(id)) {
+                recipeToReturn = r;
+            }
+        }
+        return recipeToReturn;
     }
     /**
      * TODO remove?

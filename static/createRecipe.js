@@ -161,8 +161,8 @@ $(document).ready(function addIngredient() {
 });
 
 //TODO: vi behöver klura ut hur man får med sig rätt index från sidan innan (alternativt receptets id från API-svaret)
-let index = 1;
-const url = "http://localhost:5007/recipes/" + index
+let id = 1;
+const url = "http://localhost:5007/recipes/" + id;
 
 fetch(url, {
   method: 'GET',
