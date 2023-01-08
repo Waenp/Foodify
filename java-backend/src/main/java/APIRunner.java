@@ -11,7 +11,7 @@ public class APIRunner {
     private SpoonCaller spoonCaller;
 
     public APIRunner() {
-        String key = "87ddf0ed71ea42d89651dbe5b7340659";
+        String key = "";
         spoonCaller = new SpoonCaller(key);
 
         gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
