@@ -25,7 +25,7 @@ public class SpotifyCaller {
 
     private InputStream data;
     private Reader reader;
-    private Gson json = new Gson();
+    private final Gson json = new Gson();
 
     private User currentUser;
 
@@ -34,7 +34,7 @@ public class SpotifyCaller {
     private double mood;
     private double tempo;
     private String dish;
-    //private String cuisine;
+    private String cuisine;
 
     public SpotifyCaller() {
 
@@ -70,8 +70,8 @@ public class SpotifyCaller {
 
 
     public void searchForItem(String dish, String cuisine, double mood, double tempo) {
-        this.dish = dish;
-        //this.cuisine = cuisine;
+        this.dish = dish.substring(0,1).toUpperCase() + dish.substring(1).toLowerCase();
+        this.cuisine = cuisine.substring(0,1).toUpperCase() + cuisine.substring(1).toLowerCase();
         this.mood = mood / 100;
         this.tempo = tempo;
 
@@ -305,7 +305,9 @@ public class SpotifyCaller {
                 reader = new InputStreamReader(data);
 
                 createdPlaylist = json.fromJson(reader, UserPLayList.class);
-                System.out.println(createdPlaylist.getId());
+                createdPlaylist.setCuisine(cuisine);
+                createdPlaylist.setMood(getMoodLabel());
+                createdPlaylist.setTempo(tempo);
                 populatePlayList(seedList);
             } else {
                 //TODO: felhantering!!
@@ -332,7 +334,6 @@ public class SpotifyCaller {
     private String getMoodLabel() {
         String moodLabel = null;
         int mood = (int) (this.mood * 100);
-        System.out.println(mood);
         moodLabel = switch ((mood >= 0 && mood <= 33) ? 0 :
                 (mood >= 34 && mood <= 66) ? 1 :
                         (mood >= 67 && mood <= 100) ? 2 : 3) {
@@ -424,7 +425,7 @@ public class SpotifyCaller {
      */
     private String[] getTrackURIs(String[] seedURIs) {
         int amountOfTracks = 10;
-        String[] trackURIs = new String[amountOfTracks];
+
 
         StringBuilder stringBuilder = new StringBuilder("https://api.spotify.com/v1/recommendations?");
         stringBuilder.append("limit=").append(amountOfTracks);
@@ -442,6 +443,7 @@ public class SpotifyCaller {
         stringBuilder.append("&target_loudness=").append(mood);
         stringBuilder.append("&target_energy=").append(mood);
         stringBuilder.append("&target_valence=").append(mood);
+        stringBuilder.append("&target_tempo=").append(calculateTempo(tempo));
 
 
 
@@ -473,11 +475,24 @@ public class SpotifyCaller {
         }
 
         Track[] recommendedTracks = recommended.getTracks();
+        String[] trackURIs = new String[recommendedTracks.length];
         for (int i = 0; i < trackURIs.length; i++) {
             trackURIs[i] = recommendedTracks[i].getUri();
         }
 
         return trackURIs;
+    }
+
+    private String calculateTempo(double tempo) {
+        double oldValue = tempo;
+        double oldMin = 0;
+        double oldMax = 100;
+        double newMin = 70;
+        double newMax = 220;
+
+        double newValue = ((oldValue - oldMin) / (oldMax - oldMin) ) * (newMax - newMin) + newMin;
+        System.out.println("Calculated tempo: " + newValue);
+        return String.valueOf(newValue);
     }
 
     public UserPLayList getCreatedPlaylist() {

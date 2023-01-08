@@ -16,7 +16,7 @@ public class APIRunner {
     private SpotifyCaller spotifyCaller;
 
     public APIRunner() {
-        String key = "fcbd5da47ecb48629c22b030552d3900";
+        String key = "";
         spoonCaller = new SpoonCaller(key);
         spotifyCaller = new SpotifyCaller();
 
