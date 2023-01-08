@@ -11,6 +11,10 @@ import org.apache.http.impl.client.HttpClients;
 
 import java.io.*;
 
+/**
+ * Provides communication with the Spotify API the class is provided with a token and a set of variables to control
+ * the creation and population of Spotify playlists.
+ */
 public class SpotifyCaller {
     private HttpClient httpClient;
     private HttpGet httpGet;
@@ -87,6 +91,15 @@ public class SpotifyCaller {
         }
     }
 
+    /**
+     * The constructor is provided a set of variables upon creation which are used to identify who the playlist is
+     * created for, what kind of playlist it should be and a token to make requests to the Spotify API
+     * @param dish the type of dish being prepared.
+     * @param cuisine a type of cuisine to identify what kind of music should be generated (ex. Italian)
+     * @param mood to identify what kind of mood the playlist should have, a value of 0-1 is set.
+     * @param token a Spotify API token.
+     * @param userId The current users spotify id (ex. tatrianelephant), it is the actual visible id to other users.
+     */
     public SpotifyCaller(String dish, String cuisine, double mood, String token, String userId) {
         // GET /search för att hämta en eller flera spellista/spellistor
         // GET /playlists/{playlist_id} för att hämta specifik spellista
@@ -139,6 +152,13 @@ public class SpotifyCaller {
          */
     }
 
+    /**
+     * This method generates a single playlist which is used to create seed values for a complete playlist based on what
+     * the user is cooking. It does this by taking a type of cuisine and searching for that cuisine using the
+     * Spotify-API /search, together with the logged-in users token.
+     * @param cuisine a single cuisine type (ex Italian).
+     * @param token a user generated API-token.
+     */
     private void searchForItem(String cuisine, String token) {
         StringBuilder stringBuilder = new StringBuilder("https://api.spotify.com/v1/search?");
         stringBuilder.append("q=").append(cuisine);
@@ -181,6 +201,13 @@ public class SpotifyCaller {
 
     }
 
+    /**
+     * This method is used to get a generated playlist from the Spotify-API /playlist using the generated playlist id
+     * from searchForItem() together with the token.
+     * @param playlistId the id of a generated playlist.
+     * @param token a user generated API-token.
+     * @param cuisine a single cuisine type (ex Italian).
+     */
     private void getPlayList(String playlistId, String token, String cuisine) {
         StringBuilder stringBuilder = new StringBuilder("https://api.spotify.com/v1/playlists/" + playlistId);
 
@@ -205,7 +232,7 @@ public class SpotifyCaller {
                     //Playlist seedList = json.fromJson(reader, Playlist.class);
                     GetResult seedList = json.fromJson(reader, GetResult.class);
 
-                    createPlaylist(seedList, token, cuisine);
+                    createPlaylist(seedList, token);
                 } catch (Exception e) {
                     //TODO: lös felhantering
                     e.printStackTrace();
@@ -217,7 +244,13 @@ public class SpotifyCaller {
         }
     }
 
-    private void createPlaylist(GetResult seedList, String token, String cuisine) {
+    /**
+     * This method creates a customized playlist for the user based on their Spotify id and a generated custom name for
+     * the playlist.
+     * @param seedList a list of seed values which will be used to populate the newly created playlist.
+     * @param token a user generated API-token.
+     */
+    private void createPlaylist(GetResult seedList, String token) {
         StringBuilder stringBuilder = new StringBuilder("https://api.spotify.com/v1/users/" + userId + "/playlists");
 
         httpClient = HttpClients.createDefault();
@@ -257,10 +290,18 @@ public class SpotifyCaller {
         }
     }
 
+    /**
+     * This method generates a playlist name based on the mood of the user and the dish name.
+     * @return a customized playlist name.
+     */
     private String generatePlaylistName() {
         return String.format("%s - %s", getMoodLabel(), dish);
     }
 
+    /**
+     * This method fetches the current mood of the user which they defined on the Foodify page.
+     * @return returns a type of mood.
+     */
     private String getMoodLabel() {
         String moodLabel = null;
         int mood = (int) (this.mood * 100);
@@ -277,6 +318,12 @@ public class SpotifyCaller {
         return moodLabel;
     }
 
+    /**
+     * This method populates the newly created user playlist with seed values of artists and tracks by calling the
+     * Spotify-API /playlist/id/tracks?uris=.
+     * @param seedList a list of artists and track ids.
+     * @param token a user generated API-token.
+     */
     private void populatePlayList(GetResult seedList, String token) {
         String[] seedURIs = getSeedURIs(seedList);
 
@@ -315,7 +362,12 @@ public class SpotifyCaller {
 
     }
 
-
+    /**
+     * This method is used for taking objects of GetResult fetching either artist ids and adding them to a
+     * String array.
+     * @param seedList a list of artists and track ids.
+     * @return an array of ids.
+     */
     private String[] getSeedURIs(GetResult seedList) {
         Track[] tracks = seedList.getTracks();
 
@@ -338,6 +390,13 @@ public class SpotifyCaller {
         return seedURIs;
     }
 
+    /**
+     * This method uses the extrapolated seed uris to generate 10 tracks to add to the users playlist by calling the
+     * Spotify API /recommendations.
+     * @param seedURIs an array of seed URIs.
+     * @param token a user generated API-token.
+     * @return an array of recommended track URIs.
+     */
     private String[] getTrackURIs(String[] seedURIs, String token) {
         int amountOfTracks = 10;
         String[] trackURIs = new String[amountOfTracks];

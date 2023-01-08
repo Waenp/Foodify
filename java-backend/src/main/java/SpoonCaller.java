@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Provides communication with the api SpoonAcular, the class is provided with a token and a comma seperated list of
+ * Provides communication with the SpoonAcular api, the class is provided with a token and a comma seperated list of
  * ingredients which is used to generate recipes for the caller.
  */
 public class SpoonCaller {
