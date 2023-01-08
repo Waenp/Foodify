@@ -69,10 +69,14 @@
       $(document).ready(function() {
         //TODO: skapar här ett objekt som används av vårt API för att göra kall. datan måste dock "hänga med" från tidigare sidor:
         let body = new Object();
-        body.mood = 50;
-        body.tempo = 100;
-        body.cuisine = "mexican"
-        body.dish = "fish tacos"
+        let recipeObj = localStorage.getItem("recipeObj");
+        let recipe = JSON.parse(recipeObj);
+
+        body.mood = localStorage.getItem("mood");
+        body.tempo = localStorage.getItem("tempo");
+        body.cuisine = recipe.cuisines[0];
+        body.dish = recipe.title;
+
 
         $.ajax({
           method: 'POST',

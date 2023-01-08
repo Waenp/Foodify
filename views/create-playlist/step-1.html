@@ -109,5 +109,14 @@
         });
       })
     </script>
+    <script>
+      $('#moodSliderLg').on('change', function() {
+        let val = $(this).val();
+        //$('.value').html(val);
+        localStorage.removeItem("mood");
+        localStorage.setItem("mood", val);
+        console.log(val);
+      });
+    </script>
   </body>
 </html>
