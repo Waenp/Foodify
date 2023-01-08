@@ -117,8 +117,11 @@ $(document).ready(function addIngredient() {
 
   }
 
+  i = 0; 
+
   let ingredients = obj.extendedIngredients
   ingredients.pop()
+  console.log(ingredients)
 
   for (i; i < ingredients.length; i++){
 
@@ -137,7 +140,9 @@ $(document).ready(function addIngredient() {
 
     };
 
-  for (let i = 0; i < ingredients.length; i++) {
+  i = 0;
+
+    for (let i = 0; i < ingredients.length; i++) {
 
     let amounts = obj.extendedIngredients[i].measures
     
@@ -145,13 +150,13 @@ $(document).ready(function addIngredient() {
     console.log(measurements)
 
     document.querySelector("#item" + i)
-    .insertAdjacentHTML("beforeend", olTemplate);
+    .insertAdjacentHTML("beforeend", liSpanTemplate);
 
     document.getElementById("amount").id = "amount" + i;
 
     $("#amount" + i).text(measurements);
 
-  }
+    }
 
 });
 
