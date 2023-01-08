@@ -131,7 +131,11 @@
 
         .then((data) => {
           let playlist = data;
-          console.log(playlist);
+          let recipeObj = localStorage.getItem("recipeObj");
+          let recipe = JSON.parse(recipeObj);
+          $('#playlistDish').text(recipe.title);
+          let description = recipe.summary.split(".")
+          $('#playlistDesc').text(description[0]);
           $('#playlistMood').text(playlist.mood);
           $('#playlistCuisine').text(playlist.cuisine);
           $('#playlistTempo').text(playlist.tempo);
