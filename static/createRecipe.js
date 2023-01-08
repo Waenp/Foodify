@@ -15,19 +15,17 @@ $(document).ready(function addIngredient() {
   $("#recipeDescription").html("<p>" + recipe.summary + "</p>");
 
   let i = 0;
-  let instructions = recipe.analyzedInstructions[i].steps[i].step;
+  let instructions = recipe.analyzedInstructions[0].steps;
   let ingredients = recipe.extendedIngredients;
   
   ingredients.pop();
   console.log(ingredients);
   console.log(instructions)
 
-
-
   for (i; i < instructions.length; i++) {
-    let instructions = recipe.analyzedInstructions[0].steps[i].step;
+    let instruction = instructions[i].step;
 
-    console.log(instructions);
+    console.log(instruction);
 
     document
       .querySelector("#instructions")
@@ -35,7 +33,7 @@ $(document).ready(function addIngredient() {
 
     document.getElementById("instruction").id = "instruction" + i;
 
-    $("#instruction" + i).text(instructions);
+    $("#instruction" + i).text(instruction);
   }
 
 
