@@ -1,7 +1,10 @@
 package foodify.beans.spoonacular.recipe;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+@JsonSerialize
 public class Measure {
-    private Metric metric;
+    public Metric metric;
 
     public String toString() {
         return metric.toString();

@@ -12,7 +12,6 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClients;
 import foodify.beans.spoonacular.recipe.Recipe;
 import org.apache.http.message.BasicNameValuePair;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -20,8 +19,12 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Provides communication with the api SpoonAcular, the class is provided with a token and a comma seperated list of
+ * ingredients which is used to generate recipes for the caller.
+ */
 public class SpoonCaller {
+    private final String key;
     private HttpClient httpClient;
     private HttpGet httpGet;
     private HttpPost httpPost;
@@ -34,12 +37,50 @@ public class SpoonCaller {
 
     private Recipe[] recipes;
 
-
-    public SpoonCaller(String[] ingredients, String apiKey) {
-        searchByIngredients(ingredients, apiKey);
+    /**
+     * The constructor takes a String value upon creation which it sets to the instance variable key. The instance
+     * variable is used in several API-calls to SpoonAculars API.
+     * @param key a String value containing an API-token.
+     */
+    public SpoonCaller(String key) {
+        this.key = key;
     }
 
-    private void searchByIngredients(String[] ingredients, String apiKey) {
+    /**
+     * This method is for getting an array of the beans recipes upon calling.
+     * @return an array containing recipes.
+     */
+    public Recipe[] getRecipes() {
+        return recipes;
+    }
+
+    /**
+     * This method is for getting a single specific recipe.
+     * @param index TODO comment after deciding on index or food-id.
+     * @return returns a single recipe from the array recipes.
+     */
+    public Recipe getRecipe(int index) {
+        return recipes[index];
+    }
+    /**
+     * TODO remove?
+     * @param ingredients an array of strings, each index contains one ingredient.
+     */
+    public void generateRecipes(String[] ingredients) {
+        searchByIngredients(ingredients);
+    }
+
+    /**
+     * This method is for searching for recipes using the provided ingredients, when the method is called a uri is
+     * built using:
+     * - the token which was set as an instance variable on creation
+     * - the ingredients from the parameter.
+     * Once the uri is built the SpoonAcular API recipes/findByIngredients is called which is used to fetch recipes
+     * matching the given ingredients and save them as an array of the Recipe class. Finally, the method
+     * getInformationBulk is called.
+     * @param ingredients an array of Strings containing ingredients.
+     */
+    private void searchByIngredients(String[] ingredients) {
         StringBuilder stringBuilder =  new StringBuilder("https://api.spoonacular.com/recipes/findByIngredients?");
         stringBuilder.append("ingredients=");
         for (int i = 0; i < ingredients.length; i++) {
@@ -53,21 +94,56 @@ public class SpoonCaller {
         stringBuilder.append("&number=10");
         stringBuilder.append("&ranking=2");
         stringBuilder.append("&ignorePantry=true");
-        stringBuilder.append("&apiKey=").append(apiKey);
+        stringBuilder.append("&apiKey=").append(key);
 
-        //TODO: ska vi lägga till headers eller??
-        getCall(stringBuilder.toString());
+        //getCall(stringBuilder.toString());
+
+        try {
+            httpClient = HttpClients.createDefault();
+            httpGet = new HttpGet(stringBuilder.toString());
+            httpGet.addHeader("Content-Type", "application/json");
+
+            response = httpClient.execute(httpGet);
+            status = response.getStatusLine();
+
+            if (status.getStatusCode() == 200) {
+                entity = response.getEntity();
+                data = entity.getContent();
+
+                try {
+                    reader = new InputStreamReader(data);
+
+                    recipes = json.fromJson(reader, Recipe[].class);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+                System.out.println("Failed at searching by ingredients");
+                System.out.println("Status code: " + status.getStatusCode() + ". Reason: " + status.getReasonPhrase());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         String[] ids = new String[recipes.length];
         for (int i = 0; i < recipes.length; i++) {
             ids[i] = recipes[i].getId();
         }
 
-        getInformationBulk(ids, apiKey);
-        System.out.println("Antal recept: " + recipes.length);
+        getInformationBulk(ids);
     }
-
-    private void getInformationBulk(String[] ids, String apiKey) {
+    /**
+     * This method is for fetching bulk information of a given list of dish ids, when the method is called an uri is
+     * built using:
+     * - the token which was set as an instance variable on creation
+     * - the ids from the parameter, which are used to identify what recepis to fetch.
+     * Once the uri is built the SpoonAcular API recipes/informationBulk is called which is used to populate all
+     * instance variables of the class Recipe. Should the recipe be missing what type of cuisine it is, the
+     * method analysCuisine is called to generate cuisine types.
+     * @param ids an array of Strings containing ids.
+     */
+    private void getInformationBulk(String[] ids) {
         StringBuilder stringBuilder = new StringBuilder("https://api.spoonacular.com/recipes/informationBulk?");
         stringBuilder.append("ids=");
         for (int i = 0; i < ids.length; i++) {
@@ -77,40 +153,74 @@ public class SpoonCaller {
                 stringBuilder.append(ids[i]).append(",");
             }
         }
-        stringBuilder.append("&apiKey=").append(apiKey);
-        getCall(stringBuilder.toString());
+        stringBuilder.append("&apiKey=").append(key);
+
+        try {
+            httpClient = HttpClients.createDefault();
+            httpGet = new HttpGet(stringBuilder.toString());
+            httpGet.addHeader("Content-Type", "application/json");
+
+            response = httpClient.execute(httpGet);
+            status = response.getStatusLine();
+
+            if (status.getStatusCode() == 200) {
+                entity = response.getEntity();
+                data = entity.getContent();
+
+                try {
+                    reader = new InputStreamReader(data);
+
+                    recipes = json.fromJson(reader, Recipe[].class);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+                System.out.println("Failed at fetching recipe information");
+                System.out.println("Status code: " + status.getStatusCode() + ". Reason: " + status.getReasonPhrase());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
         for (Recipe r : recipes) {
             String[] cuisines = r.getCuisines();
             if (cuisines.length < 1) {
-                analyzeCuisine(r, apiKey);
+                analyzeCuisine(r);
             }
             System.out.println(r);
         }
     }
 
-    private void analyzeCuisine(Recipe recipe, String apiKey) {
-        StringBuilder stringBuilder = new StringBuilder("https://api.spoonacular.com/recipes/cuisine?");
-        stringBuilder.append("language=en");
-        stringBuilder.append("&apiKey=" + apiKey);
-        postCall(stringBuilder.toString(), recipe);
-    }
+    /**
+     * This method is used when a recipe is missing its cuisine type. Since the Foodiy mashup needs a cuisine type in
+     * order to generate a playlist to go with cooking this method generates missing cuisine types by building the
+     * uri using:
+     * - the token which was set as an instance variable on creation
+     * - the recipe missing its cuisine type.
+     * Once the uri is built the SpoonAcular API recipes/cuisine is called which requires a set of ingredients to
+     * approximate a set of cuisine types and updates the recipe.
+     * @param recipe a recipe object.
+     */
+    private void analyzeCuisine(Recipe recipe) {
+        StringBuilder url = new StringBuilder("https://api.spoonacular.com/recipes/cuisine?");
+        url.append("language=en");
+        url.append("&apiKey=").append(key);
 
-    private void postCall(String query, Recipe recipe) {
         try {
             httpClient = HttpClients.createDefault();
-            httpPost = new HttpPost(query);
+            httpPost = new HttpPost(url.toString());
             httpPost.addHeader("Content-Type","application/json");
 
             List<NameValuePair> params = new ArrayList<>();
             params.add(new BasicNameValuePair("title", recipe.getTitle()));
-            StringBuilder stringBuilder = new StringBuilder();
+            StringBuilder ingredientsBuilder = new StringBuilder();
             Ingredient[] ingredients = recipe.getExtendedIngredients();
             for (Ingredient i : ingredients) {
-                stringBuilder.append(i.getNameClean()).append("\n");
+                ingredientsBuilder.append(i.getNameClean()).append("\n");
             }
-            params.add(new BasicNameValuePair("ingredientList", stringBuilder.toString()));
+            params.add(new BasicNameValuePair("ingredientList", ingredientsBuilder.toString()));
 
             httpPost.setEntity(new UrlEncodedFormEntity(params));
             response = httpClient.execute(httpPost);
@@ -129,39 +239,8 @@ public class SpoonCaller {
                     e.printStackTrace();
                 }
             } else {
-                //TODO: felhantering och sånt där gött!
-                System.out.println("Det sket sig i köksanalysen!");
-                System.out.println(status.getStatusCode());
-                System.out.println(status.getReasonPhrase());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void getCall(String query) {
-        try {
-            httpClient = HttpClients.createDefault();
-            httpGet = new HttpGet(query);
-
-            response = httpClient.execute(httpGet);
-            status = response.getStatusLine();
-
-            if (status.getStatusCode() == 200) {
-                entity = response.getEntity();
-                data = entity.getContent();
-
-                try {
-                    reader = new InputStreamReader(data);
-
-                    recipes = json.fromJson(reader, Recipe[].class);
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            } else {
-                //TODO: fixa felhantering
-                System.out.println("Det sket sig!");
+                System.out.println("Failed at analyzing cuisine");
+                System.out.println("Status code: " + status.getStatusCode() + ". Reason: " + status.getReasonPhrase());
             }
         } catch (IOException e) {
             e.printStackTrace();

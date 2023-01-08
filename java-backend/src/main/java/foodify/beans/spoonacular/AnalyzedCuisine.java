@@ -1,5 +1,8 @@
 package foodify.beans.spoonacular;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+@JsonSerialize
 public class AnalyzedCuisine {
     private String cuisine;
     private String[] cuisines;
