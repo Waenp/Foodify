@@ -40,9 +40,9 @@
                     <div class="d-flex flex-column align-items-end h-100">
                       <img id="playlistImage" class="card-img mt-auto" src="/static/images/ab67616d00001e022f13fcfe011d340e9c69923eab67616d00001e02315d0a3f8f3dbbabf19337dfab67616d00001e026abb21c286af583667bb0e40ab67616d00001e02ccabefb5f70b4c2ad8a7cc44.jfif">
                       <div class="text-end">
-                        <h4 id="playlistMood0" class="display-3 _medium _ls-2 _cur-context">Romantic</h4>
-                        <h4 id="playlistMood1" class="display-3 _medium _ls-2 _cur-context">Relaxed</h4>
-                        <h4 id="playlistNat" class="display-3 _medium _ls-2 _cur-context">Italian</h4>
+                        <h4 id="playlistMood" class="display-3 _medium _ls-2 _cur-context">Romantic</h4>
+                        <h4 id="playlistTempo" class="display-3 _medium _ls-2 _cur-context">Relaxed</h4>
+                        <h4 id="playlistCuisine" class="display-3 _medium _ls-2 _cur-context">Italian</h4>
                       </div>
                     </div>
                   </div>
@@ -135,6 +135,7 @@
           $('#playlistMood').text(playlist.mood);
           $('#playlistCuisine').text(playlist.cuisine);
           $('#playlistTempo').text(playlist.tempo);
+          $('#playlistImage').attr("src", playlist.images[0].url)
 
         })
 

@@ -377,6 +377,7 @@ public class SpotifyCaller {
 
             if (status.getStatusCode() == 200) {
                 System.out.println("Successfully added tracks to playlist");
+                getImages();
             } else {
                 System.out.println("Failed at adding tracks to playlist. Status code: " + status.getStatusCode());
                 System.out.println("Reason: " + status.getReasonPhrase());
@@ -387,6 +388,35 @@ public class SpotifyCaller {
 
         //TODO: ska vi spela upp??
 
+    }
+
+    private void getImages() {
+        String url = "https://api.spotify.com/v1/playlists/" + createdPlaylist.getId();
+        httpClient = HttpClients.createDefault();
+        httpGet = new HttpGet(url);
+        httpGet.addHeader("Content-Type", "application/json");
+        httpGet.addHeader("Authorization", "Bearer " + accessToken);
+
+        try {
+            response = httpClient.execute(httpGet);
+
+            status = response.getStatusLine();
+            if (status.getStatusCode() == 200) {
+                entity = response.getEntity();
+                data = entity.getContent();
+
+                reader = new InputStreamReader(data);
+
+                ImageResult images = json.fromJson(reader, ImageResult.class);
+
+                createdPlaylist.setImages(images.getImages());
+            } else {
+                System.out.println("Failed at getting playlist");
+                System.out.println("Status code: " + status.getStatusCode() + " . Reason: " + status.getReasonPhrase());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**

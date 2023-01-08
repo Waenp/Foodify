@@ -5,6 +5,7 @@ public class UserPLayList {
     private String mood;
     private String tempo;
     private String cuisine;
+    private Image[] images;
 
     public void setMood(String mood) {
         this.mood = mood;
@@ -27,6 +28,10 @@ public class UserPLayList {
 
     public void setCuisine(String cuisine) {
         this.cuisine = cuisine;
+    }
+
+    public void setImages(Image[] images) {
+        this.images = images;
     }
 
     public String getId() {
