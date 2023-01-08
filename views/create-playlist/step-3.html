@@ -65,6 +65,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="/static/script.js"></script>
     <script src="/static/responsive.js" type="text/javascript"></script>
+    <script>
+      $(document).ready(function() {
+        //TODO: skapar här ett objekt som används av vårt API för att göra kall. datan måste dock "hänga med" från tidigare sidor:
+        let body = new Object();
+        body.mood = 50;
+        body.tempo = 100;
+        body.cuisine = "mexican"
+        body.dish = "fish tacos"
+
+        $.ajax({
+          method: 'POST',
+          url: 'http://localhost:5007/playlist',
+          data: JSON.stringify(body),
+          headers: {"Content-Type": "application/json"}
+        }).done(function (result) {
+        });
+      })
+    </script>
 
   </body>
 </html>
