@@ -1,92 +1,72 @@
 // Skapa templates för listitems och span i listorna
-let ulTemplate = `<li id= "item" class="list-group-item d-flex justify-content-between align-items-center px-1"></li>`
-let liSpanTemplate = `<span id= "amount" class="badge bg-dark rounded-pill p-2"></span>`
-let olTemplate = `<li id= "instruction" class="list-group-item px-1"></li>`
+let ulTemplate = `<li id= "item" class="list-group-item d-flex justify-content-between align-items-center px-1"></li>`;
+let liSpanTemplate = `<span id= "amount" class="badge bg-dark rounded-pill p-2"></span>`;
+let olTemplate = `<li id= "instruction" class="list-group-item px-1"></li>`;
 
 $(document).ready(function addIngredient() {
+  //TODO: vi behöver klura ut hur man får med sig rätt index från sidan innan (alternativt receptets id från API-svaret)
 
-//TODO: vi behöver klura ut hur man får med sig rätt index från sidan innan (alternativt receptets id från API-svaret)
-let index = 1;
-const url = "http://localhost:5007/recipes/" + index
+  let recipeObj = localStorage.getItem("recipeObj");
+  let recipe = JSON.parse(recipeObj);
+  console.log(recipe);
 
-fetch(url, {
-  method: 'GET',
-  headers: {
-    'Content-Type': 'application/json'
-  }
-})
+  $("#recipeName").text(recipe.title);
+  $("#recipeImg").attr("src", recipe.image);
+  $("#recipeDescription").html("<p>" + recipe.summary + "</p>");
 
-.then((response) =>{
-  return response.json();
-})
+  let i = 0;
+  let instructions = recipe.analyzedInstructions[0].steps;
+  let ingredients = recipe.extendedIngredients;
+  
+  ingredients.pop();
+  console.log(ingredients);
+  console.log(instructions)
 
-.then((data) => {
-let recipe = data;
-console.log(recipe)
+  for (i; i < instructions.length; i++) {
+    let instruction = instructions[i].step;
 
-recipe.map(function(){
+    console.log(instruction);
 
-$("#recipeName").text(obj.title)
-$("#recipeImg" ).attr("src", obj.image)
-$("#recipeDescription").html("<p>" + obj.summary + "</p>");
-
-let i = 0 
-
-for (i; i < instructions.length; i++){
-    let instructions = recipe[i].analyzedInstructions[i].steps[i].step
-    
-    console.log(instructions)
-
-    document.querySelector("#instructions")
-    .insertAdjacentHTML("beforeend", olTemplate);
+    document
+      .querySelector("#instructions")
+      .insertAdjacentHTML("beforeend", olTemplate);
 
     document.getElementById("instruction").id = "instruction" + i;
 
-    $("#instruction" + i).text(instructions);
+    $("#instruction" + i).text(instruction);
+  }
 
-}
 
-i = 0; 
+  i = 0;
 
-let ingredients = recipe[i].extendedIngredients
-ingredients.pop()
-console.log(ingredients)
 
-for (i; i < ingredients.length; i++){
-
-    document.querySelector("#ingredients")
-    .insertAdjacentHTML("beforeend", ulTemplate);
+  for (i; i < ingredients.length; i++) {
+    document
+      .querySelector("#ingredients")
+      .insertAdjacentHTML("beforeend", ulTemplate);
 
     document.getElementById("item").id = "item" + i;
 
-    let word = ingredients[i].nameClean
-    const firstLetter = word.charAt(0)
-    const firstLetterCap = firstLetter.toUpperCase()
-    const remainingLetters = word.slice(1)
-    const capitalizedWord = firstLetterCap + remainingLetters
+    let word = ingredients[i].nameClean;
+    const firstLetter = word.charAt(0);
+    const firstLetterCap = firstLetter.toUpperCase();
+    const remainingLetters = word.slice(1);
+    const capitalizedWord = firstLetterCap + remainingLetters;
 
     $("#item" + i).text(capitalizedWord);
 
-    let amounts = recipe[i].extendedIngredients[i].measures
-    
-    let measurements = Math.floor(amounts.metric.amount) + " " + amounts.metric.unitShort
-    console.log(measurements)
+    let amounts = recipe.extendedIngredients[i].measures;
 
-    document.querySelector("#item" + i)
-    .insertAdjacentHTML("beforeend", liSpanTemplate);
+    let measurements =
+      Math.floor(amounts.metric.amount) + " " + amounts.metric.unitShort;
+    console.log(measurements);
+
+    document
+      .querySelector("#item" + i)
+      .insertAdjacentHTML("beforeend", liSpanTemplate);
 
     document.getElementById("amount").id = "amount" + i;
 
     $("#amount" + i).text(measurements);
-
-    };
-})
-
-.catch(function(error){
-  console.log(error)
-  })
-
-}); 
-
-
+  }
 });
