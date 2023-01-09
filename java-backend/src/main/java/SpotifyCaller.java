@@ -385,9 +385,6 @@ public class SpotifyCaller {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-        //TODO: ska vi spela upp??
-
     }
 
     private void getImages() {
