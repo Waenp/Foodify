@@ -56,6 +56,13 @@ body {
   animation-duration: 1.5s;
 }
 
+#loadBody {
+  background-color: rgb(228, 163, 159) !important;
+  background: url("/static/images/hands_rearanged_colorcorrect.png") no-repeat bottom center;
+  background-size: 100vw;
+  background-attachment: fixed;
+}
+
 #aboutBody {
   background-color: rgb(188, 217, 233) !important;
   background: url("/static/images/burger.png") no-repeat bottom, url("/static/images/donut.png") no-repeat bottom, url("/static/images/pizza.png") no-repeat bottom, url("/static/images/hotdog.png") no-repeat bottom, url("/static/images/cup.png") no-repeat bottom;
