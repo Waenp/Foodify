@@ -64,35 +64,5 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="/static/script.js"></script>
     <script src="/static/createRecipe.js"></script>
-    <script>
-      $( document ).ready(function addCard(){
-
-
-        const url = "http://localhost:5007/playlist";
-
-        fetch(url, {
-          method: 'GET',
-          headers: {
-            'Accept': 'application/json'
-          }
-        })
-
-        .then((response) =>{
-          return response.json();
-        })
-
-        .then((data) => {
-          let playlist = data;
-          console.log(playlist.id);
-          $('#spotifyPlay').attr("src", "https://open.spotify.com/embed/playlist/" + playlist.id+ "?utm_source=generator");
-
-
-        })
-
-        .catch(function(){
-
-        })
-      })
-    </script>
   </body>
 </html>
