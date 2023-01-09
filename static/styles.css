@@ -188,7 +188,6 @@ body {
   text-decoration: underline;
 }
 
-/* Behövs denna? */
 #playlistContainerLarge {
   z-index: -11;
 }
@@ -214,7 +213,7 @@ body {
   font-family: "gothamthin";
 }
 
-/* Letter spacing */
+/* Letter spacing. 1px-5px */
 ._ls-1 {
   letter-spacing: -1px;
 }
@@ -253,14 +252,6 @@ body {
   width: 50vw;
   height: 4rem;
   font-size: 1.3rem;
-}
-
-article {
-  background-color: rgba(255, 255, 255, 0.555);
-  padding: 30px 40px;
-  border: 1.3px solid rgb(255, 255, 255);
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgb(0, 0, 0);
 }
 
 @keyframes card {
