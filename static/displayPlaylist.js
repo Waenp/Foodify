@@ -19,7 +19,7 @@ $( document ).ready(function linkPlaylist(){
     let recipe = JSON.parse(recipeObj);
     $('#playlistDish').text(recipe.title);
     let description = recipe.summary.split(".")
-    $('#playlistDesc').text(description[0]);
+    $('#playlistDesc').html(description[0]);
     $('#playlistMood').text(playlist.mood);
     $('#playlistCuisine').text(playlist.cuisine);
     $('#playlistTempo').text(playlist.tempo);
