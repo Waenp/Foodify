@@ -27,15 +27,15 @@ $(document).ready(function addCard() {
       readyInMinutes: 45,
       servings: 6,
       sourceUrl:
-        "https://www.foodista.com/recipe/G2QDD6GF/crispy-buttermilk-fried-chicken",
+          "https://www.foodista.com/recipe/G2QDD6GF/crispy-buttermilk-fried-chicken",
       spoonacularSourceUrl:
-        "https://spoonacular.com/crispy-buttermilk-fried-chicken-640803",
+          "https://spoonacular.com/crispy-buttermilk-fried-chicken-640803",
       image: "https://spoonacular.com/recipeImages/640803-556x370.jpg",
       summary:
-        'Forget going out to eat or ordering takeout every time you crave Southern food. Try making Crispy Buttermilk Fried Chicken at home. One portion of this dish contains roughly <b>16g of protein</b>, <b>15g of fat</b>, and a total of <b>260 calories</b>. For <b>62 cents per serving</b>, this recipe <b>covers 9%</b> of your daily requirements of vitamins and minerals. This recipe serves 6. 53 people found this recipe to be delicious and satisfying. This recipe from Foodista requires vegetable oil, buttermilk, salt, and paprika. It works best as a main course, and is done in roughly <b>around 45 minutes</b>. Taking all factors into account, this recipe <b>earns a spoonacular score of 38%</b>, which is rather bad. Users who liked this recipe also liked <a href="https://spoonacular.com/recipes/crispy-buttermilk-fried-chicken-912357">Crispy Buttermilk Fried Chicken</a>, <a href="https://spoonacular.com/recipes/crispy-buttermilk-fried-chicken-32074">Crispy Buttermilk Fried Chicken</a>, and <a href="https://spoonacular.com/recipes/crispy-oven-fried-buttermilk-chicken-244810">Crispy Oven Fried Buttermilk Chicken</a>.',
+          'Forget going out to eat or ordering takeout every time you crave Southern food. Try making Crispy Buttermilk Fried Chicken at home. One portion of this dish contains roughly <b>16g of protein</b>, <b>15g of fat</b>, and a total of <b>260 calories</b>. For <b>62 cents per serving</b>, this recipe <b>covers 9%</b> of your daily requirements of vitamins and minerals. This recipe serves 6. 53 people found this recipe to be delicious and satisfying. This recipe from Foodista requires vegetable oil, buttermilk, salt, and paprika. It works best as a main course, and is done in roughly <b>around 45 minutes</b>. Taking all factors into account, this recipe <b>earns a spoonacular score of 38%</b>, which is rather bad. Users who liked this recipe also liked <a href="https://spoonacular.com/recipes/crispy-buttermilk-fried-chicken-912357">Crispy Buttermilk Fried Chicken</a>, <a href="https://spoonacular.com/recipes/crispy-buttermilk-fried-chicken-32074">Crispy Buttermilk Fried Chicken</a>, and <a href="https://spoonacular.com/recipes/crispy-oven-fried-buttermilk-chicken-244810">Crispy Oven Fried Buttermilk Chicken</a>.',
       cuisines: ["Southern"],
       instructions:
-        "Mix flour, salt, paprika and pepper. Dip chicken in buttermilk and then into flour mixture. Cook chicken in oil, starting on medium-high heat, then, when chicken is browned, reduce heat to medium and cook an additional 30 to 35 minutes until chicken is done (approx 150-155 degrees F internal), turning occasionally.",
+          "Mix flour, salt, paprika and pepper. Dip chicken in buttermilk and then into flour mixture. Cook chicken in oil, starting on medium-high heat, then, when chicken is browned, reduce heat to medium and cook an additional 30 to 35 minutes until chicken is done (approx 150-155 degrees F internal), turning occasionally.",
       analyzedInstructions: [
         {
           steps: [
@@ -118,15 +118,15 @@ $(document).ready(function addCard() {
       readyInMinutes: 45,
       servings: 2,
       sourceUrl:
-        "https://www.foodista.com/recipe/TPJ6QNBY/zucchini-chicken-omelette",
+          "https://www.foodista.com/recipe/TPJ6QNBY/zucchini-chicken-omelette",
       spoonacularSourceUrl:
-        "https://spoonacular.com/zucchini-chicken-omelette-665734",
+          "https://spoonacular.com/zucchini-chicken-omelette-665734",
       image: "https://spoonacular.com/recipeImages/665734-556x370.jpg",
       summary:
-        'If you have about <b>approximately 45 minutes</b> to spend in the kitchen, Zucchini Chicken Omelette might be a super <b>gluten free, dairy free, fodmap friendly, and whole 30</b> recipe to try. This recipe makes 2 servings with <b>210 calories</b>, <b>13g of protein</b>, and <b>16g of fat</b> each. For <b>72 cents per serving</b>, this recipe <b>covers 11%</b> of your daily requirements of vitamins and minerals. A mixture of eggs, water, zucchini, and a handful of other ingredients are all it takes to make this recipe so yummy. It works well as a very reasonably priced main course. 5 people have tried and liked this recipe. It is brought to you by Foodista. All things considered, we decided this recipe <b>deserves a spoonacular score of 35%</b>. This score is not so tremendous. Similar recipes include <a href="https://spoonacular.com/recipes/zucchini-omelette-631011">Zucchini omelette</a>, <a href="https://spoonacular.com/recipes/potato-zucchini-omelette-78424">Potato & Zucchini Omelette</a>, and <a href="https://spoonacular.com/recipes/smoked-salmon-omelette-with-sweet-soy-sauce-sriracha-how-to-have-omelette-for-dinner-494061"> Smoked Salmon Omelette with Sweet Soy Sauce & Sriracha & How to Have Omelette for Dinner</a>.',
+          'If you have about <b>approximately 45 minutes</b> to spend in the kitchen, Zucchini Chicken Omelette might be a super <b>gluten free, dairy free, fodmap friendly, and whole 30</b> recipe to try. This recipe makes 2 servings with <b>210 calories</b>, <b>13g of protein</b>, and <b>16g of fat</b> each. For <b>72 cents per serving</b>, this recipe <b>covers 11%</b> of your daily requirements of vitamins and minerals. A mixture of eggs, water, zucchini, and a handful of other ingredients are all it takes to make this recipe so yummy. It works well as a very reasonably priced main course. 5 people have tried and liked this recipe. It is brought to you by Foodista. All things considered, we decided this recipe <b>deserves a spoonacular score of 35%</b>. This score is not so tremendous. Similar recipes include <a href="https://spoonacular.com/recipes/zucchini-omelette-631011">Zucchini omelette</a>, <a href="https://spoonacular.com/recipes/potato-zucchini-omelette-78424">Potato & Zucchini Omelette</a>, and <a href="https://spoonacular.com/recipes/smoked-salmon-omelette-with-sweet-soy-sauce-sriracha-how-to-have-omelette-for-dinner-494061"> Smoked Salmon Omelette with Sweet Soy Sauce & Sriracha & How to Have Omelette for Dinner</a>.',
       cuisines: [],
       instructions:
-        "Beat eggs and water in a bowl. Mix in grated zucchini and season with salt and pepper. Heat the oil in a small, non-stick skillet. When hot, add half the egg mixture and cook for 1 minute until the egg begins to set. Scatter evenly with half diced chicken.\nCook for a further 1-2 minutes, until the egg is golden underneath, and just set on top. Slide out onto a serving plate, folding it over as you go. Repeat. Serve the omelette with your favourite salad.",
+          "Beat eggs and water in a bowl. Mix in grated zucchini and season with salt and pepper. Heat the oil in a small, non-stick skillet. When hot, add half the egg mixture and cook for 1 minute until the egg begins to set. Scatter evenly with half diced chicken.\nCook for a further 1-2 minutes, until the egg is golden underneath, and just set on top. Slide out onto a serving plate, folding it over as you go. Repeat. Serve the omelette with your favourite salad.",
       analyzedInstructions: [
         {
           steps: [
@@ -229,15 +229,15 @@ $(document).ready(function addCard() {
       readyInMinutes: 45,
       servings: 6,
       sourceUrl:
-        "http://www.foodista.com/recipe/WJQ4858P/roasted-asparagus-with-bacon-and-feta-cheese",
+          "http://www.foodista.com/recipe/WJQ4858P/roasted-asparagus-with-bacon-and-feta-cheese",
       spoonacularSourceUrl:
-        "https://spoonacular.com/roasted-asparagus-with-bacon-and-feta-cheese-658491",
+          "https://spoonacular.com/roasted-asparagus-with-bacon-and-feta-cheese-658491",
       image: "https://spoonacular.com/recipeImages/658491-556x370.jpg",
       summary:
-        'Roasted Asparagus With Bacon and Feta Cheese might be just the side dish you are searching for. This gluten free and primal recipe serves 6 and costs <b>$1.12 per serving</b>. One serving contains <b>285 calories</b>, <b>6g of protein</b>, and <b>28g of fat</b>. Only a few people made this recipe, and 3 would say it hit the spot. A mixture of olive oil, bacon, feta cheese, and a handful of other ingredients are all it takes to make this recipe so tasty. <b>Easter</b> will be even more special with this recipe. From preparation to the plate, this recipe takes roughly <b>45 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 25%</b>. This score is rather bad. Try <a href="https://spoonacular.com/recipes/roasted-asparagus-with-feta-cheese-315678">Roasted Asparagus with Feta Cheese</a>, <a href="https://spoonacular.com/recipes/roasted-asparagus-quinoa-salad-w-feta-cheese-521842">Roasted Asparagus Quinoa Salad W/ Feta Cheese</a>, and <a href="https://spoonacular.com/recipes/roasted-asparagus-with-goat-cheese-and-bacon-115507">Roasted Asparagus with Goat Cheese and Bacon</a> for similar recipes.',
+          'Roasted Asparagus With Bacon and Feta Cheese might be just the side dish you are searching for. This gluten free and primal recipe serves 6 and costs <b>$1.12 per serving</b>. One serving contains <b>285 calories</b>, <b>6g of protein</b>, and <b>28g of fat</b>. Only a few people made this recipe, and 3 would say it hit the spot. A mixture of olive oil, bacon, feta cheese, and a handful of other ingredients are all it takes to make this recipe so tasty. <b>Easter</b> will be even more special with this recipe. From preparation to the plate, this recipe takes roughly <b>45 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 25%</b>. This score is rather bad. Try <a href="https://spoonacular.com/recipes/roasted-asparagus-with-feta-cheese-315678">Roasted Asparagus with Feta Cheese</a>, <a href="https://spoonacular.com/recipes/roasted-asparagus-quinoa-salad-w-feta-cheese-521842">Roasted Asparagus Quinoa Salad W/ Feta Cheese</a>, and <a href="https://spoonacular.com/recipes/roasted-asparagus-with-goat-cheese-and-bacon-115507">Roasted Asparagus with Goat Cheese and Bacon</a> for similar recipes.',
       cuisines: [],
       instructions:
-        "<ol><li>Preheat oven to 500.</li><li>Place the asparagus on a baking sheet covered with aluminum foil.</li><li>Drizzle with olive oil, coat well, and add salt and pepper.</li><li>Cook the asparagus for about 8 to 10 minutes, or until tender.</li><li>In the meantime, cook the bacon in a skillet until crisp.</li><li>Put the bacon on a paper towel, drain, and crumble; set aside.</li><li>Remove the asparagus from the oven and put it on a platter.</li><li>Sprinkle with bacon, then feta cheese.</li><li>Serve warm.</li></ol>",
+          "<ol><li>Preheat oven to 500.</li><li>Place the asparagus on a baking sheet covered with aluminum foil.</li><li>Drizzle with olive oil, coat well, and add salt and pepper.</li><li>Cook the asparagus for about 8 to 10 minutes, or until tender.</li><li>In the meantime, cook the bacon in a skillet until crisp.</li><li>Put the bacon on a paper towel, drain, and crumble; set aside.</li><li>Remove the asparagus from the oven and put it on a platter.</li><li>Sprinkle with bacon, then feta cheese.</li><li>Serve warm.</li></ol>",
       analyzedInstructions: [
         {
           steps: [
@@ -356,15 +356,15 @@ $(document).ready(function addCard() {
       readyInMinutes: 45,
       servings: 6,
       sourceUrl:
-        "http://www.foodista.com/recipe/TSSQGG2V/lemon-and-garlic-slow-roasted-chicken",
+          "http://www.foodista.com/recipe/TSSQGG2V/lemon-and-garlic-slow-roasted-chicken",
       spoonacularSourceUrl:
-        "https://spoonacular.com/lemon-and-garlic-slow-roasted-chicken-649495",
+          "https://spoonacular.com/lemon-and-garlic-slow-roasted-chicken-649495",
       image: "https://spoonacular.com/recipeImages/649495-556x370.jpg",
       summary:
-        'This recipe serves 6 and costs 28 cents per serving. One serving contains <b>74 calories</b>, <b>0g of protein</b>, and <b>7g of fat</b>. Not a lot of people made this recipe, and 1 would say it hit the spot. A mixture of salt and pepper, sunflower oil, lemons, and a handful of other ingredients are all it takes to make this recipe so delicious. It is a good option if you\'re following a <b>gluten free, dairy free, and whole 30</b> diet. From preparation to the plate, this recipe takes approximately <b>45 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 38%</b>. This score is not so super. Try <a href="https://spoonacular.com/recipes/slow-roasted-grappa-garlic-and-lemon-pepper-chicken-with-parsnip-fries-247670">Slow Roasted Grappa Garlic and Lemon Pepper Chicken with Parsnip Fries</a>, <a href="https://spoonacular.com/recipes/slow-roasted-boneless-leg-of-lamb-with-garlic-rosemary-and-lemon-157753">Slow-Roasted Boneless Leg of Lamb With Garlic, Rosemary, and Lemon</a>, and <a href="https://spoonacular.com/recipes/slow-roasted-salmon-with-garlic-dill-parsley-tarragon-and-lemon-497299">Slow Roasted Salmon with Garlic, Dill, Parsley,Tarragon and Lemon</a> for similar recipes.',
+          'This recipe serves 6 and costs 28 cents per serving. One serving contains <b>74 calories</b>, <b>0g of protein</b>, and <b>7g of fat</b>. Not a lot of people made this recipe, and 1 would say it hit the spot. A mixture of salt and pepper, sunflower oil, lemons, and a handful of other ingredients are all it takes to make this recipe so delicious. It is a good option if you\'re following a <b>gluten free, dairy free, and whole 30</b> diet. From preparation to the plate, this recipe takes approximately <b>45 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 38%</b>. This score is not so super. Try <a href="https://spoonacular.com/recipes/slow-roasted-grappa-garlic-and-lemon-pepper-chicken-with-parsnip-fries-247670">Slow Roasted Grappa Garlic and Lemon Pepper Chicken with Parsnip Fries</a>, <a href="https://spoonacular.com/recipes/slow-roasted-boneless-leg-of-lamb-with-garlic-rosemary-and-lemon-157753">Slow-Roasted Boneless Leg of Lamb With Garlic, Rosemary, and Lemon</a>, and <a href="https://spoonacular.com/recipes/slow-roasted-salmon-with-garlic-dill-parsley-tarragon-and-lemon-497299">Slow Roasted Salmon with Garlic, Dill, Parsley,Tarragon and Lemon</a> for similar recipes.',
       cuisines: [],
       instructions:
-        "<ol><li>2 X 300g packets mushroom or italian style stir fry or stir fry vegetables of your own choice finely shredded</li><li>Aga equipment:small roasting tin on third set of runners in roasting oventhen second set of runners in simmering oven</li><li>Trim the leg tips and wing tips from the chicken and remove any excess fat from the neck of the bird (keep the chicken fat if you are likely to make a confit in the next few days).</li><li>Season the chicken inside and out.</li><li>Separate the garlic into cloves but do not bother to peel them.</li><li>Place about two thirds of the cloves inside the chicken and the rest in the bottom of the roasting tin sitting the chicken on top of them.</li><li>Pare the zest from the lemons and cover it in plastic wrap for later use as a garnish.</li><li>Rub the juice into the chicken inside and out then rub the olive oil over the breast.</li><li>Roast the chicken quickly for 30 minutes then transfer it to the simmering ovenand cook for at least 4 hours.</li><li>Stand for 10 to 15 minutes before carving or if you have left the chicken for six hours or more pulling the joints apart for serving.</li><li>Heat a wok or large frying pan for 5 minutes on the floor of the roasting ovenwhile the chicken is standing. Transfer the wok to the boiling plateand add the sunflower oil.</li><li>Stir fry the vegetables in the oil for 3 to 4 minutes then serve the chicken on the vegetables or mixed in with them if the meat has fallen off the bone.</li><li>I often cook chicken with lemon and tarragon but the flavour of this pungent herb is lost if the cooking period is too long. So for slow aga roasting I use a mixture of lemon and garlic.</li><li>Serves 6</li></ol>",
+          "<ol><li>2 X 300g packets mushroom or italian style stir fry or stir fry vegetables of your own choice finely shredded</li><li>Aga equipment:small roasting tin on third set of runners in roasting oventhen second set of runners in simmering oven</li><li>Trim the leg tips and wing tips from the chicken and remove any excess fat from the neck of the bird (keep the chicken fat if you are likely to make a confit in the next few days).</li><li>Season the chicken inside and out.</li><li>Separate the garlic into cloves but do not bother to peel them.</li><li>Place about two thirds of the cloves inside the chicken and the rest in the bottom of the roasting tin sitting the chicken on top of them.</li><li>Pare the zest from the lemons and cover it in plastic wrap for later use as a garnish.</li><li>Rub the juice into the chicken inside and out then rub the olive oil over the breast.</li><li>Roast the chicken quickly for 30 minutes then transfer it to the simmering ovenand cook for at least 4 hours.</li><li>Stand for 10 to 15 minutes before carving or if you have left the chicken for six hours or more pulling the joints apart for serving.</li><li>Heat a wok or large frying pan for 5 minutes on the floor of the roasting ovenwhile the chicken is standing. Transfer the wok to the boiling plateand add the sunflower oil.</li><li>Stir fry the vegetables in the oil for 3 to 4 minutes then serve the chicken on the vegetables or mixed in with them if the meat has fallen off the bone.</li><li>I often cook chicken with lemon and tarragon but the flavour of this pungent herb is lost if the cooking period is too long. So for slow aga roasting I use a mixture of lemon and garlic.</li><li>Serves 6</li></ol>",
       analyzedInstructions: [
         {
           steps: [
@@ -489,10 +489,10 @@ $(document).ready(function addCard() {
       servings: 3,
       sourceUrl: "http://www.pinkwhen.com/slow-cooker-rosemary-whole-chicken/",
       spoonacularSourceUrl:
-        "https://spoonacular.com/slow-cooker-rosemary-whole-chicken-715525",
+          "https://spoonacular.com/slow-cooker-rosemary-whole-chicken-715525",
       image: "https://spoonacular.com/recipeImages/715525-556x370.jpg",
       summary:
-        'Slow Cooker Rosemary Whole Chicken might be just the main course you are searching for. Watching your figure? This caveman, gluten free, dairy free, and primal recipe has <b>660 calories</b>, <b>55g of protein</b>, and <b>44g of fat</b> per serving. For <b>$2.38 per serving</b>, this recipe <b>covers 26%</b> of your daily requirements of vitamins and minerals. Head to the store and pick up rosemary, lemons, onion, and a few other things to make it today. To use up the onion you could follow this main course with the <a href="https://spoonacular.com/recipes/candy-corn-cupcakes-63881">Candy Corn Cupcakes</a> as a dessert. 991 person have made this recipe and would make it again. From preparation to the plate, this recipe takes roughly <b>45 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 87%</b>. This score is spectacular. Try <a href="https://spoonacular.com/recipes/rosemary-slow-cooker-chicken-235329">Rosemary Slow-Cooker Chicken</a>, <a href="https://spoonacular.com/recipes/slow-cooker-rosemary-chicken-525583">Slow Cooker Rosemary Chicken</a>, and <a href="https://spoonacular.com/recipes/slow-cooker-lemon-and-rosemary-whole-chicken-542297">Slow Cooker Lemon and Rosemary Whole Chicken</a> for similar recipes.',
+          'Slow Cooker Rosemary Whole Chicken might be just the main course you are searching for. Watching your figure? This caveman, gluten free, dairy free, and primal recipe has <b>660 calories</b>, <b>55g of protein</b>, and <b>44g of fat</b> per serving. For <b>$2.38 per serving</b>, this recipe <b>covers 26%</b> of your daily requirements of vitamins and minerals. Head to the store and pick up rosemary, lemons, onion, and a few other things to make it today. To use up the onion you could follow this main course with the <a href="https://spoonacular.com/recipes/candy-corn-cupcakes-63881">Candy Corn Cupcakes</a> as a dessert. 991 person have made this recipe and would make it again. From preparation to the plate, this recipe takes roughly <b>45 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 87%</b>. This score is spectacular. Try <a href="https://spoonacular.com/recipes/rosemary-slow-cooker-chicken-235329">Rosemary Slow-Cooker Chicken</a>, <a href="https://spoonacular.com/recipes/slow-cooker-rosemary-chicken-525583">Slow Cooker Rosemary Chicken</a>, and <a href="https://spoonacular.com/recipes/slow-cooker-lemon-and-rosemary-whole-chicken-542297">Slow Cooker Lemon and Rosemary Whole Chicken</a> for similar recipes.',
       cuisines: [],
       analyzedInstructions: [],
       extendedIngredients: [
@@ -552,10 +552,10 @@ $(document).ready(function addCard() {
       spoonacularSourceUrl: "https://spoonacular.com/chicken-suya-716342",
       image: "https://spoonacular.com/recipeImages/716342-556x370.jpg",
       summary:
-        'Chicken Suya might be just the main course you are searching for. This recipe serves 1 and costs $3.22 per serving. Watching your figure? This gluten free, dairy free, and whole 30 recipe has <b>1070 calories</b>, <b>87g of protein</b>, and <b>71g of fat</b> per serving. If you have chicken, salt, cooking spoon groundnut oil, and a few other ingredients on hand, you can make it. To use up the onions you could follow this main course with the <a href="https://spoonacular.com/recipes/candy-corn-cupcakes-63881">Candy Corn Cupcakes</a> as a dessert. This recipe from Afrolems has 56 fans. From preparation to the plate, this recipe takes approximately <b>45 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 94%</b>. This score is tremendous. Try <a href="https://spoonacular.com/recipes/suya-nigerian-chicken-skewers-113497">Suya (Nigerian Chicken Skewers)</a>, <a href="https://spoonacular.com/recipes/suya-swordfish-6571">Suya Swordfish</a>, and <a href="https://spoonacular.com/recipes/i-aint-chicken-chicken-crispy-roasted-chicken-breasts-with-orange-and-cardamom-310658">I Ain\'t Chicken Chicken: Crispy Roasted Chicken Breasts with Orange and Cardamom</a> for similar recipes.',
+          'Chicken Suya might be just the main course you are searching for. This recipe serves 1 and costs $3.22 per serving. Watching your figure? This gluten free, dairy free, and whole 30 recipe has <b>1070 calories</b>, <b>87g of protein</b>, and <b>71g of fat</b> per serving. If you have chicken, salt, cooking spoon groundnut oil, and a few other ingredients on hand, you can make it. To use up the onions you could follow this main course with the <a href="https://spoonacular.com/recipes/candy-corn-cupcakes-63881">Candy Corn Cupcakes</a> as a dessert. This recipe from Afrolems has 56 fans. From preparation to the plate, this recipe takes approximately <b>45 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 94%</b>. This score is tremendous. Try <a href="https://spoonacular.com/recipes/suya-nigerian-chicken-skewers-113497">Suya (Nigerian Chicken Skewers)</a>, <a href="https://spoonacular.com/recipes/suya-swordfish-6571">Suya Swordfish</a>, and <a href="https://spoonacular.com/recipes/i-aint-chicken-chicken-crispy-roasted-chicken-breasts-with-orange-and-cardamom-310658">I Ain\'t Chicken Chicken: Crispy Roasted Chicken Breasts with Orange and Cardamom</a> for similar recipes.',
       cuisines: [],
       instructions:
-        "Heat the oven to 500 F.Wash and season the chicken with the Suya spice, chilli powder, seasoning cubes, salt and drizzle the oil over it.Place the chicken in the oven and grill for 40 minutes. Check the chicken occasionally and flip on both sides so it can cook properly.Serve hot garnished with the onions and tomato and a bit of suya spice sprinkled over the chicken.",
+          "Heat the oven to 500 F.Wash and season the chicken with the Suya spice, chilli powder, seasoning cubes, salt and drizzle the oil over it.Place the chicken in the oven and grill for 40 minutes. Check the chicken occasionally and flip on both sides so it can cook properly.Serve hot garnished with the onions and tomato and a bit of suya spice sprinkled over the chicken.",
       analyzedInstructions: [
         {
           steps: [
@@ -661,13 +661,13 @@ $(document).ready(function addCard() {
       servings: 6,
       sourceUrl: "https://www.foodista.com/recipe/M4FWCSF4/pot-pie",
       spoonacularSourceUrl:
-        "https://spoonacular.com/easy-chicken-pot-pie-641901",
+          "https://spoonacular.com/easy-chicken-pot-pie-641901",
       image: "https://spoonacular.com/recipeImages/641901-556x370.jpg",
       summary:
-        'Easy Chicken Pot Pie could be just the <b>dairy free</b> recipe you\'ve been looking for. One serving contains <b>177 calories</b>, <b>5g of protein</b>, and <b>6g of fat</b>. This recipe serves 6. For <b>58 cents per serving</b>, this recipe <b>covers 10%</b> of your daily requirements of vitamins and minerals. This recipe is liked by 1 foodies and cooks. It is brought to you by Foodista. A mixture of boned chicken, water, cream of chicken, and a handful of other ingredients are all it takes to make this recipe so delicious. From preparation to the plate, this recipe takes around <b>around 45 minutes</b>. Overall, this recipe earns a <b>good spoonacular score of 54%</b>. <a href="https://spoonacular.com/recipes/easy-chicken-pot-pie-591055">Easy Chicken Pot Pie</a>, <a href="https://spoonacular.com/recipes/easy-chicken-pot-pie-519078">Easy Chicken Pot Pie</a>, and <a href="https://spoonacular.com/recipes/easy-chicken-pot-pie-968059">Easy Chicken Pot Pie</a> are very similar to this recipe.',
+          'Easy Chicken Pot Pie could be just the <b>dairy free</b> recipe you\'ve been looking for. One serving contains <b>177 calories</b>, <b>5g of protein</b>, and <b>6g of fat</b>. This recipe serves 6. For <b>58 cents per serving</b>, this recipe <b>covers 10%</b> of your daily requirements of vitamins and minerals. This recipe is liked by 1 foodies and cooks. It is brought to you by Foodista. A mixture of boned chicken, water, cream of chicken, and a handful of other ingredients are all it takes to make this recipe so delicious. From preparation to the plate, this recipe takes around <b>around 45 minutes</b>. Overall, this recipe earns a <b>good spoonacular score of 54%</b>. <a href="https://spoonacular.com/recipes/easy-chicken-pot-pie-591055">Easy Chicken Pot Pie</a>, <a href="https://spoonacular.com/recipes/easy-chicken-pot-pie-519078">Easy Chicken Pot Pie</a>, and <a href="https://spoonacular.com/recipes/easy-chicken-pot-pie-968059">Easy Chicken Pot Pie</a> are very similar to this recipe.',
       cuisines: [],
       instructions:
-        "Mix first 3 ingredients and pour into a greased baking dish. Mix Bisquick with water, pour over first mixture and bake in a 400 degree oven for 45 to 50 minutes. (You may use left over chicken or turkey.)",
+          "Mix first 3 ingredients and pour into a greased baking dish. Mix Bisquick with water, pour over first mixture and bake in a 400 degree oven for 45 to 50 minutes. (You may use left over chicken or turkey.)",
       analyzedInstructions: [
         {
           steps: [
@@ -746,15 +746,15 @@ $(document).ready(function addCard() {
       readyInMinutes: 45,
       servings: 4,
       sourceUrl:
-        "https://www.foodista.com/recipe/BCC472YG/skillet-roasted-chicken-potatoes",
+          "https://www.foodista.com/recipe/BCC472YG/skillet-roasted-chicken-potatoes",
       spoonacularSourceUrl:
-        "https://spoonacular.com/skillet-roasted-chicken-potatoes-660220",
+          "https://spoonacular.com/skillet-roasted-chicken-potatoes-660220",
       image: "https://spoonacular.com/recipeImages/660220-556x370.jpg",
       summary:
-        'Skillet Roasted Chicken & Potatoes is a <b>gluten free, dairy free, fodmap friendly, and whole 30</b> main course. This recipe makes 4 servings with <b>695 calories</b>, <b>46g of protein</b>, and <b>44g of fat</b> each. For <b>$2.09 per serving</b>, this recipe <b>covers 32%</b> of your daily requirements of vitamins and minerals. From preparation to the plate, this recipe takes about <b>about 45 minutes</b>. 1 person has made this recipe and would make it again. A mixture of olive oil, chicken, paprika, and a handful of other ingredients are all it takes to make this recipe so flavorful. It is brought to you by Foodista. Overall, this recipe earns a <b>good spoonacular score of 74%</b>. <a href="https://spoonacular.com/recipes/skillet-roasted-lemon-chicken-with-potatoes-379094">Skillet-Roasted Lemon Chicken with Potatoes</a>, <a href="https://spoonacular.com/recipes/skillet-roasted-whole-chicken-with-lemon-and-potatoes-611209">Skillet-Roasted Whole Chicken with Lemon and Potatoes</a>, and <a href="https://spoonacular.com/recipes/skillet-chicken-with-roasted-potatoes-and-carrots-707724">Skillet Chicken with Roasted Potatoes and Carrots</a> are very similar to this recipe.',
+          'Skillet Roasted Chicken & Potatoes is a <b>gluten free, dairy free, fodmap friendly, and whole 30</b> main course. This recipe makes 4 servings with <b>695 calories</b>, <b>46g of protein</b>, and <b>44g of fat</b> each. For <b>$2.09 per serving</b>, this recipe <b>covers 32%</b> of your daily requirements of vitamins and minerals. From preparation to the plate, this recipe takes about <b>about 45 minutes</b>. 1 person has made this recipe and would make it again. A mixture of olive oil, chicken, paprika, and a handful of other ingredients are all it takes to make this recipe so flavorful. It is brought to you by Foodista. Overall, this recipe earns a <b>good spoonacular score of 74%</b>. <a href="https://spoonacular.com/recipes/skillet-roasted-lemon-chicken-with-potatoes-379094">Skillet-Roasted Lemon Chicken with Potatoes</a>, <a href="https://spoonacular.com/recipes/skillet-roasted-whole-chicken-with-lemon-and-potatoes-611209">Skillet-Roasted Whole Chicken with Lemon and Potatoes</a>, and <a href="https://spoonacular.com/recipes/skillet-chicken-with-roasted-potatoes-and-carrots-707724">Skillet Chicken with Roasted Potatoes and Carrots</a> are very similar to this recipe.',
       cuisines: [],
       instructions:
-        "Adjust oven rack to lower-middle position and preheat oven to 400 degrees f. In a small bowl combine 2 T. olive oil, thyme, smoked paprika, 1 t. salt and 1/2 t. pepper. Carefully run your fingers under the skin covering the chicken breast, separating the skin from the meat. Rub the oil mixture all over the chicken, spooning some under the skin covering the breast. Tie the legs together with butchers twine and tuck the wings behind the back.\nToss the sliced potatoes with the remaining tablespoon of oil, 3/4 t. salt and 1/2 t. pepper. Arrange the potatoes in a 12-inch nonstick, oven-safe skillet (see note above). Place the skillet over medium heat and cook, without flipping or stirring until the potatoes are golden-brown on the bottoms, about 7-9 minutes. Then place the prepared chicken, breast-side up on top of the potatoes. Transfer the skillet to the oven and roast until a thermometer inserted in several places has reached 165 degrees (about 1-1 1/4 hours). Transfer the chicken to a serving platter and cover loosely with foil, let rest for 20 minutes.\nMeanwhile, cover the skillet with the potatoes, add back to the oven and roast for an additional 20 minutes, until the potatoes are very tender. Carve the chicken and serve along side the roasted potatoes (and prepared to be wowed!).",
+          "Adjust oven rack to lower-middle position and preheat oven to 400 degrees f. In a small bowl combine 2 T. olive oil, thyme, smoked paprika, 1 t. salt and 1/2 t. pepper. Carefully run your fingers under the skin covering the chicken breast, separating the skin from the meat. Rub the oil mixture all over the chicken, spooning some under the skin covering the breast. Tie the legs together with butchers twine and tuck the wings behind the back.\nToss the sliced potatoes with the remaining tablespoon of oil, 3/4 t. salt and 1/2 t. pepper. Arrange the potatoes in a 12-inch nonstick, oven-safe skillet (see note above). Place the skillet over medium heat and cook, without flipping or stirring until the potatoes are golden-brown on the bottoms, about 7-9 minutes. Then place the prepared chicken, breast-side up on top of the potatoes. Transfer the skillet to the oven and roast until a thermometer inserted in several places has reached 165 degrees (about 1-1 1/4 hours). Transfer the chicken to a serving platter and cover loosely with foil, let rest for 20 minutes.\nMeanwhile, cover the skillet with the potatoes, add back to the oven and roast for an additional 20 minutes, until the potatoes are very tender. Carve the chicken and serve along side the roasted potatoes (and prepared to be wowed!).",
       analyzedInstructions: [
         {
           steps: [
@@ -896,15 +896,15 @@ $(document).ready(function addCard() {
       readyInMinutes: 45,
       servings: 1,
       sourceUrl:
-        "http://www.foodista.com/recipe/24CNXQ2K/grilled-sesame-chicken",
+          "http://www.foodista.com/recipe/24CNXQ2K/grilled-sesame-chicken",
       spoonacularSourceUrl:
-        "https://spoonacular.com/grilled-sesame-chicken-645879",
+          "https://spoonacular.com/grilled-sesame-chicken-645879",
       image: "https://spoonacular.com/recipeImages/645879-556x370.jpg",
       summary:
-        'For <b>$2.04 per serving</b>, this recipe <b>covers 5%</b> of your daily requirements of vitamins and minerals. One serving contains <b>506 calories</b>, <b>5g of protein</b>, and <b>20g of fat</b>. 1 person has made this recipe and would make it again. It is perfect for <b>The Fourth Of July</b>. From preparation to the plate, this recipe takes about <b>45 minutes</b>. It is a good option if you\'re following a <b>gluten free and dairy free</b> diet. A mixture of sesame oil, honey, soy sauce, and a handful of other ingredients are all it takes to make this recipe so yummy. All things considered, we decided this recipe <b>deserves a spoonacular score of 68%</b>. This score is pretty good. Try <a href="https://spoonacular.com/recipes/grilled-sesame-chicken-398042">Grilled Sesame Chicken</a>, <a href="https://spoonacular.com/recipes/grilled-sesame-ginger-chicken-165031">Grilled Sesame-Ginger Chicken</a>, and <a href="https://spoonacular.com/recipes/sesame-grilled-chicken-veggies-267429">Sesame Grilled Chicken & Veggies</a> for similar recipes.',
+          'For <b>$2.04 per serving</b>, this recipe <b>covers 5%</b> of your daily requirements of vitamins and minerals. One serving contains <b>506 calories</b>, <b>5g of protein</b>, and <b>20g of fat</b>. 1 person has made this recipe and would make it again. It is perfect for <b>The Fourth Of July</b>. From preparation to the plate, this recipe takes about <b>45 minutes</b>. It is a good option if you\'re following a <b>gluten free and dairy free</b> diet. A mixture of sesame oil, honey, soy sauce, and a handful of other ingredients are all it takes to make this recipe so yummy. All things considered, we decided this recipe <b>deserves a spoonacular score of 68%</b>. This score is pretty good. Try <a href="https://spoonacular.com/recipes/grilled-sesame-chicken-398042">Grilled Sesame Chicken</a>, <a href="https://spoonacular.com/recipes/grilled-sesame-ginger-chicken-165031">Grilled Sesame-Ginger Chicken</a>, and <a href="https://spoonacular.com/recipes/sesame-grilled-chicken-veggies-267429">Sesame Grilled Chicken & Veggies</a> for similar recipes.',
       cuisines: [],
       instructions:
-        "<ol><li>Wipe dry the chicken.</li><li>Season with salt and pepper.</li><li>Mix marinade together and rub onto chicken.</li><li>Preheat grill and when hot, place chicken under it.</li><li>If you do not have a grill, roast it in your oven.</li><li>Cook till golden brown, turning chicken over once and basting it with marinade occasionally.</li></ol>",
+          "<ol><li>Wipe dry the chicken.</li><li>Season with salt and pepper.</li><li>Mix marinade together and rub onto chicken.</li><li>Preheat grill and when hot, place chicken under it.</li><li>If you do not have a grill, roast it in your oven.</li><li>Cook till golden brown, turning chicken over once and basting it with marinade occasionally.</li></ol>",
       analyzedInstructions: [
         {
           steps: [
@@ -1018,15 +1018,15 @@ $(document).ready(function addCard() {
       readyInMinutes: 45,
       servings: 20,
       sourceUrl:
-        "https://www.foodista.com/recipe/6LDTLRRB/buffalo-chicken-wings-wonton-wraps",
+          "https://www.foodista.com/recipe/6LDTLRRB/buffalo-chicken-wings-wonton-wraps",
       spoonacularSourceUrl:
-        "https://spoonacular.com/buffalo-chicken-wings-wonton-wraps-636411",
+          "https://spoonacular.com/buffalo-chicken-wings-wonton-wraps-636411",
       image: "https://spoonacular.com/recipeImages/636411-556x370.jpg",
       summary:
-        'Buffalo Chicken Wings Wonton Wraps might be just the hor d\'oeuvre you are searching for. One portion of this dish contains roughly <b>2g of protein</b>, <b>1g of fat</b>, and a total of <b>39 calories</b>. This recipe serves 20 and costs 13 cents per serving. 5 people have tried and liked this recipe. It is perfect for <b>The Super Bowl</b>. Head to the store and pick up wonton wrappers, hot sauce, weight cheddar cheese, and a few other things to make it today. Not a lot of people really liked this Chinese dish. It is brought to you by Foodista. From preparation to the plate, this recipe takes around <b>around 45 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 7%</b>. This score is very bad (but still fixable). Similar recipes include <a href="https://spoonacular.com/recipes/skinny-buffalo-chicken-wonton-cups-629647">Skinny Buffalo Chicken Wonton Cups</a>, <a href="https://spoonacular.com/recipes/veggie-pizza-and-buffalo-chicken-salad-wonton-cup-appetizers-511906">Veggie Pizzan and Buffalo Chicken Salad Wonton Cup Appetizers</a>, and <a href="https://spoonacular.com/recipes/buffalo-chicken-wings-165207">Buffalo Chicken Wings</a>.',
+          'Buffalo Chicken Wings Wonton Wraps might be just the hor d\'oeuvre you are searching for. One portion of this dish contains roughly <b>2g of protein</b>, <b>1g of fat</b>, and a total of <b>39 calories</b>. This recipe serves 20 and costs 13 cents per serving. 5 people have tried and liked this recipe. It is perfect for <b>The Super Bowl</b>. Head to the store and pick up wonton wrappers, hot sauce, weight cheddar cheese, and a few other things to make it today. Not a lot of people really liked this Chinese dish. It is brought to you by Foodista. From preparation to the plate, this recipe takes around <b>around 45 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 7%</b>. This score is very bad (but still fixable). Similar recipes include <a href="https://spoonacular.com/recipes/skinny-buffalo-chicken-wonton-cups-629647">Skinny Buffalo Chicken Wonton Cups</a>, <a href="https://spoonacular.com/recipes/veggie-pizza-and-buffalo-chicken-salad-wonton-cup-appetizers-511906">Veggie Pizzan and Buffalo Chicken Salad Wonton Cup Appetizers</a>, and <a href="https://spoonacular.com/recipes/buffalo-chicken-wings-165207">Buffalo Chicken Wings</a>.',
       cuisines: ["Chinese", "Asian"],
       instructions:
-        "Preheat oven to 350 degrees\nLine a baking sheet with parchment paper.\nCut your chicken into tiny pieces, as small as you can get it.\nIn a medium bowl add chicken, cream cheese, cheddar cheese and hot sauce. Mix together until well blended.\nIn a tiny bowl, add some water. This is for sealing the edges of your wontons.\nPlace 1 1/2 tsp. of mixture in won-ton wrapper, take your finger and dip in water and place along the edges of the wrapper (this will be the glue to seal the wrappers together). Fold wrapper over into triangle place on baking sheet, Do the same for the rest of the wrappers. Bake in over for 15 minutes, until lightly brown.\nServe with Light Blue Cheese or Ranch Dressing on the side.",
+          "Preheat oven to 350 degrees\nLine a baking sheet with parchment paper.\nCut your chicken into tiny pieces, as small as you can get it.\nIn a medium bowl add chicken, cream cheese, cheddar cheese and hot sauce. Mix together until well blended.\nIn a tiny bowl, add some water. This is for sealing the edges of your wontons.\nPlace 1 1/2 tsp. of mixture in won-ton wrapper, take your finger and dip in water and place along the edges of the wrapper (this will be the glue to seal the wrappers together). Fold wrapper over into triangle place on baking sheet, Do the same for the rest of the wrappers. Bake in over for 15 minutes, until lightly brown.\nServe with Light Blue Cheese or Ranch Dressing on the side.",
       analyzedInstructions: [
         {
           steps: [
@@ -1155,58 +1155,61 @@ $(document).ready(function addCard() {
     },
   ];
 
-/* const url = "http://localhost:5007/recipes" ;
+  const url = "http://localhost:5007/recipes";
 
-fetch(url, {
-  method: 'GET',
-  headers: {
-    'Content-Type': 'application/json'
-  }
+  fetch(url, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+
+      .then((response) => {
+        return response.json();
+      })
+
+      .then((data) => {
+        let recipes = data;
+        console.log(recipes);
+        for (let i = 0; i < recipes.length; i++) {
+          // Hämtar element med id "recipecontainer", lägger till ett cardTemplate i slutet
+          document
+              .querySelector("#recipeContainer")
+              .insertAdjacentHTML("beforeend", cardTemplate);
+
+          summary = recipes[i].summary;
+          finalSummary = summary.substring(0, summary.lastIndexOf(". "));
+
+          // Ändrar id på "recipeName" och "recipeDescription"
+          $("#recipeName").attr("id", "recipeName" + i);
+          $("#recipeDescription").attr("id", "recipeDescription" + i);
+          $("#recipeImg").attr("id", "recipeImg" + i);
+          $("#cookTime").attr("id", "cookTime" + i);
+
+          // Lägger till information från objektet i varje kort
+          $("#recipeName" + i).text(recipes[i].title);
+          $("#recipeDescription" + i).html(finalSummary + ".");
+          $("#recipeImg" + i).attr("src", recipes[i].image);
+          $("#cookTime" + i).text("Total cook time: " + recipes[i].readyInMinutes + " minutes");
+        }
+        ;
+        $(".sss").on("click", function () {
+          localStorage.removeItem("recipeObj");
+          // When a button is clicked...
+          var spotify = $(".sss").index(this);
+          localStorage.setItem("recipeObj", JSON.stringify(recipes[spotify])); // Save the id to local storage
+        });
+
+        $(".bbb").on("click", function () {
+          localStorage.removeItem("recipeObj");
+          // When a button is clicked...
+          var recipe = $(".bbb").index(this);
+          localStorage.setItem("recipeObj", JSON.stringify(recipes[recipe])); // Save the id to local storage
+        });
+      })
+
+.
+  catch(function () {
+
+  })
 })
-
-.then((response) =>{
-  return response.json();
-})
-
-.then((data) => {
-  let recipes = data; */
-  console.log(recipes);
-  for (let i = 0; i < recipes.length; i++) {
-    // Hämtar element med id "recipecontainer", lägger till ett cardTemplate i slutet
-    document
-      .querySelector("#recipeContainer")
-      .insertAdjacentHTML("beforeend", cardTemplate);
-
-    summary = recipes[i].summary;
-    finalSummary = summary.substring(0, summary.lastIndexOf(". "));
-
-    // Ändrar id på "recipeName" och "recipeDescription"
-    $("#recipeName").attr("id", "recipeName" + i);
-    $("#recipeDescription").attr("id", "recipeDescription" + i);
-    $("#recipeImg").attr("id", "recipeImg" + i);
-    $("#cookTime").attr("id", "cookTime" + i);
-
-    // Lägger till information från objektet i varje kort
-    $("#recipeName" + i).text(recipes[i].title);
-    $("#recipeDescription" + i).html(finalSummary + ".");
-    $("#recipeImg" + i).attr("src", recipes[i].image);
-    $("#cookTime" + i).text("Total cook time: " + recipes[i].readyInMinutes + " minutes");
-  };
-  $(".sss").on("click", function () {
-    localStorage.removeItem("recipeObj");
-    // When a button is clicked...
-    var spotify = $(".sss").index(this);
-    localStorage.setItem("recipeObj", JSON.stringify(recipes[spotify])); // Save the id to local storage
-  });
-
-  $(".bbb").on("click", function () {
-    localStorage.removeItem("recipeObj");
-    // When a button is clicked...
-    var recipe = $(".bbb").index(this);
-    localStorage.setItem("recipeObj", JSON.stringify(recipes[recipe])); // Save the id to local storage
-  });
-});
-
-/* .catch(function(){
-
-  }) */
