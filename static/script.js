@@ -1,5 +1,3 @@
-
-
 // Function that randomizes the background-color of the page
 $(document).ready(function(){
   let colors = [ "rgb(228, 163, 159)", "rgb(188, 217, 233)", "rgb(25, 230, 140)" ]; // Bestämmer vilka färger som ska vara aktuella
@@ -42,8 +40,8 @@ $(document).ready(function(){
       data: JSON.stringify(array),
       headers: {"Content-Type": "application/json"}
     })
-    // .done(function(result) {
-    // });
+    .done(function(result) {
+    });
   }};
 
   $("#postRecipe").click(searchRecipe());

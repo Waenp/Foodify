@@ -33,6 +33,7 @@ public class APIRunner {
             });
                 })
                 .post("/recipes", ctx -> {
+                    System.out.println("soup");
                     if (Objects.equals(ctx.header("Content-Type"), "application/json")) {
                         String json = ctx.body();
 
