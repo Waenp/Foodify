@@ -56,7 +56,7 @@ public class SpoonCaller {
 
     /**
      * This method is for getting a single specific recipe.
-     * @param id TODO comment after deciding on index or food-id.
+     * @param id an id of a specific recipe.
      * @return returns a single recipe from the array recipes.
      */
     public Recipe getRecipe(String id) {
@@ -69,7 +69,6 @@ public class SpoonCaller {
         return recipeToReturn;
     }
     /**
-     * TODO remove?
      * @param ingredients an array of strings, each index contains one ingredient.
      */
     public void generateRecipes(String[] ingredients) {
@@ -77,7 +76,7 @@ public class SpoonCaller {
     }
 
     /**
-     * This method is for searching for recipes using the provided ingredients, when the method is called a uri is
+     * This method is for searching for recipes using the provided ingredients, when the method is called an uri is
      * built using:
      * - the token which was set as an instance variable on creation
      * - the ingredients from the parameter.
@@ -102,7 +101,6 @@ public class SpoonCaller {
         stringBuilder.append("&ignorePantry=true");
         stringBuilder.append("&apiKey=").append(key);
 
-        //getCall(stringBuilder.toString());
 
         try {
             httpClient = HttpClients.createDefault();
@@ -143,7 +141,7 @@ public class SpoonCaller {
      * This method is for fetching bulk information of a given list of dish ids, when the method is called an uri is
      * built using:
      * - the token which was set as an instance variable on creation
-     * - the ids from the parameter, which are used to identify what recepis to fetch.
+     * - the ids from the parameter, which are used to identify what recipes to fetch.
      * Once the uri is built the SpoonAcular API recipes/informationBulk is called which is used to populate all
      * instance variables of the class Recipe. Should the recipe be missing what type of cuisine it is, the
      * method analysCuisine is called to generate cuisine types.

@@ -17,8 +17,7 @@ public class APIRunner {
     private SpotifyCaller spotifyCaller;
 
     public APIRunner() {
-        ApiKey apiKey = new ApiKey();
-        String key = apiKey.getKey();
+        String key = "54c0ab577c974ad3a1791209d7c7fb49";
         spoonCaller = new SpoonCaller(key);
         spotifyCaller = new SpotifyCaller();
 
@@ -53,6 +52,7 @@ public class APIRunner {
                         ctx.status(HttpStatus.BAD_REQUEST);
                     }
                 })
+                /*
                 .get("/recipes/{id}", ctx -> {
                     System.out.println("hämtar individuellt recept");
                     //TODO: ska vi använda index eller receptid?
@@ -64,6 +64,8 @@ public class APIRunner {
                         ctx.status(HttpStatus.BAD_REQUEST);
                     }
                 })
+
+                 */
                 .post("/authorize", ctx -> {
                     System.out.println("auktorisering");
                     if (Objects.equals(ctx.header("Content-Type"), "application/x-www-form-urlencoded; charset=UTF-8")) {
