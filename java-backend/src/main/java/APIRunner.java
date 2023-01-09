@@ -28,9 +28,9 @@ public class APIRunner {
     public static void main(String[] args) {
         APIRunner runner = new APIRunner();
         Javalin app = Javalin.create(javalinConfig -> {
-                    javalinConfig.plugins.enableCors(cors ->{
-                        cors.add(CorsPluginConfig::anyHost);
-                    });
+            javalinConfig.plugins.enableCors(cors ->{
+                cors.add(CorsPluginConfig::anyHost);
+            });
                 })
                 .post("/recipes", ctx -> {
                     if (Objects.equals(ctx.header("Content-Type"), "application/json")) {
