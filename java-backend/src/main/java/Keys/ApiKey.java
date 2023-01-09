@@ -1,7 +1,7 @@
 package Keys;
 
 public class ApiKey {
-    private String key = "a861ce1e362641c9a2bd67c76624e706";
+    private String key = "54c0ab577c974ad3a1791209d7c7fb49";
 
     public String getKey() {
         return key;
