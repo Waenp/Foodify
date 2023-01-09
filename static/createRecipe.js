@@ -4,11 +4,8 @@ let liSpanTemplate = `<span id="amount" class="badge bg-dark rounded-pill p-2"><
 let olTemplate = `<li id="instruction" class="fs-5 _book _ls-1 list-group-item px-1"></li>`;
 
 $(document).ready(function addIngredient() {
-  //TODO: vi behöver klura ut hur man får med sig rätt index från sidan innan (alternativt receptets id från API-svaret)
-
   let recipeObj = localStorage.getItem("recipeObj");
   let recipe = JSON.parse(recipeObj);
-  console.log(recipe);
 
   $("#recipeName").text(recipe.title);
   $("#recipeImg").attr("src", recipe.image);
@@ -17,15 +14,11 @@ $(document).ready(function addIngredient() {
   let i = 0;
   let instructions = recipe.analyzedInstructions[0].steps;
   let ingredients = recipe.extendedIngredients;
-  
+
   ingredients.pop();
-  console.log(ingredients);
-  console.log(instructions)
 
   for (i; i < instructions.length; i++) {
     let instruction = instructions[i].step;
-
-    console.log(instruction);
 
     document
       .querySelector("#instructions")
@@ -36,9 +29,7 @@ $(document).ready(function addIngredient() {
     $("#instruction" + i).text(instruction);
   }
 
-
   i = 0;
-
 
   for (i; i < ingredients.length; i++) {
     document
@@ -56,7 +47,6 @@ $(document).ready(function addIngredient() {
     $("#item" + i).text(capitalizedWord);
 
     let amounts = recipe.extendedIngredients[i].measures;
-
     let measurements =
       Math.floor(amounts.metric.amount) + " " + amounts.metric.unitShort;
     console.log(measurements);

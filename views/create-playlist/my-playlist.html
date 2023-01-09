@@ -1,100 +1,113 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Foodify</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="/static/styles.css">
-    <link rel="stylesheet" href="/static/webfontkit/stylesheet.css">
-    <link rel="icon" type="image/x-icon" href="/static/images/speakers-icon-spotify.ico">
-  </head>
 
-  <body id="playlistBody">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Foodify</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/styles.css">
+  <link rel="stylesheet" href="/static/webfontkit/stylesheet.css">
+  <link rel="icon" type="image/x-icon" href="/static/images/speakers-icon-spotify.ico">
+</head>
 
-    <main id="large" class="px-5">
-      <nav id="navbar" class="container-fluid d-flex align-items-center p-3 px-5">
-        <div class="me-auto">
-          <a class="_bold _ls-1 fs-1 text-black" href="/views/index.html">
-            <img src="/static/images/speakers-icon-spotify.png" alt="Logo" width="24" height="36"
-              class="d-inline-block mb-1 me-1">Foodify
-          </a>
-        </div>
-        <div>
-          <a class="_medium _ls-1 fs-3 text-black" href="/views/about.html">About</a>
-        </div>
-      </nav>
-      <div class="container-fluid d-flex justify-content-center p-0 align-items-center text-black position-fixed top-50 start-50 translate-middle" style="z-index: -11;">
-        <div class="row align-items-center">
-          <div class="col p-0">
-            <div class="_square _square-lg">
-              <div class="h-100 p-3 d-flex flex-column align-items-start">
-                <h3 id="playlistDish" class="display-1 _bold _ls-2 _cur-context px-3 pt-5"></h3>
-                <div class="row row-cols-2 h-100 justify-content-between px-3">
-                  <div class="col-5">
-                    <h5 id="playlistDesc" class="display-5 _book _ls-3 _cur-context pt-5"></h5>
-                  </div>
-                  <div class="col-6">
-                    <div class="d-flex flex-column align-items-end h-100">
-                      <img id="playlistImage" class="card-img mt-auto" src="/static/images/ab67616d00001e022f13fcfe011d340e9c69923eab67616d00001e02315d0a3f8f3dbbabf19337dfab67616d00001e026abb21c286af583667bb0e40ab67616d00001e02ccabefb5f70b4c2ad8a7cc44.jfif">
-                      <div class="text-end">
-                        <h4 id="playlistMood" class="display-3 _medium _ls-2 _cur-context"></h4>
-                        <h4 id="playlistTempo" class="display-3 _medium _ls-2 _cur-context"></h4>
-                        <h4 id="playlistCuisine" class="display-3 _medium _ls-2 _cur-context"></h4>
-                      </div>
+<body id="playlistBody">
+  <main id="large" class="px-5">
+    <nav id="navbar" class="container-fluid d-flex align-items-center p-3 px-5">
+      <div class="me-auto">
+        <a class="_bold _ls-1 fs-1 text-black" href="/views/index.html">
+          <img src="/static/images/speakers-icon-spotify.png" alt="Logo" width="24" height="36"
+            class="d-inline-block mb-1 me-1">Foodify
+        </a>
+      </div>
+      <div>
+        <a class="_medium _ls-1 fs-3 text-black" href="/views/about.html">About</a>
+      </div>
+    </nav>
+    <div
+      class="container-fluid d-flex justify-content-center p-0 align-items-center text-black position-fixed top-50 start-50 translate-middle"
+      style="z-index: -11;">
+      <div class="row align-items-center">
+        <div class="col p-0">
+          <div class="_square _square-lg">
+            <div class="h-100 p-3 d-flex flex-column align-items-start">
+              <h3 id="playlistDish" class="display-1 _bold _ls-2 _cur-context px-3 pt-5"></h3>
+              <div class="row row-cols-2 h-100 justify-content-between px-3">
+                <div class="col-5">
+                  <h5 id="playlistDesc" class="display-5 _book _ls-3 _cur-context pt-5"></h5>
+                </div>
+                <div class="col-6">
+                  <div class="d-flex flex-column align-items-end h-100">
+                    <img id="playlistImage" class="card-img mt-auto"
+                      src="/static/images/ab67616d00001e022f13fcfe011d340e9c69923eab67616d00001e02315d0a3f8f3dbbabf19337dfab67616d00001e026abb21c286af583667bb0e40ab67616d00001e02ccabefb5f70b4c2ad8a7cc44.jfif">
+                    <div class="text-end">
+                      <h4 id="playlistMood" class="display-3 _medium _ls-2 _cur-context"></h4>
+                      <h4 id="playlistTempo" class="display-3 _medium _ls-2 _cur-context"></h4>
+                      <h4 id="playlistCuisine" class="display-3 _medium _ls-2 _cur-context"></h4>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col p-0">
-            <div class="d-flex flex-column align-items-start p-5">
-              <h1 id="playlistHeader" class="display-3 _bold _ls-3">Here's your playlist!</h1>
-              <h2 id="playlistLabelLarge" class="h4 _book _ls-1 w-75">Open your playlist in the Spotify app or play it from the recipe page. Enjoy!</h2>
-              <div class="d-inline-flex flex-xl-row justify-content-center pt-3">
-                <a href="" type="submit" id="spotifyButton" class="_button _hover-red _medium fs-5 btn d-flex justify-content-center align-items-center me-2">OPEN SPOTIFY</a>
-                <a href="/views/recipes/recipe-page.html" type="submit" id="recipeButton" class="_button _hover-red _medium fs-5 btn d-flex justify-content-center align-items-center">RECIPE</a>
-              </div>
+        </div>
+        <div class="col p-0">
+          <div class="d-flex flex-column align-items-start p-5">
+            <h1 id="playlistHeader" class="display-3 _bold _ls-3">Here's your playlist!</h1>
+            <h2 id="playlistLabelLarge" class="h4 _book _ls-1 w-75">Open your playlist in the Spotify app or play it
+              from the recipe page. Enjoy!</h2>
+            <div class="d-inline-flex flex-xl-row justify-content-center pt-3">
+              <a href="" type="submit" id="spotifyButton"
+                class="_button _hover-red _medium fs-5 btn d-flex justify-content-center align-items-center me-2">OPEN
+                SPOTIFY</a>
+              <a href="/views/recipes/recipe-page.html" type="submit" id="recipeButton"
+                class="_button _hover-red _medium fs-5 btn d-flex justify-content-center align-items-center">RECIPE</a>
             </div>
           </div>
         </div>
       </div>
-    </main>
-
-    <main id="small" class="visually-hidden">
-      <nav id="navbar" class="container-fluid d-flex align-items-center p-3">
-        <div class="me-auto">
-          <a class="_bold _ls-1 fs-1 text-black" href="/views/index.html">
-            <img src="/static/images/speakers-icon-spotify.png" alt="Logo" width="50" height="74" class="d-inline-block"></a>
-          </a>
-        </div>
-        <div class="d-flex flex-column text-end">
-          <a class="_medium _ls-1 fs-3 text-black" href="/views/about.html">About</a>
-        </div>
-      </nav>
-      <div class="container">
-        <div class="d-flex flex-column align-items-center">
-          <h2 class="display-2 _bold _ls-3 pt-5">Here's your playlist!</h2>
-          <h4 class="h4 _book _ls-1 text-center px-2 pb-4">Open your playlist in the Spotify app or play it from the recipe page. Enjoy!</h4>
-          <div class="_square _square-sm m-0">
-
-
-            <img id="playlistImage" class="card-img w-100" src="/static/images/ab67616d00001e022f13fcfe011d340e9c69923eab67616d00001e02315d0a3f8f3dbbabf19337dfab67616d00001e026abb21c286af583667bb0e40ab67616d00001e02ccabefb5f70b4c2ad8a7cc44.jfif">
-
+    </div>
+  </main>
+  <main id="small" class="visually-hidden">
+    <nav id="navbar" class="container-fluid d-flex align-items-center p-3">
+      <div class="me-auto">
+        <a class="_bold _ls-1 fs-1 text-black" href="/views/index.html">
+          <img src="/static/images/speakers-icon-spotify.png" alt="Logo" width="50" height="74"
+            class="d-inline-block"></a>
+        </a>
+      </div>
+      <div class="d-flex flex-column text-end">
+        <a class="_medium _ls-1 fs-3 text-black" href="/views/about.html">About</a>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="d-flex flex-column align-items-center">
+        <h2 class="display-2 _bold _ls-3 pt-5">Here's your playlist!</h2>
+        <h4 class="h4 _book _ls-1 text-center px-2 pb-4">Open your playlist in the Spotify app or play it from the
+          recipe page. Enjoy!</h4>
+        <div class="_square _square-sm m-0">
+          <img id="playlistImage" class="card-img w-100"
+            src="/static/images/ab67616d00001e022f13fcfe011d340e9c69923eab67616d00001e02315d0a3f8f3dbbabf19337dfab67616d00001e026abb21c286af583667bb0e40ab67616d00001e02ccabefb5f70b4c2ad8a7cc44.jfif">
           <div class="col text-center">
             <div class="d-inline-flex flex-column flex-md-row py-5">
-              <a href="" type="submit" id="spotifyButton" class="_button _hover-red _medium fs-5 btn d-flex justify-content-center align-items-center mb-2 me-md-3">OPEN SPOTIFY</a>
-              <a href="/views/recipes/recipe-page.html" type="submit" id="recipeButton" class="_button _hover-red _medium fs-5 btn d-flex justify-content-center align-items-center">RECIPE</a>
+              <a href="" type="submit" id="spotifyButton"
+                class="_button _hover-red _medium fs-5 btn d-flex justify-content-center align-items-center mb-2 me-md-3">OPEN
+                SPOTIFY</a>
+              <a href="/views/recipes/recipe-page.html" type="submit" id="recipeButton"
+                class="_button _hover-red _medium fs-5 btn d-flex justify-content-center align-items-center">RECIPE</a>
             </div>
           </div>
         </div>
       </div>
-    </main>
+  </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="/static/responsive.js" type="text/javascript"></script>
-    <script src="/static/displayPlaylist.js"></script>
-  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="/static/responsive.js" type="text/javascript"></script>
+  <script src="/static/displayPlaylist.js"></script>
+</body>
+
 </html>

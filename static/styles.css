@@ -10,38 +10,68 @@ html {
 }
 
 @keyframes body {
-  0%    {opacity: 0;}
-  100%  {opacity: 100%;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
 }
 
 @keyframes hands {
-  0%    {background-position-y: 200vh;}
-  100%  {}
+  0% {
+    background-position-y: 200vh;
+  }
+  100% {
+  }
 }
 
 @keyframes wide_hands {
-  0%    {background-position-x: 0, 0, -40vw, -6vw, 0; background-position-y: bottom, bottom, bottom, bottom, bottom;}
-  100%  {background-position-x: -5vw, -10vw, -33vw, 6vw, 0; background-position-y: bottom, bottom, bottom, bottom, 80vh;}
+  0% {
+    background-position-x: 0, 0, -40vw, -6vw, 0;
+    background-position-y: bottom, bottom, bottom, bottom, bottom;
+  }
+  100% {
+    background-position-x: -5vw, -10vw, -33vw, 6vw, 0;
+    background-position-y: bottom, bottom, bottom, bottom, 80vh;
+  }
 }
 
 @keyframes reverse_wide_hands {
-  0%   {background-position-x: -5vw, -10vw, -33vw, 6vw, 0; background-position-y: bottom, bottom, bottom, bottom, -10vh;}
-  100% {background-position-x: -3vw, -5vw, -38vw, 0vw, 0; background-position-y: bottom, bottom, bottom, bottom, 0;}
+  0% {
+    background-position-x: -5vw, -10vw, -33vw, 6vw, 0;
+    background-position-y: bottom, bottom, bottom, bottom, -10vh;
+  }
+  100% {
+    background-position-x: -3vw, -5vw, -38vw, 0vw, 0;
+    background-position-y: bottom, bottom, bottom, bottom, 0;
+  }
 }
 
 @keyframes hands_down {
-  0%    {background-position-y: bottom, bottom, bottom, bottom, 0;}
-  100%  {background-position-y: 100vh, 100vh, 100vh, 100vh, 7vh;}
+  0% {
+    background-position-y: bottom, bottom, bottom, bottom, 0;
+  }
+  100% {
+    background-position-y: 100vh, 100vh, 100vh, 100vh, 7vh;
+  }
 }
 
 @keyframes playlist_hands {
-  0%    {background-position-x: -3vw, -5vw, -38vw, 0vw, 0; background-position-y: bottom, bottom, bottom, bottom, 0;}
-  100%  {background-position-x: -5vw, -10vw, -33vw, 6vw, 0; background-position-y: bottom, bottom, bottom, bottom, 0;}
+  0% {
+    background-position-x: -3vw, -5vw, -38vw, 0vw, 0;
+    background-position-y: bottom, bottom, bottom, bottom, 0;
+  }
+  100% {
+    background-position-x: -5vw, -10vw, -33vw, 6vw, 0;
+    background-position-y: bottom, bottom, bottom, bottom, 0;
+  }
 }
 
 body {
   background-color: rgb(228, 163, 159) !important;
-  background: url("/static/images/hands_rearanged_colorcorrect.png") no-repeat bottom center;
+  background: url("/static/images/hands_rearanged_colorcorrect.png") no-repeat
+    bottom center;
   background-size: 100vw;
   background-attachment: fixed;
   font-family: "gothambook";
@@ -49,7 +79,8 @@ body {
 
 #mainBody {
   background-color: rgb(228, 163, 159) !important;
-  background: url("/static/images/hands_rearanged_colorcorrect.png") no-repeat bottom center;
+  background: url("/static/images/hands_rearanged_colorcorrect.png") no-repeat
+    bottom center;
   background-size: 100vw;
   background-attachment: fixed;
   animation-name: body, hands;
@@ -58,14 +89,19 @@ body {
 
 #loadBody {
   background-color: rgb(228, 163, 159) !important;
-  background: url("/static/images/hands_rearanged_colorcorrect.png") no-repeat bottom center;
+  background: url("/static/images/hands_rearanged_colorcorrect.png") no-repeat
+    bottom center;
   background-size: 100vw;
   background-attachment: fixed;
 }
 
 #aboutBody {
   background-color: rgb(188, 217, 233) !important;
-  background: url("/static/images/burger.png") no-repeat bottom, url("/static/images/donut.png") no-repeat bottom, url("/static/images/pizza.png") no-repeat bottom, url("/static/images/hotdog.png") no-repeat bottom, url("/static/images/cup.png") no-repeat bottom;
+  background: url("/static/images/burger.png") no-repeat bottom,
+    url("/static/images/donut.png") no-repeat bottom,
+    url("/static/images/pizza.png") no-repeat bottom,
+    url("/static/images/hotdog.png") no-repeat bottom,
+    url("/static/images/cup.png") no-repeat bottom;
   background-size: 130vw, 100vw, 140vw, 110vw, 100vw;
   background-position-x: -5vw, -10vw, -33vw, 6vw, 1000vw;
   background-attachment: fixed;
@@ -75,7 +111,11 @@ body {
 
 #searchResultBody {
   background-color: rgb(228, 163, 159) !important;
-  background: url("/static/images/burger.png") no-repeat bottom, url("/static/images/donut.png") no-repeat bottom, url("/static/images/pizza.png") no-repeat bottom, url("/static/images/hotdog.png") no-repeat bottom, url("/static/images/cup.png") no-repeat bottom;
+  background: url("/static/images/burger.png") no-repeat bottom,
+    url("/static/images/donut.png") no-repeat bottom,
+    url("/static/images/pizza.png") no-repeat bottom,
+    url("/static/images/hotdog.png") no-repeat bottom,
+    url("/static/images/cup.png") no-repeat bottom;
   background-size: 130vw, 100vw, 140vw, 110vw, 100vw;
   background-position-x: -5vw, -10vw, -33vw, 6vw, 1000vw;
   background-attachment: fixed;
@@ -85,7 +125,11 @@ body {
 
 #recipeBody {
   background-color: rgb(158, 224, 188) !important;
-  background: url("/static/images/burger.png") no-repeat bottom, url("/static/images/donut.png") no-repeat bottom, url("/static/images/pizza.png") no-repeat bottom, url("/static/images/hotdog.png") no-repeat bottom, url("/static/images/cup.png") no-repeat bottom;
+  background: url("/static/images/burger.png") no-repeat bottom,
+    url("/static/images/donut.png") no-repeat bottom,
+    url("/static/images/pizza.png") no-repeat bottom,
+    url("/static/images/hotdog.png") no-repeat bottom,
+    url("/static/images/cup.png") no-repeat bottom;
   background-size: 130vw, 100vw, 140vw, 110vw, 100vw;
   background-position-x: -5vw, -10vw, -33vw, 6vw, 1000vw;
   background-attachment: fixed;
@@ -95,7 +139,11 @@ body {
 
 #authorizeBody {
   background-color: rgb(156, 188, 206) !important;
-  background: url("/static/images/burger.png") no-repeat bottom, url("/static/images/donut.png") no-repeat bottom, url("/static/images/pizza.png") no-repeat bottom, url("/static/images/hotdog.png") no-repeat bottom, url("/static/images/Foodify_create_background_wave_long.png");
+  background: url("/static/images/burger.png") no-repeat bottom,
+    url("/static/images/donut.png") no-repeat bottom,
+    url("/static/images/pizza.png") no-repeat bottom,
+    url("/static/images/hotdog.png") no-repeat bottom,
+    url("/static/images/Foodify_create_background_wave_long.png");
   background-size: 130vw, 100vw, 140vw, 110vw, 100vw 110vh;
   background-position-x: -3vw, -5vw, -38vw, 0vw, 0;
   background-attachment: fixed;
@@ -105,7 +153,11 @@ body {
 
 #createBody {
   background-color: rgb(156, 188, 206) !important;
-  background: url("/static/images/burger.png") no-repeat bottom, url("/static/images/donut.png") no-repeat bottom, url("/static/images/pizza.png") no-repeat bottom, url("/static/images/hotdog.png") no-repeat bottom, url("/static/images/Foodify_create_background_wave_long.png");
+  background: url("/static/images/burger.png") no-repeat bottom,
+    url("/static/images/donut.png") no-repeat bottom,
+    url("/static/images/pizza.png") no-repeat bottom,
+    url("/static/images/hotdog.png") no-repeat bottom,
+    url("/static/images/Foodify_create_background_wave_long.png");
   background-size: 130vw, 100vw, 140vw, 110vw, 100vw 110vh;
   background-position-x: -3vw, -5vw, -38vw, 0vw, 0;
   background-attachment: fixed;
@@ -115,7 +167,11 @@ body {
 
 #playlistBody {
   background-color: rgb(156, 188, 206) !important;
-  background: url("/static/images/burger.png") no-repeat bottom, url("/static/images/donut.png") no-repeat bottom, url("/static/images/pizza.png") no-repeat bottom, url("/static/images/hotdog.png") no-repeat bottom, url("/static/images/Foodify_create_background_wave_long.png") no-repeat;
+  background: url("/static/images/burger.png") no-repeat bottom,
+    url("/static/images/donut.png") no-repeat bottom,
+    url("/static/images/pizza.png") no-repeat bottom,
+    url("/static/images/hotdog.png") no-repeat bottom,
+    url("/static/images/Foodify_create_background_wave_long.png") no-repeat;
   background-size: 130vw, 100vw, 140vw, 110vw, 100vw 110vh;
   background-position-x: -5vw, -10vw, -33vw, 6vw, 0;
   background-position-y: bottom, bottom, bottom, bottom, 0;
@@ -123,7 +179,6 @@ body {
   animation-name: playlist_hands;
   animation-duration: 2s;
 }
-
 
 #navbar a {
   text-decoration: none;
@@ -133,13 +188,12 @@ body {
   text-decoration: underline;
 }
 
-
 /* Behövs denna? */
 #playlistContainerLarge {
   z-index: -11;
 }
 
-/* Alla textelement bör skrivas om i BS, inte responsiva just nu */
+/* Font weight. black = fetast, thin = tunnast */
 ._black {
   font-family: "gothamblack";
 }
@@ -160,6 +214,7 @@ body {
   font-family: "gothamthin";
 }
 
+/* Letter spacing */
 ._ls-1 {
   letter-spacing: -1px;
 }
@@ -180,6 +235,7 @@ body {
   letter-spacing: -5px;
 }
 
+/* Justerad och centrerad text */
 ._justify {
   text-align: justify;
 }
@@ -188,6 +244,7 @@ body {
   text-align: center;
 }
 
+/* Cursor  */
 ._cur-context:hover {
   cursor: context-menu;
 }
@@ -207,8 +264,12 @@ article {
 }
 
 @keyframes card {
-  0%   {opacity: 0;}
-  100% {opacity: 100%;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
 }
 
 #recipeContainer > .card {
@@ -228,14 +289,14 @@ article {
 .btn-create-playlist:hover,
 .btn-create-playlist:active {
   background-color: rgb(25, 230, 140) !important;
-  color:black;
+  color: black;
   transition: none;
 }
 
 .btn-full-recipe:hover,
 .btn-full-recipe:active {
-  background-color:rgb(236, 67, 25) !important;
-  color:white !important;
+  background-color: rgb(236, 67, 25) !important;
+  color: white !important;
   transition: none;
 }
 
@@ -269,24 +330,20 @@ article {
 }
 
 ._slider-lg::before {
-  box-shadow:
-  15px 3px 0 rgb(25, 230, 140),
-  197px 3px 0 rgb(25, 230, 140),
-  380px 3px 0 rgb(25, 230, 140);
+  box-shadow: 15px 3px 0 rgb(25, 230, 140), 197px 3px 0 rgb(25, 230, 140),
+    380px 3px 0 rgb(25, 230, 140);
 }
 
 ._slider-sm::before {
-  box-shadow:
-  7px 3px 0 rgb(25, 230, 140),
-  169px 3px 0 rgb(25, 230, 140),
-  332px 3px 0 rgb(25, 230, 140);
+  box-shadow: 7px 3px 0 rgb(25, 230, 140), 169px 3px 0 rgb(25, 230, 140),
+    332px 3px 0 rgb(25, 230, 140);
 }
 
 ._slider::-webkit-slider-thumb {
   appearance: none;
   width: 25px;
   height: 25px;
-  border-radius: 50%; 
+  border-radius: 50%;
   background: black;
   outline: 5px solid rgb(25, 230, 140);
   cursor: grab;
@@ -318,11 +375,11 @@ article {
 }
 
 ._hover-red:hover {
-  background-color:rgb(236, 67, 25) !important;
+  background-color: rgb(236, 67, 25) !important;
 }
 
 ._hover-white:hover {
-  background-color:rgb(255, 255, 255) !important;
+  background-color: rgb(255, 255, 255) !important;
   color: black !important;
 }
 
@@ -340,13 +397,21 @@ article {
 }
 
 @keyframes rotation {
-  from  {transform: rotate(0deg);}
-  to    {transform: rotate(360deg);}
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes load_fade {
-  0%      {opacity: 1;}
-  100%    {opacity: 0;}
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 .rotate {
@@ -389,7 +454,6 @@ article {
   background-color: transparent;
 }
 
-
 /* width */
 ::-webkit-scrollbar {
   width: 7px;
@@ -397,17 +461,15 @@ article {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f156; 
+  background: #f1f1f156;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
-
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #555;
 }
-
