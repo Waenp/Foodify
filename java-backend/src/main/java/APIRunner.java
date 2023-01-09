@@ -53,6 +53,7 @@ public class APIRunner {
                         ctx.status(HttpStatus.BAD_REQUEST);
                     }
                 })
+                /*
                 .get("/recipes/{id}", ctx -> {
                     System.out.println("hämtar individuellt recept");
                     //TODO: ska vi använda index eller receptid?
@@ -64,6 +65,8 @@ public class APIRunner {
                         ctx.status(HttpStatus.BAD_REQUEST);
                     }
                 })
+
+                 */
                 .post("/authorize", ctx -> {
                     System.out.println("auktorisering");
                     if (Objects.equals(ctx.header("Content-Type"), "application/x-www-form-urlencoded; charset=UTF-8")) {
