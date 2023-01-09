@@ -1,7 +1,7 @@
 // Skapa templates för listitems och span i listorna
-let ulTemplate = `<li id= "item" class="list-group-item d-flex justify-content-between align-items-center px-1"></li>`;
-let liSpanTemplate = `<span id= "amount" class="badge bg-dark rounded-pill p-2"></span>`;
-let olTemplate = `<li id= "instruction" class="list-group-item px-1"></li>`;
+let ulTemplate = `<li id="item" class="fs-5 _medium list-group-item d-flex justify-content-between align-items-center px-1"></li>`;
+let liSpanTemplate = `<span id="amount" class="badge bg-dark rounded-pill p-2"></span>`;
+let olTemplate = `<li id="instruction" class="fs-5 _book _ls-1 list-group-item px-1"></li>`;
 
 $(document).ready(function addIngredient() {
   //TODO: vi behöver klura ut hur man får med sig rätt index från sidan innan (alternativt receptets id från API-svaret)

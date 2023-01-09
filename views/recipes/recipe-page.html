@@ -11,47 +11,40 @@
   </head>
 
   <body id="recipeBody" class="gx-5">
-    <div id="navbar" class="container d-flex align-items-center my-3 p-0">
+    <nav id="navbar" class="container d-flex align-items-center p-3">
       <div class="me-auto">
-        <a id="home" class="text-black" href="/views/index.html">
+        <a class="_bold _ls-1 fs-1 text-black" href="/views/index.html">
           <img src="/static/images/speakers-icon-spotify.png" alt="Logo" width="24" height="36" class="d-inline-block mb-1 me-1">Foodify
         </a>
       </div>
       <div>
-        <a id="about" class="text-black" href="/views/about.html">About</a>
+        <a class="_medium _ls-1 fs-3 text-black" href="/views/about.html">About</a>
       </div>
-      <div class="ps-4">
-        <a id="popularRecipes" class="text-black" href="/views/recipes/popular.html">Popular recipes</a>
-      </div>
-    </div>
+    </nav>
 
     <!--###################### Början av recept ######################--> 
 
-    <div id="instructionsContainer" class="container text-black position-absolute top-50 start-50 translate-middle">
-      <h2 id="recipeName" class="fs-1">Spaghetti Carbonara</h2>
+    <div class="container text-black">
+      <h2 id="recipeName" class="display-1 _bold _ls-3">Spaghetti Carbonara</h2>
       <div class="card h-auto mb-5">
-        <img id= "recipeImg" src="" class="card-img-top img-food" alt="..." style="height: 350px; width: 50%;" >
+        <img id= "recipeImg" src="" class="card-img-top img-food" alt="..." style="height: 350px;" >
         <div class="card-body">
-          <iframe style="border-radius:12px" src="" width="50%" 
-          height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
           <div class="row">
-            <div class="col-5">
-              <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/57AvvQRJmSxfdIPHknRT1Y?utm_source=generator" width="100%" height="380" 
-              frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-              <h3 class="">Ingredients</h3>
+            <div class="col-12 col-xl-5">
+              <h3 class="display-4 _bold _ls-1">Ingredients</h3>
               <ul class="list-group list-group-flush pb-5" id="ingredients">
               </ul>
             </div>
-            <div class="col-7">
-              <h3 class="">Instructions</h3>
+            <div class="col-12 col-xl-7">
+              <h3 class="display-4 _bold _ls-1">Instructions</h3>
               <ol class="list-group list-group-numbered list-group-flush pb-5" id="instructions">
               </ol>
             </div>
           </div>
           <div class="row">
             <div class="col-12">
-              <h3>Description</h3>
-              <p class="card-text px-1" id="recipeDescription"></p>
+              <h3 class="display-4 _bold _ls-1">Description</h3>
+              <p class="fs-5 _book _ls-1 card-text px-1" id="recipeDescription"></p>
             </div>
           </div>
         </div>

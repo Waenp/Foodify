@@ -7,12 +7,12 @@ const cardTemplate = `
     </div>
     <div class="col-lg-8 d-flex flex-column">
       <div class="card-body overflow-auto">
-        <h5 class="card-title" id="recipeName"></h5>
-        <p class="card-text" id="recipeDescription"></div>
+        <h5 class="h2 _medium _ls-1 _cur-context card-title" id="recipeName"></h5>
+        <p class="_book _cur-context card-text" id="recipeDescription"></div>
       <div class="card-footer d-grid gap-2 d-lg-flex mt-auto">
         <p class="text-muted me-auto" id="cookTime"></p>
-        <a href="recipe-page.html" class="bbb btn btn-full-recipe">Full recipe</a>
-        <a href="/views/create-playlist/authorize.html" class="sss btn btn-create-playlist">Create playlist!</a>
+        <a href="recipe-page.html" class="bbb _medium btn btn-full-recipe">Full recipe</a>
+        <a href="/views/create-playlist/authorize.html" class="sss _medium btn btn-create-playlist">Create playlist!</a>
       </div>
     </div>
   </div>
@@ -1161,7 +1161,7 @@ fetch(url, {
   method: 'GET',
   headers: {
     'Content-Type': 'application/json'
-  }
+  }     
 })
 
 .then((response) =>{
@@ -1174,7 +1174,7 @@ fetch(url, {
   for (let i = 0; i < recipes.length; i++) {
     // Hämtar element med id "recipecontainer", lägger till ett cardTemplate i slutet
     document
-      .querySelector("#recipeContainer")
+      .querySelector(".recipeContainer")
       .insertAdjacentHTML("beforeend", cardTemplate);
 
     summary = recipes[i].summary;
