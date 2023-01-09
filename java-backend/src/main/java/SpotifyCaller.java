@@ -257,17 +257,14 @@ public class SpotifyCaller {
                 try {
                     reader = new InputStreamReader(data);
 
-                    //Playlist seedList = json.fromJson(reader, Playlist.class);
                     GetResult seedList = json.fromJson(reader, GetResult.class);
 
                     createPlaylist(seedList);
                 } catch (Exception e) {
-                    //TODO: lös felhantering
                     e.printStackTrace();
                 }
             }
         } catch (IOException e) {
-            //TODO: fixa felhantering
             e.printStackTrace();
         }
     }
@@ -310,7 +307,6 @@ public class SpotifyCaller {
                 createdPlaylist.setTempo(tempo);
                 populatePlayList(seedList);
             } else {
-                //TODO: felhantering!!
                 System.out.println("Failed at creating playlist " + status.getStatusCode());
                 System.out.println("Reason: " + status.getReasonPhrase());
             }
@@ -387,6 +383,9 @@ public class SpotifyCaller {
         }
     }
 
+    /**
+     * This method fetches the image of the generated playlist.
+     */
     private void getImages() {
         String url = "https://api.spotify.com/v1/playlists/" + createdPlaylist.getId();
         httpClient = HttpClients.createDefault();
@@ -510,6 +509,11 @@ public class SpotifyCaller {
         return trackURIs;
     }
 
+    /**
+     * This method is used to calculate what tempo the generated playlist should have.
+     * @param tempo a tempo set by the user from 0 to 100.
+     * @return a converted tempo from the range 70 to 220.
+     */
     private String calculateTempo(double tempo) {
         double oldValue = tempo;
         double oldMin = 0;
@@ -522,6 +526,10 @@ public class SpotifyCaller {
         return String.valueOf(newValue);
     }
 
+    /**
+     * This method fetches the created playlist.
+     * @return a playlist object.
+     */
     public UserPLayList getCreatedPlaylist() {
         return createdPlaylist;
     }
