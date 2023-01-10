@@ -17,6 +17,7 @@ $(document).ready(function(){
 
     // Execute a function when the user presses a key on the keyboard
     input.addEventListener("keyup", function(event) {
+      console.log("Hej!")
       // If the user presses the "Enter" key on the keyboard
       if (event.key === "Enter") {
         // Cancel the default action, if needed
@@ -28,6 +29,8 @@ $(document).ready(function(){
 
     function searchRecipe() {
       return function() {
+
+        console.log("hej!")
       
       // Hämta sökvärdet från användaren
       let query = $('#searchInput').val();

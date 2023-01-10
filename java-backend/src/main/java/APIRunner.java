@@ -33,6 +33,7 @@ public class APIRunner {
                 })
                 .post("/recipes", ctx -> {
                     if (Objects.equals(ctx.header("Content-Type"), "application/json")) {
+                        System.out.println("hej!");
                         String json = ctx.body();
 
                         runner.generateRecipes(json);
