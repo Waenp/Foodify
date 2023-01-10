@@ -35,14 +35,12 @@ $(document).ready(function addCard() {
       })
 
       .then((data) => {
-        let recipes = data       
+        let recipes = data
 
-        console.log(recipes);
-        
         for (let i = 0; i < recipes.length; i++) {
           // Hämtar element med id "recipecontainer", lägger till ett cardTemplate i slutet
           document
-              .querySelector("#recipeContainer")
+              .querySelector(".recipeContainer")
               .insertAdjacentHTML("beforeend", cardTemplate);
 
           summary = recipes[i].summary;
