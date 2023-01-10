@@ -20,56 +20,55 @@ const cardTemplate = `
 `;
 
 $(document).ready(function addCard() {
+  const url = "http://localhost:5007/recipes";
 
-const url = "http://localhost:5007/recipes" ;
+  fetch(url, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => {
+      return response.json();
+    })
 
-fetch(url, {
-  method: 'GET',
-  headers: {
-    'Content-Type': 'application/json'
-  }     
-})
+    .then((data) => {
+      let recipes = data;
+      console.log(recipes);
+      for (let i = 0; i < recipes.length; i++) {
+        // Hämtar element med id "recipecontainer", lägger till ett cardTemplate i slutet
+        document
+          .querySelector(".recipeContainer")
+          .insertAdjacentHTML("beforeend", cardTemplate);
 
-.then((response) =>{
-  return response.json();
-})
+        summary = recipes[i].summary;
+        finalSummary = summary.substring(0, summary.lastIndexOf(". "));
+        // Ändrar id på "recipeName" och "recipeDescription"
+        $("#recipeName").attr("id", "recipeName" + i);
+        $("#recipeDescription").attr("id", "recipeDescription" + i);
+        $("#recipeImg").attr("id", "recipeImg" + i);
+        $("#cookTime").attr("id", "cookTime" + i);
+        // Lägger till information från objektet i varje kort
+        $("#recipeName" + i).text(recipes[i].title);
+        $("#recipeDescription" + i).html(finalSummary + ".");
+        $("#recipeImg" + i).attr("src", recipes[i].image);
+        $("#cookTime" + i).text(
+          "Total cook time: " + recipes[i].readyInMinutes + " minutes"
+        );
+      }
 
-.then((data) => {
-  let recipes = data;
-  console.log(recipes);
-  for (let i = 0; i < recipes.length; i++) {
-    // Hämtar element med id "recipecontainer", lägger till ett cardTemplate i slutet
-    document
-      .querySelector(".recipeContainer")
-      .insertAdjacentHTML("beforeend", cardTemplate);
+      $(".sss").on("click", function () {
+        localStorage.removeItem("recipeObj");
+        // When a button is clicked...
+        var spotify = $(".sss").index(this);
+        localStorage.setItem("recipeObj", JSON.stringify(recipes[spotify])); // Save the id to local storage
+      });
 
-    summary = recipes[i].summary;
-    finalSummary = summary.substring(0, summary.lastIndexOf(". "));
-
-    // Ändrar id på "recipeName" och "recipeDescription"
-    $("#recipeName").attr("id", "recipeName" + i);
-    $("#recipeDescription").attr("id", "recipeDescription" + i);
-    $("#recipeImg").attr("id", "recipeImg" + i);
-    $("#cookTime").attr("id", "cookTime" + i);
-
-    // Lägger till information från objektet i varje kort
-    $("#recipeName" + i).text(recipes[i].title);
-    $("#recipeDescription" + i).html(finalSummary + ".");
-    $("#recipeImg" + i).attr("src", recipes[i].image);
-    $("#cookTime" + i).text("Total cook time: " + recipes[i].readyInMinutes + " minutes");
-  };
-  $(".sss").on("click", function () {
-    localStorage.removeItem("recipeObj");
-    // When a button is clicked...
-    var spotify = $(".sss").index(this);
-    localStorage.setItem("recipeObj", JSON.stringify(recipes[spotify])); // Save the id to local storage
-  });
-
-  $(".bbb").on("click", function () {
-    localStorage.removeItem("recipeObj");
-    // When a button is clicked...
-    var recipe = $(".bbb").index(this);
-    localStorage.setItem("recipeObj", JSON.stringify(recipes[recipe])); // Save the id to local storage
-  });
-});
+      $(".bbb").on("click", function () {
+        localStorage.removeItem("recipeObj");
+        // When a button is clicked...
+        var recipe = $(".bbb").index(this);
+        localStorage.setItem("recipeObj", JSON.stringify(recipes[recipe])); // Save the id to local storage
+      });
+    });
 });

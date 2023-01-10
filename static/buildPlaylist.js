@@ -1,5 +1,4 @@
-$(document).ready(function() {
-  //TODO: skapar här ett objekt som används av vårt API för att göra kall. datan måste dock "hänga med" från tidigare sidor:
+$(document).ready(function () {
   let body = new Object();
   let recipeObj = localStorage.getItem("recipeObj");
   let recipe = JSON.parse(recipeObj);
@@ -10,10 +9,9 @@ $(document).ready(function() {
   body.dish = recipe.title;
 
   $.ajax({
-    method: 'POST',
-    url: 'http://localhost:5007/playlist',
+    method: "POST",
+    url: "http://localhost:5007/playlist",
     data: JSON.stringify(body),
-    headers: {"Content-Type": "application/json"}
-  }).done(function (result) {
-  });
-})
+    headers: { "Content-Type": "application/json" },
+  }).done(function (result) {});
+});

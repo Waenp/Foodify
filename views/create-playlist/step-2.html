@@ -1,99 +1,109 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Foodify</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="/static/styles.css">
-    <link rel="stylesheet" href="/static/webfontkit/stylesheet.css">
-    <link rel="icon" type="image/x-icon" href="/static/images/speakers-icon-spotify.ico">
-  </head>
 
-  <body id="createBody" class="gx-5">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Foodify</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/styles.css">
+  <link rel="stylesheet" href="/static/webfontkit/stylesheet.css">
+  <link rel="icon" type="image/x-icon" href="/static/images/speakers-icon-spotify.ico">
+</head>
 
-    <main id="large" class="px-5">
-      <nav id="navbar" class="container-fluid d-flex align-items-center p-3 px-5">
-        <div class="me-auto">
-          <a class="_bold _ls-1 fs-1 text-black" href="/views/index.html">
-            <img src="/static/images/speakers-icon-spotify.png" alt="Logo" width="24" height="36" class="d-inline-block mb-1 me-1">Foodify
-          </a>
-        </div>
-        <div>
-          <a class="_medium _ls-1 fs-3 text-black" href="/views/about.html">About</a>
-        </div>
-      </nav>
-      <div class="position-absolute top-50 start-50 translate-middle">
-        <div class="d-flex flex-column justify-content-center align-items-center text-black text-center">
-          <h1 class="display-2 _bold _ls-3 _cur-context text-nowrap">Calm or lively?</h1>
-          <h2 class="h3 _medium _ls-1 _cur-context">Choose a tempo for your playlist.</h2>
-          <form action="step-3.html" method="GET" class="d-flex flex-column align-items-center">
-            <div class="h3 _medium _ls-1 _cur-context d-flex justify-content-center align-items-center position-relative py-5 px-2 mb-5">
-              <span class="position-absolute text-end end-100">Relaxed</span>
-              <input id="tempoSliderLg" type="range" class="_slider-lg _slider" min="0" max="100">
-              <span class="position-absolute text-start start-100">Energetic</span>
-            </div>
-            <button id="sliderButtonLg" type="submit" class="_medium _hover-red _button btn fs-4 d-flex justify-content-center align-items-center">NEXT</button>
-          </form>
-        </div>
+<body id="createBody" class="gx-5">
+  <main id="large" class="px-5">
+    <nav id="navbar" class="container-fluid d-flex align-items-center p-3 px-5">
+      <div class="me-auto">
+        <a class="_bold _ls-1 fs-1 text-black" href="/views/index.html">
+          <img src="/static/images/speakers-icon-spotify.png" alt="Logo" width="24" height="36"
+            class="d-inline-block mb-1 me-1">Foodify
+        </a>
       </div>
-      <button type="button" class="_bold _hover-red _button-round btn fs-5 d-flex justify-content-center align-items-center position-absolute bottom-0 start-50 translate-middle" type="button" data-bs-toggle="modal" data-bs-target="#helpModal">?</button>
-    </main>
-
-    <main id="small" class="visually-hidden">
-      <nav id="navbar" class="container-fluid d-flex align-items-center p-3">
-        <div class="me-auto">
-          <a class="_bold _ls-1 fs-1 text-black" href="/views/index.html">
-            <img src="/static/images/speakers-icon-spotify.png" alt="Logo" width="50" height="74" class="d-inline-block"></a>
-          </a>
-        </div>
-        <div class="d-flex flex-column text-end">
-          <a class="_medium _ls-1 fs-3 text-black" href="/views/about.html">About</a>
-        </div>
-      </nav>
-      <div class="position-absolute top-50 start-50 translate-middle">
-        <div class="d-flex flex-column justify-content-center align-items-center text-black text-center">
-          <h1 class="display-3 _bold _ls-3 _cur-context">Calm or lively?</h1>
-          <h2 class="h4 _medium _ls-1 _cur-context">Choose a tempo for your playlist.</h2>
-          <form action="step-3.html" method="GET" class="d-flex flex-column align-items-center">
-            <div class="d-flex justify-content-center position-relative pt-5">
-              <input id="tempoSliderSm" type="range" class="_slider-sm _slider" min="0" max="100">
-            </div>
-            <div class="h3 _medium _ls-1 _cur-context w-100 d-flex justify-content-between pb-5 pt-1">
-              <span class="text-end">Relaxed</span>
-              <span class="text-start">Energetic</span>
-            </div>
-            <button id="sliderButtonSm" type="submit" class="_medium _hover-red _button btn fs-4 d-flex justify-content-center align-items-center">NEXT</button>
-          </form>
-        </div>
+      <div>
+        <a class="_medium _ls-1 fs-3 text-black" href="/views/about.html">About</a>
       </div>
-      <button type="button" class="_bold _hover-red _button-round btn fs-5 d-flex justify-content-center align-items-center position-absolute bottom-0 start-50 translate-middle" type="button" data-bs-toggle="modal" data-bs-target="#helpModal">?</button>
-    </main>
-
-    <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="display-2 _bold _ls-3" id="helpLabel">Instructions.</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </nav>
+    <div class="position-absolute top-50 start-50 translate-middle">
+      <div class="d-flex flex-column justify-content-center align-items-center text-black text-center">
+        <h1 class="display-2 _bold _ls-3 _cur-context text-nowrap">Calm or lively?</h1>
+        <h2 class="h3 _medium _ls-1 _cur-context">Choose a tempo for your playlist.</h2>
+        <form action="step-3.html" method="GET" class="d-flex flex-column align-items-center">
+          <div
+            class="h3 _medium _ls-1 _cur-context d-flex justify-content-center align-items-center position-relative py-5 px-2 mb-5">
+            <span class="position-absolute text-end end-100">Relaxed</span>
+            <input id="tempoSliderLg" type="range" class="_slider-lg _slider" min="0" max="100">
+            <span class="position-absolute text-start start-100">Energetic</span>
           </div>
-          <div class="modal-body fs-5 _book _ls-1">
-            <p>This setting will determine an average tempo of your playlist.</p>
-            <p>Romantic music can still have a higher tempo and party songs don't have to be overly energetic!</p>
+          <button id="sliderButtonLg" type="submit"
+            class="_medium _hover-red _button btn fs-4 d-flex justify-content-center align-items-center">NEXT</button>
+        </form>
+      </div>
+    </div>
+    <button type="button"
+      class="_bold _hover-red _button-round btn fs-5 d-flex justify-content-center align-items-center position-absolute bottom-0 start-50 translate-middle"
+      type="button" data-bs-toggle="modal" data-bs-target="#helpModal">?</button>
+  </main>
+  <main id="small" class="visually-hidden">
+    <nav id="navbar" class="container-fluid d-flex align-items-center p-3">
+      <div class="me-auto">
+        <a class="_bold _ls-1 fs-1 text-black" href="/views/index.html">
+          <img src="/static/images/speakers-icon-spotify.png" alt="Logo" width="50" height="74"
+            class="d-inline-block"></a>
+        </a>
+      </div>
+      <div class="d-flex flex-column text-end">
+        <a class="_medium _ls-1 fs-3 text-black" href="/views/about.html">About</a>
+      </div>
+    </nav>
+    <div class="position-absolute top-50 start-50 translate-middle">
+      <div class="d-flex flex-column justify-content-center align-items-center text-black text-center">
+        <h1 class="display-3 _bold _ls-3 _cur-context">Calm or lively?</h1>
+        <h2 class="h4 _medium _ls-1 _cur-context">Choose a tempo for your playlist.</h2>
+        <form action="step-3.html" method="GET" class="d-flex flex-column align-items-center">
+          <div class="d-flex justify-content-center position-relative pt-5">
+            <input id="tempoSliderSm" type="range" class="_slider-sm _slider" min="0" max="100">
           </div>
-          <div class="modal-footer">
-            <button id="modalButton" type="button" class="btn" data-bs-dismiss="modal">Close</button>
+          <div class="h3 _medium _ls-1 _cur-context w-100 d-flex justify-content-between pb-5 pt-1">
+            <span class="text-end">Relaxed</span>
+            <span class="text-start">Energetic</span>
           </div>
+          <button id="sliderButtonSm" type="submit"
+            class="_medium _hover-red _button btn fs-4 d-flex justify-content-center align-items-center">NEXT</button>
+        </form>
+      </div>
+    </div>
+    <button type="button"
+      class="_bold _hover-red _button-round btn fs-5 d-flex justify-content-center align-items-center position-absolute bottom-0 start-50 translate-middle"
+      type="button" data-bs-toggle="modal" data-bs-target="#helpModal">?</button>
+  </main>
+  <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="display-2 _bold _ls-3" id="helpLabel">Instructions.</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body fs-5 _book _ls-1">
+          <p>This setting will determine an average tempo of your playlist.</p>
+          <p>Romantic music can still have a higher tempo and party songs don't have to be overly energetic!</p>
+        </div>
+        <div class="modal-footer">
+          <button id="modalButton" type="button" class="btn" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
+  </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="/static/script.js"></script>
+  <script src="/static/responsive.js" type="text/javascript"></script>
+  <script src="/static/slider.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="/static/script.js"></script>
-    <script src="/static/responsive.js" type="text/javascript"></script>
-    <script src="/static/slider.js"></script>
-    
-  </body>
+</body>
+
 </html>
