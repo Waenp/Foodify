@@ -33,7 +33,7 @@ public class APIRunner {
             });
                 })
                 .post("/recipes", ctx -> {
-                    System.out.println("soup");
+                    System.out.println("Inne i postRecipes");
                     if (Objects.equals(ctx.header("Content-Type"), "application/json")) {
                         String json = ctx.body();
 
@@ -121,8 +121,11 @@ public class APIRunner {
     }
 
     public void generateRecipes(String ingredients) {
-        String[] ingredientsString = gson.fromJson(ingredients, String[].class);
-        spoonCaller.generateRecipes(ingredientsString);
+        String[] ingredientsStrings = gson.fromJson(ingredients, String[].class);
+        for (String s : ingredientsStrings) {
+            System.out.println(s);
+        }
+        spoonCaller.generateRecipes(ingredientsStrings);
     }
 
     public String getRecipes() {
