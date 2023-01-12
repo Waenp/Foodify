@@ -431,8 +431,9 @@ article {
   z-index: -2;
   margin-right: 0;
   margin-left: auto;
-  -moz-transform-origin: center top;
+  /*-moz-transform-origin: center top;
   -o-transform-origin: center top;
+   */
 }
 
 ._square-lg {
