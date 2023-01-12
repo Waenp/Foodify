@@ -415,7 +415,7 @@ article {
 }
 
 .rotate {
-  animation: rotation 1.5s 2 ease-in-out;
+  animation: rotation 1s 5 ease-in-out;
   width: 120px;
 }
 

@@ -190,13 +190,16 @@ public class SpoonCaller {
         }
 
 
+        int amountOfAnalyzes = 0;
         for (Recipe r : recipes) {
             String[] cuisines = r.getCuisines();
             if (cuisines.length < 1) {
                 analyzeCuisine(r);
+                amountOfAnalyzes++;
             }
-            System.out.println(r);
+            //System.out.println(r);
         }
+        System.out.println("Amount of analyzed recipes: " + amountOfAnalyzes);
     }
 
     /**
@@ -240,6 +243,7 @@ public class SpoonCaller {
                     reader = new InputStreamReader(data);
 
                     AnalyzedCuisine analyzedCuisine = json.fromJson(reader, AnalyzedCuisine.class);
+                    System.out.printf("\n%s: %s", recipe.getTitle(), analyzedCuisine.getCuisineStrings());
                     recipe.setCuisines(analyzedCuisine.getCuisines());
                 } catch (Exception e) {
                     e.printStackTrace();

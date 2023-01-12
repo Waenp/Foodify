@@ -70,8 +70,16 @@ public class SpotifyCaller {
 
 
     public void searchForItem(String dish, String cuisine, double mood, double tempo) {
-        this.dish = dish.substring(0,1).toUpperCase() + dish.substring(1).toLowerCase();
-        this.cuisine = cuisine.substring(0,1).toUpperCase() + cuisine.substring(1).toLowerCase();
+        if (dish != null) {
+            this.dish = dish.substring(0, 1).toUpperCase() + dish.substring(1).toLowerCase();
+        } else {
+            this.dish = "Unknown dish";
+        }
+        if (cuisine != null) {
+            this.cuisine = cuisine.substring(0, 1).toUpperCase() + cuisine.substring(1).toLowerCase();
+        } else {
+            this.cuisine = "Unknown cuisine";
+        }
         this.mood = mood / 100;
         this.tempo = tempo;
 
@@ -114,123 +122,6 @@ public class SpotifyCaller {
         }
     }
 
-
-
-    /**
-     * The constructor is provided a set of variables upon creation which are used to identify who the playlist is
-     * created for, what kind of playlist it should be and a token to make requests to the Spotify API
-     * @param dish the type of dish being prepared.
-     * @param cuisine a type of cuisine to identify what kind of music should be generated (ex. Italian)
-     * @param mood to identify what kind of mood the playlist should have, a value of 0-1 is set.
-     * @param token a Spotify API token.
-     * @param userId The current users spotify id (ex. tatrianelephant), it is the actual visible id to other users.
-     */
-
-    public SpotifyCaller(String dish, String cuisine, double mood, String token, String userId) {
-        // GET /search för att hämta en eller flera spellista/spellistor
-        // GET /playlists/{playlist_id} för att hämta specifik spellista
-        // Spara ner seed-värden (artist, låt, genre)
-        // GET /recommendations för att generera låtar till nya spellistan
-        // POST /users/{user_id}/playlists för att skapa en ny spellista
-        // POST /playlists/{playlist_id}/tracks för att lägga till de genererade spåren
-        // spela upp??
-        this.dish = dish;
-        //this.userId = userId;
-        this.mood = mood / 100;
-
-        searchForItem(cuisine, token);
-
-        /*
-        StringBuilder stringBuilder = new StringBuilder("https://api.spotify.com/v1/search?");
-        //TODO: ska mood vara string?
-        stringBuilder.append("q=" + cuisine);
-        stringBuilder.append("&type=playlist");
-        stringBuilder.append("&limit=1");
-
-        try {
-            httpClient = HttpClients.createDefault();
-            httpGet = new HttpGet(stringBuilder.toString());
-            httpGet.addHeader("Accept", "application/json");
-            httpGet.addHeader("Content-Type", "application/json");
-            //TODO: fixa authorization...
-            String authorization = "tjenare";
-            httpGet.addHeader("Authorization", "Bearer " + authorization);
-
-            response = httpClient.execute(httpGet);
-            status = response.getStatusLine();
-            if (status.getStatusCode() == 200) {
-                entity = response.getEntity();
-                data = entity.getContent();
-
-                try {
-                    reader = new InputStreamReader(data);
-                    playlist = json.fromJson(reader, Playlist.class);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-                //TODO: kalla på metoder för att skapa seed-värden...
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-         */
-    }
-
-
-    /**
-     * This method generates a single playlist which is used to create seed values for a complete playlist based on what
-     * the user is cooking. It does this by taking a type of cuisine and searching for that cuisine using the
-     * Spotify-API /search, together with the logged-in users token.
-     * @param cuisine a single cuisine type (ex Italian).
-     * @param token a user generated API-token.
-     */
-    private void searchForItem(String cuisine, String token) {
-        /*
-        StringBuilder stringBuilder = new StringBuilder("https://api.spotify.com/v1/search?");
-        stringBuilder.append("q=").append(cuisine);
-        stringBuilder.append("&type=playlist");
-        stringBuilder.append("&limit=1");
-
-        httpClient = HttpClients.createDefault();
-        httpGet = new HttpGet(stringBuilder.toString());
-        httpGet.addHeader("Content-Type", "application/json");
-        httpGet.addHeader("Authorization", "Bearer " + token);
-
-        try {
-            response = httpClient.execute(httpGet);
-            status = response.getStatusLine();
-
-            if (status.getStatusCode() == 200) {
-                entity = response.getEntity();
-                data = entity.getContent();
-
-                try {
-                    reader = new InputStreamReader(data);
-
-                    //Playlist playlist = json.fromJson(reader, Playlist.class);
-                    SearchResult searchResult = json.fromJson(reader, SearchResult.class);
-                    //getPlayList(playlist.getItems(), token, cuisine);
-                    getPlayList(searchResult.getPlaylists().getId(), token, cuisine);
-                } catch (Exception e) {
-                    //TODO: fixa felhantering
-                    e.printStackTrace();
-                }
-            } else {
-                //TODO: riktig felhantering
-                System.out.println("Failed at search for item");
-                System.out.println("Reason: " + status.getReasonPhrase());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-
-         */
-    }
-
     /**
      * This method is used to get a generated playlist from the Spotify-API /playlist using the generated playlist id
      * from searchForItem() together with the token.
@@ -257,7 +148,6 @@ public class SpotifyCaller {
                 try {
                     reader = new InputStreamReader(data);
 
-                    //Playlist seedList = json.fromJson(reader, Playlist.class);
                     GetResult seedList = json.fromJson(reader, GetResult.class);
 
                     createPlaylist(seedList);

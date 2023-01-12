@@ -19,4 +19,13 @@ public class AnalyzedCuisine {
     public double getConfidence() {
         return confidence;
     }
+
+    public String getCuisineStrings() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (String cuisine : cuisines) {
+            stringBuilder.append("\n").append(cuisine);
+        }
+        return
+                stringBuilder.toString();
+    }
 }

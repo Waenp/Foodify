@@ -33,7 +33,6 @@ public class APIRunner {
             });
                 })
                 .post("/recipes", ctx -> {
-                    System.out.println("Inne i postRecipes");
                     if (Objects.equals(ctx.header("Content-Type"), "application/json")) {
                         String json = ctx.body();
 
@@ -55,8 +54,6 @@ public class APIRunner {
                     }
                 })
                 .get("/recipes/{id}", ctx -> {
-                    System.out.println("hämtar individuellt recept");
-                    //TODO: ska vi använda index eller receptid?
                     if (Objects.equals(ctx.header("Content-Type"), "application/json")) {
                         String jsonResponse = runner.getRecipe(ctx.pathParam("id"));
                         ctx.status(HttpStatus.OK);
@@ -66,7 +63,6 @@ public class APIRunner {
                     }
                 })
                 .post("/authorize", ctx -> {
-                    System.out.println("auktorisering");
                     if (Objects.equals(ctx.header("Content-Type"), "application/x-www-form-urlencoded; charset=UTF-8")) {
                         String accessToken = cleanString(ctx.body());
                         runner.authorize(accessToken);
